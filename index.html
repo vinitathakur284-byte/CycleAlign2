@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CycleAlign — Performance Scheduling for Leaders</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0F0F0F;
+    --bg-card: #181818;
+    --bg-card2: #1E1E1E;
+    --cream: #F5F0E8;
+    --cream-muted: #B8B0A0;
+    --sage: #8FAF8F;
+    --sage-dark: #6A8F6A;
+    --sage-light: #C2D9C2;
+    --strike: #555;
+    --border: #2A2A2A;
+    --border-sage: #3A5A3A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  h1, h2, h3, .serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15,15,15,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--cream);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .logo span { color: var(--sage); }
+
+  .nav-cta {
+    background: var(--sage);
+    color: #0F0F0F;
+    border: none;
+    padding: 0.55rem 1.4rem;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--sage-light); }
+
+  /* SECTIONS */
+  section { padding: 6rem 2rem; max-width: 900px; margin: 0 auto; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: var(--sage);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    max-width: 820px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sage-light);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--cream-muted);
+    max-width: 600px;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .hero-cta-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .btn-primary {
+    background: var(--sage);
+    color: #0F0F0F;
+    border: none;
+    padding: 1rem 2.2rem;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.1s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover { background: var(--sage-light); transform: translateY(-1px); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .hero-note {
+    font-size: 0.82rem;
+    color: var(--cream-muted);
+    font-weight: 300;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--border-sage);
+    margin: 4rem 0 0;
+  }
+
+  /* PAIN SECTION */
+  .pain { border-top: 0.5px solid var(--border); }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+  }
+
+  .pain h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .pain p {
+    font-size: 1.1rem;
+    color: var(--cream-muted);
+    max-width: 640px;
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  .pain-quote {
+    margin-top: 3rem;
+    padding: 2rem 2.5rem;
+    border-left: 2px solid var(--sage);
+    background: var(--bg-card);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .pain-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* SOLUTION */
+  .solution { border-top: 0.5px solid var(--border); }
+
+  .solution h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .solution-sub {
+    font-size: 1.05rem;
+    color: var(--cream-muted);
+    max-width: 580px;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 1.25rem;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover { border-color: var(--border-sage); }
+
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(143,175,143,0.12);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  .card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+
+  .card p {
+    font-size: 0.82rem;
+    color: var(--cream-muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .card-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+
+  /* HOW IT WORKS */
+  .how { border-top: 0.5px solid var(--border); }
+
+  .how h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 0; }
+
+  .step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.5rem;
+    padding: 1.8rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--sage);
+    padding-top: 0.1rem;
+  }
+
+  .step-content h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .step-content p {
+    font-size: 0.9rem;
+    color: var(--cream-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* OFFER */
+  .offer { border-top: 0.5px solid var(--border); }
+
+  .offer h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .offer-sub {
+    font-size: 1.05rem;
+    color: var(--cream-muted);
+    max-width: 540px;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .pricing-box {
+    background: var(--bg-card);
+    border: 0.5px solid var(--border-sage);
+    border-radius: 8px;
+    padding: 2.5rem;
+    max-width: 460px;
+  }
+
+  .pricing-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+  }
+
+  .pricing-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .price-strike {
+    font-size: 1.3rem;
+    color: var(--strike);
+    text-decoration: line-through;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .price-per {
+    font-size: 0.9rem;
+    color: var(--cream-muted);
+    font-weight: 300;
+  }
+
+  .pricing-desc {
+    font-size: 0.85rem;
+    color: var(--cream-muted);
+    margin-bottom: 2rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .pricing-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .pricing-features li {
+    font-size: 0.88rem;
+    color: var(--cream-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 300;
+  }
+
+  .pricing-features li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+  }
+
+  .razorpay-wrap {
+    margin-bottom: 1rem;
+  }
+
+  /* Override Razorpay button to match theme */
+  .razorpay-wrap form img { display: none !important; }
+
+  .razorpay-payment-button {
+    background: var(--sage) !important;
+    color: #0F0F0F !important;
+    border: none !important;
+    padding: 1rem 2rem !important;
+    border-radius: 4px !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    transition: background 0.2s !important;
+  }
+
+  .razorpay-payment-button:hover {
+    background: var(--sage-light) !important;
+  }
+
+  .offer-note {
+    font-size: 0.78rem;
+    color: var(--cream-muted);
+    font-weight: 300;
+    margin-top: 0.8rem;
+    text-align: center;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--cream-muted);
+  }
+
+  .footer-logo span { color: var(--sage); }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    color: var(--cream-muted);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--cream); }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--strike);
+    font-weight: 300;
+    width: 100%;
+  }
+
+  /* MOBILE */
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.2rem; }
+    section { padding: 4rem 1.2rem; }
+    .hero { padding: 7rem 1.2rem 3rem; }
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .pricing-box { padding: 1.8rem 1.4rem; }
+    footer { padding: 2.5rem 1.2rem; flex-direction: column; align-items: flex-start; }
+    .pain-quote { padding: 1.5rem 1.5rem; }
+  }
+
+  @media (max-width: 400px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Cycle<span>Align</span></a>
+  <a href="#offer" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<!-- HERO -->
+<div style="padding: 0 2rem;">
+  <div class="hero">
+    <p class="hero-eyebrow">Performance Intelligence for Leaders</p>
+    <h1>Your biological clock is your <em>competitive advantage.</em> Stop fighting it.</h1>
+    <p class="hero-sub">Sync your high-stakes professional output with your body's natural rhythms. The first performance-scheduling engine for high-potential leaders.</p>
+    <div class="hero-cta-wrap">
+      <a href="#offer" class="btn-primary">Join the Waitlist — ₹499/month</a>
+      <p class="hero-note">Cancel anytime. Early access guaranteed.</p>
+    </div>
+    <div class="hero-divider"></div>
+  </div>
+</div>
+
+<!-- PAIN -->
+<section class="pain">
+  <p class="section-label">The Problem</p>
+  <h2>Sound familiar?</h2>
+  <p>You've mastered your business, but your energy levels still dictate your output. Why risk a high-stakes negotiation or a board presentation when your cognitive load is at its peak-fatigue point? Stop guessing — start optimizing.</p>
+  <div class="pain-quote">
+    <p>"The most successful leaders don't work harder. They work in alignment with when their mind is built to perform."</p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <p class="section-label">The Solution</p>
+  <h2>Meet CycleAlign.</h2>
+  <p class="solution-sub">We don't track symptoms. We manage performance. CycleAlign integrates with your professional workflow to automatically block your calendar for deep-work, strategy, and collaboration — based on your performance cycle.</p>
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon">◈</div>
+      <span class="card-tag">Phase 01</span>
+      <h3>Strategy Window</h3>
+      <p>High creativity and lateral thinking. Ideal for big-picture decisions and innovation sprints.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">◎</div>
+      <span class="card-tag">Phase 02</span>
+      <h3>Collaboration Window</h3>
+      <p>Communication peak. Schedule negotiations, pitches, and stakeholder meetings here.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">▣</div>
+      <span class="card-tag">Phase 03</span>
+      <h3>Deep Work Block</h3>
+      <p>Sustained focus and execution. Your highest-output window for complex deliverables.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">◉</div>
+      <span class="card-tag">Phase 04</span>
+      <h3>Planning Block</h3>
+      <p>Reflection and systems thinking. Review, restructure, and set the agenda for what's next.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <p class="section-label">How It Works</p>
+  <h2>Simple. Private. Powerful.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Join the waitlist</h3>
+        <p>Secure your early access spot at the founding price of ₹499/month.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Connect your calendar</h3>
+        <p>Link Google Calendar or Outlook. Takes under 60 seconds.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Your schedule optimizes itself</h3>
+        <p>CycleAlign blocks your calendar with professional performance windows. Only you know what they mean.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Lead at your peak, every week</h3>
+        <p>Stop leaving cognitive performance on the table. Start showing up as the sharpest version of yourself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section class="offer" id="offer">
+  <p class="section-label">Early Access</p>
+  <h2>Be among the first.</h2>
+  <p class="offer-sub">We are opening early access to founding waitlist members. Secure your spot today and get priority access when we launch — at a price that will never be offered again.</p>
+
+  <div class="pricing-box">
+    <p class="pricing-label">Waitlist Early Access</p>
+    <div class="pricing-amount">
+      <span class="price-strike">₹999</span>
+      <span class="price-main">₹499</span>
+      <span class="price-per">/month</span>
+    </div>
+    <p class="pricing-desc">Founding member price. Locked in for life.</p>
+    <ul class="pricing-features">
+      <li>Priority access at launch</li>
+      <li>Founding member pricing locked forever</li>
+      <li>Google Calendar + Outlook integration</li>
+      <li>28-day performance window scheduling</li>
+      <li>Professional labels only — full discretion</li>
+    </ul>
+
+    <!-- ======================================================= -->
+    <!-- REPLACE: Paste your Razorpay Payment Button script here -->
+    <!-- ======================================================= -->
+    <div class="razorpay-wrap">
+      <form>
+        <script
+          src="https://checkout.razorpay.com/v1/payment-button.js"
+          data-payment_button_id="REPLACE_WITH_YOUR_BUTTON_ID"
+          async>
+        </script>
+      </form>
+    </div>
+    <!-- ======================================================= -->
+
+    <p class="offer-note">Cancel anytime. No questions asked.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Cycle<span>Align</span></div>
+  <ul class="footer-links">
+    <li><a href="/privacy">Privacy Policy</a></li>
+    <li><a href="mailto:hello@cyclealign.in">Contact Us</a></li>
+  </ul>
+  <p class="footer-copy">© 2024 CycleAlign. All rights reserved. cyclealign.in</p>
+</footer>
+
+<!-- ============================================================= -->
+<!-- SUPABASE INTEGRATION                                           -->
+<!-- Replace SUPABASE_URL and SUPABASE_ANON_KEY with your values   -->
+<!-- ============================================================= -->
+<script>
+  const SUPABASE_URL = 'REPLACE_WITH_YOUR_SUPABASE_URL'
+  const SUPABASE_ANON_KEY = 'REPLACE_WITH_YOUR_SUPABASE_ANON_KEY'
+
+  function saveToWaitlist(email, paymentId) {
+    fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+      method: 'POST',
+      headers: {
+        'apikey': SUPABASE_ANON_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        email: email,
+        razorpay_payment_id: paymentId,
+        status: 'waitlist'
+      })
+    })
+  }
+
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.razorpay_payment_id) {
+      saveToWaitlist(e.data.email || '', e.data.razorpay_payment_id)
+    }
+  })
+</script>
+<!-- ============================================================= -->
+
+</body>
+</html>
