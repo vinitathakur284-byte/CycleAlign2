@@ -1,708 +1,1047 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> CycleAlign — Decision Intelligence platform for Women Leaders </title>
-<meta name="google-site-verification" content="qMNm6HoVZVqDY7RqDPpALvv--qFDgMVFJtjHjgjlkn4" />
-<meta name="description" content="CycleAlign is a performance-scheduling engine for women leaders. Map your hormonal cycle to professional focus states — Strategy, Deep Work, Collaboration — and lead at your peak every week." /><meta name="robots" content="index, follow" />
-<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CycleALIGN — Cycle-Aware Leadership App | Join Waitlist</title>
+<meta name="description" content="CycleALIGN is India's first hormonal intelligence app for women. Join the early access waitlist — ₹499 for a full year. Tracks your cycle phase and syncs your tasks, decisions and energy to when you perform best."/>
+<meta name="keywords" content="period tracker, cycle tracker, hormonal intelligence, cycle-aware leadership, phase-based productivity, hormone health app, women in leadership, period app India, cycle syncing, menstrual cycle productivity"/>
+<meta property="og:title" content="CycleALIGN — Hormone Intelligence for Women Who Lead"/>
+<meta property="og:description" content="Because the women who align with their biology will get ahead of everyone else who's still fighting theirs."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://cyclealign.in"/>
+<link rel="canonical" href="https://cyclealign.in"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"CycleALIGN","description":"CycleALIGN is India's first cycle-aware hormonal intelligence app for women. It syncs tasks to hormonal phases so women can lead, plan and perform in alignment with their biology.","applicationCategory":"HealthApplication","operatingSystem":"iOS, Android","offers":{"@type":"Offer","price":"499","priceCurrency":"INR"},"author":{"@type":"Person","name":"Vinita Thakur","jobTitle":"Founder","worksFor":{"@type":"Organization","name":"Aurang India"}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CycleALIGN?","acceptedAnswer":{"@type":"Answer","text":"CycleALIGN is a hormonal intelligence app for women. It tracks your menstrual cycle, identifies your current hormonal phase, and syncs your tasks, meetings, and decisions to the times when you naturally have the most energy, confidence, and cognitive capacity."}},{"@type":"Question","name":"How is CycleALIGN different from other period trackers?","acceptedAnswer":{"@type":"Answer","text":"Most period trackers are built for fertility and symptom logging. CycleALIGN is built for performance and leadership. It uses your cycle data to score tasks, forecast your weekly energy, and tell you the best day to pitch, negotiate, or present — features no other period app offers."}},{"@type":"Question","name":"What does ₹499 for a year mean?","acceptedAnswer":{"@type":"Answer","text":"Joining the waitlist costs ₹499 for a full year of access — the founding member rate. After public launch, pricing moves to ₹499 per month. Early members keep their annual rate locked for life."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #0F0F0F;
-    --bg-card: #181818;
-    --bg-card2: #1E1E1E;
-    --cream: #F5F0E8;
-    --cream-muted: #B8B0A0;
-    --sage: #8FAF8F;
-    --sage-dark: #6A8F6A;
-    --sage-light: #C2D9C2;
-    --strike: #555;
-    --border: #2A2A2A;
-    --border-sage: #3A5A3A;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--cream);
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    font-size: 16px;
-  }
-
-  h1, h2, h3, .serif {
-    font-family: 'Playfair Display', serif;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1.2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(15,15,15,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--cream);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-  }
-
-  .logo span { color: var(--sage); }
-
-  .nav-cta {
-    background: var(--sage);
-    color: #0F0F0F;
-    border: none;
-    padding: 0.55rem 1.4rem;
-    border-radius: 4px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .nav-cta:hover { background: var(--sage-light); }
-
-  /* SECTIONS */
-  section { padding: 6rem 2rem; max-width: 900px; margin: 0 auto; }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 8rem;
-    padding-bottom: 4rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .hero-eyebrow {
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    color: var(--sage);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 500;
-    line-height: 1.15;
-    color: var(--cream);
-    margin-bottom: 1.5rem;
-    max-width: 820px;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--sage-light);
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--cream-muted);
-    max-width: 600px;
-    margin-bottom: 3rem;
-    line-height: 1.8;
-    font-weight: 300;
-  }
-
-  .hero-cta-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-  }
-
-  .btn-primary {
-    background: var(--sage);
-    color: #0F0F0F;
-    border: none;
-    padding: 1rem 2.2rem;
-    border-radius: 4px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s, transform 0.1s;
-    letter-spacing: 0.01em;
-  }
-
-  .btn-primary:hover { background: var(--sage-light); transform: translateY(-1px); }
-  .btn-primary:active { transform: translateY(0); }
-
-  .hero-note {
-    font-size: 0.82rem;
-    color: var(--cream-muted);
-    font-weight: 300;
-  }
-
-  .hero-divider {
-    width: 48px;
-    height: 1px;
-    background: var(--border-sage);
-    margin: 4rem 0 0;
-  }
-
-  /* PAIN SECTION */
-  .pain { border-top: 0.5px solid var(--border); }
-
-  .section-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--sage);
-    font-weight: 500;
-    margin-bottom: 1.2rem;
-  }
-
-  .pain h2 {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-  }
-
-  .pain p {
-    font-size: 1.1rem;
-    color: var(--cream-muted);
-    max-width: 640px;
-    line-height: 1.85;
-    font-weight: 300;
-  }
-
-  .pain-quote {
-    margin-top: 3rem;
-    padding: 2rem 2.5rem;
-    border-left: 2px solid var(--sage);
-    background: var(--bg-card);
-    border-radius: 0 4px 4px 0;
-  }
-
-  .pain-quote p {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: var(--cream);
-    line-height: 1.6;
-    font-weight: 400;
-  }
-
-  /* SOLUTION */
-  .solution { border-top: 0.5px solid var(--border); }
-
-  .solution h2 {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 500;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-
-  .solution-sub {
-    font-size: 1.05rem;
-    color: var(--cream-muted);
-    max-width: 580px;
-    margin-bottom: 3.5rem;
-    font-weight: 300;
-    line-height: 1.8;
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 1rem;
-  }
-
-  .card {
-    background: var(--bg-card);
-    border: 0.5px solid var(--border);
-    border-radius: 8px;
-    padding: 1.5rem 1.25rem;
-    transition: border-color 0.2s;
-  }
-
-  .card:hover { border-color: var(--border-sage); }
-
-  .card-icon {
-    width: 36px;
-    height: 36px;
-    background: rgba(143,175,143,0.12);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-  }
-
-  .card h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 0.4rem;
-  }
-
-  .card p {
-    font-size: 0.82rem;
-    color: var(--cream-muted);
-    line-height: 1.6;
-    font-weight: 300;
-  }
-
-  .card-tag {
-    display: inline-block;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 0.6rem;
-    font-weight: 500;
-  }
-
-  /* HOW IT WORKS */
-  .how { border-top: 0.5px solid var(--border); }
-
-  .how h2 {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 500;
-    margin-bottom: 3rem;
-    line-height: 1.2;
-  }
-
-  .steps { display: flex; flex-direction: column; gap: 0; }
-
-  .step {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 1.5rem;
-    padding: 1.8rem 0;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .step:last-child { border-bottom: none; }
-
-  .step-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--sage);
-    padding-top: 0.1rem;
-  }
-
-  .step-content h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 0.3rem;
-  }
-
-  .step-content p {
-    font-size: 0.9rem;
-    color: var(--cream-muted);
-    font-weight: 300;
-    line-height: 1.7;
-  }
-
-  /* OFFER */
-  .offer { border-top: 0.5px solid var(--border); }
-
-  .offer h2 {
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 500;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-  }
-
-  .offer-sub {
-    font-size: 1.05rem;
-    color: var(--cream-muted);
-    max-width: 540px;
-    margin-bottom: 3rem;
-    font-weight: 300;
-    line-height: 1.8;
-  }
-
-  .pricing-box {
-    background: var(--bg-card);
-    border: 0.5px solid var(--border-sage);
-    border-radius: 8px;
-    padding: 2.5rem;
-    max-width: 460px;
-  }
-
-  .pricing-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sage);
-    font-weight: 500;
-    margin-bottom: 1.2rem;
-  }
-
-  .pricing-amount {
-    display: flex;
-    align-items: baseline;
-    gap: 0.8rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .price-strike {
-    font-size: 1.3rem;
-    color: var(--strike);
-    text-decoration: line-through;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-  }
-
-  .price-main {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 500;
-    color: var(--cream);
-    line-height: 1;
-  }
-
-  .price-per {
-    font-size: 0.9rem;
-    color: var(--cream-muted);
-    font-weight: 300;
-  }
-
-  .pricing-desc {
-    font-size: 0.85rem;
-    color: var(--cream-muted);
-    margin-bottom: 2rem;
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  .pricing-features {
-    list-style: none;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-  }
-
-  .pricing-features li {
-    font-size: 0.88rem;
-    color: var(--cream-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-weight: 300;
-  }
-
-  .pricing-features li::before {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--sage);
-    flex-shrink: 0;
-  }
-
-  .razorpay-wrap {
-    margin-bottom: 1rem;
-  }
-
-  /* Override Razorpay button to match theme */
-  .razorpay-wrap form img { display: none !important; }
-
-  .razorpay-payment-button {
-    background: var(--sage) !important;
-    color: #0F0F0F !important;
-    border: none !important;
-    padding: 1rem 2rem !important;
-    border-radius: 4px !important;
-    font-family: 'Inter', sans-serif !important;
-    font-size: 1rem !important;
-    font-weight: 500 !important;
-    cursor: pointer !important;
-    width: 100% !important;
-    transition: background 0.2s !important;
-  }
-
-  .razorpay-payment-button:hover {
-    background: var(--sage-light) !important;
-  }
-
-  .offer-note {
-    font-size: 0.78rem;
-    color: var(--cream-muted);
-    font-weight: 300;
-    margin-top: 0.8rem;
-    text-align: center;
-  }
-
-  /* FOOTER */
-  footer {
-    border-top: 0.5px solid var(--border);
-    padding: 3rem 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--cream-muted);
-  }
-
-  .footer-logo span { color: var(--sage); }
-
-  .footer-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .footer-links a {
-    font-size: 0.82rem;
-    color: var(--cream-muted);
-    text-decoration: none;
-    font-weight: 300;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: var(--cream); }
-
-  .footer-copy {
-    font-size: 0.78rem;
-    color: var(--strike);
-    font-weight: 300;
-    width: 100%;
-  }
-
-  /* MOBILE */
-  @media (max-width: 640px) {
-    nav { padding: 1rem 1.2rem; }
-    section { padding: 4rem 1.2rem; }
-    .hero { padding: 7rem 1.2rem 3rem; }
-    .cards-grid { grid-template-columns: 1fr 1fr; }
-    .pricing-box { padding: 1.8rem 1.4rem; }
-    footer { padding: 2.5rem 1.2rem; flex-direction: column; align-items: flex-start; }
-    .pain-quote { padding: 1.5rem 1.5rem; }
-  }
-
-  @media (max-width: 400px) {
-    .cards-grid { grid-template-columns: 1fr; }
-  }
+:root{
+  /* Brand colours from logo */
+  --plum:#2D0F1E;
+  --plum-mid:#4B2D3C;
+  --rose:#B46969;
+  --rose-light:#D4A0A0;
+  --rose-pale:#EDD5D5;
+  --gold:#B49669;
+  --gold-light:#D4B888;
+  --gold-pale:#EDE0C8;
+  --sage:#7A8C6E;
+  --sage-light:#A8B89A;
+  --cream:#F5EDE4;
+  --cream-2:#EDE4D8;
+  --cream-3:#E1D2C3;
+  --ink:#1A0A12;
+  --white:#FFFDF9;
+  /* Text */
+  --text-dark:#2D0F1E;
+  --text-mid:rgba(45,15,30,0.65);
+  --text-light:rgba(45,15,30,0.4);
+  /* Dark mode for dark sections */
+  --d-bg:#140810;
+  --d-bg2:#1E0E18;
+  --d-border:rgba(180,105,105,0.15);
+  --d-text:rgba(237,213,213,0.75);
+  --d-text-muted:rgba(237,213,213,0.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text-dark);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--rose);color:var(--white)}
+
+/* ── 3D PERSPECTIVE GLOBALS ── */
+.perspective{perspective:1200px}
+.card-3d{transform-style:preserve-3d;transition:transform 0.4s ease,box-shadow 0.4s ease}
+.card-3d:hover{transform:rotateX(-4deg) rotateY(4deg) translateZ(8px);box-shadow:12px 20px 40px rgba(45,15,30,0.18)}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}
+nav.scrolled{background:rgba(245,237,228,0.96);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(45,15,30,0.08)}
+.nav-logo-wrap{display:flex;align-items:center;gap:0.6rem}
+.nav-logo-svg{width:32px;height:32px}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--plum);letter-spacing:0.01em}
+.nav-brand span{color:var(--rose)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-size:0.8rem;font-weight:500;color:var(--text-mid);transition:color 0.2s;letter-spacing:0.02em}
+.nav-links a:hover{color:var(--plum)}
+.nav-cta{background:var(--plum);color:var(--white)!important;padding:0.55rem 1.25rem;border-radius:100px;font-size:0.78rem!important;font-weight:600!important;transition:all 0.2s!important;box-shadow:0 4px 14px rgba(45,15,30,0.25)}
+.nav-cta:hover{background:var(--plum-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(45,15,30,0.3)!important}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--plum);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden}
+.hero-grain{position:absolute;inset:0;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");pointer-events:none}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.orb1{width:600px;height:600px;background:radial-gradient(circle,rgba(180,105,105,0.3),transparent 70%);top:-150px;left:-150px}
+.orb2{width:500px;height:500px;background:radial-gradient(circle,rgba(180,150,105,0.2),transparent 70%);bottom:-100px;right:-100px}
+.orb3{width:350px;height:350px;background:radial-gradient(circle,rgba(122,140,110,0.15),transparent 70%);top:40%;left:60%}
+.hero-inner{position:relative;z-index:1;max-width:900px}
+.hero-logo-large{margin:0 auto 2rem;width:120px;height:120px}
+.hero-pill{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(237,213,213,0.1);border:1px solid rgba(180,105,105,0.3);border-radius:100px;padding:0.4rem 1rem;font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-light);margin-bottom:1.75rem}
+.hero-pill-dot{width:5px;height:5px;border-radius:50%;background:var(--rose-light);animation:pulse 2s infinite}
+h1.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,7.5vw,6rem);line-height:1.02;font-weight:700;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.5rem}
+h1.hero-h1 em{font-style:italic;color:var(--rose-light)}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--gold-light);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.25rem}
+.hero-sub{font-size:1.05rem;color:rgba(237,213,213,0.7);max-width:580px;margin:0 auto 2.5rem;line-height:1.8;font-weight:300}
+/* 3D HERO BUTTONS */
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+.hbtn{display:flex;align-items:center;gap:0.75rem;padding:0.95rem 1.75rem;border-radius:16px;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.25s;position:relative;transform-style:preserve-3d}
+.hbtn::after{content:'';position:absolute;inset:0;border-radius:16px;opacity:0;transition:opacity 0.25s}
+.hbtn:hover{transform:translateY(-3px) translateZ(10px)}
+.hbtn-primary{background:linear-gradient(135deg,var(--rose-light),var(--rose));color:var(--plum);box-shadow:0 8px 24px rgba(180,105,105,0.4),0 2px 0 rgba(180,105,105,0.6) inset,0 -3px 0 rgba(120,60,60,0.4) inset}
+.hbtn-primary:hover{box-shadow:0 14px 32px rgba(180,105,105,0.5),0 2px 0 rgba(220,160,160,0.6) inset}
+.hbtn-sec{background:rgba(237,213,213,0.08);color:var(--rose-pale);border:1px solid rgba(180,105,105,0.3);box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+.hbtn-sec:hover{background:rgba(237,213,213,0.12);border-color:rgba(180,105,105,0.5)}
+.hbtn-icon{font-size:1.2rem}
+.hbtn-text small{display:block;font-size:0.6rem;font-weight:400;opacity:0.65;letter-spacing:0.03em}
+.hero-note{font-size:0.72rem;color:rgba(237,213,213,0.35);margin-bottom:3rem}
+.hero-stats{display:flex;gap:0;border:1px solid rgba(180,105,105,0.2);border-radius:20px;overflow:hidden;background:rgba(237,213,213,0.04)}
+.hstat{flex:1;padding:1.5rem 1rem;text-align:center;border-right:1px solid rgba(180,105,105,0.15)}
+.hstat:last-child{border-right:none}
+.hstat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--rose-light);line-height:1}
+.hstat-label{font-size:0.68rem;color:rgba(237,213,213,0.4);margin-top:0.35rem;line-height:1.4;letter-spacing:0.01em}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(237,213,213,0.25);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;animation:bounce 2.5s infinite}
+.scroll-bar{width:1px;height:36px;background:linear-gradient(to bottom,rgba(237,213,213,0.3),transparent)}
+
+/* ── SHARED ── */
+.si{max-width:1160px;margin:0 auto}
+.ey{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
+.ey::before{content:'';width:20px;height:1px;background:var(--rose)}
+.ey-dark{color:var(--rose-light)}
+.ey-dark::before{background:var(--rose-light)}
+h2.st{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1.25rem}
+h2.st em{font-style:italic;color:var(--rose)}
+h2.st-dark{color:var(--white)}
+h2.st-dark em{color:var(--rose-light)}
+.sb{font-size:0.97rem;color:var(--text-mid);line-height:1.8;max-width:560px}
+.sb-dark{color:var(--d-text)}
+
+/* ── PROBLEM ── */
+.problem{padding:8rem 2.5rem;background:var(--d-bg);position:relative}
+.problem::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--rose),transparent)}
+.prob-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.prob-right blockquote{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--rose-light);line-height:1.5;border-left:2px solid var(--rose);padding-left:1.5rem;margin-bottom:2rem}
+.prob-right p{color:var(--d-text);line-height:1.85;margin-bottom:1rem;font-size:0.93rem}
+/* 3D STAT CARDS */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:2.5rem}
+.stat-card-3d{background:linear-gradient(135deg,rgba(180,105,105,0.12),rgba(180,150,105,0.06));border:1px solid rgba(180,105,105,0.2);border-radius:18px;padding:1.5rem;text-align:center;position:relative;transform-style:preserve-3d;transition:transform 0.3s,box-shadow 0.3s;cursor:default}
+.stat-card-3d::before{content:'';position:absolute;inset:0;border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,0.04),transparent);pointer-events:none}
+.stat-card-3d:hover{transform:translateY(-4px) rotateX(-3deg);box-shadow:0 16px 40px rgba(0,0,0,0.4),0 4px 0 rgba(180,105,105,0.2)}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--rose-light);line-height:1}
+.stat-l{font-size:0.72rem;color:var(--d-text-muted);margin-top:0.4rem;line-height:1.4}
+
+/* ── WHAT IS ── */
+.whatis{padding:8rem 2.5rem;background:var(--cream)}
+.wi-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.def-card-3d{background:var(--plum);border-radius:24px;padding:2.5rem;position:relative;transform-style:preserve-3d;transition:transform 0.4s,box-shadow 0.4s;overflow:hidden}
+.def-card-3d::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold))}
+.def-card-3d:hover{transform:rotateX(-3deg) rotateY(3deg) translateZ(6px);box-shadow:16px 24px 48px rgba(45,15,30,0.3)}
+.def-card-3d h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--rose-light);margin-bottom:1.25rem}
+.def-card-3d p{color:var(--d-text);line-height:1.8;font-size:0.9rem;margin-bottom:1rem}
+.def-card-3d p:last-child{margin-bottom:0}
+.vi-stack{display:flex;flex-direction:column;gap:12px;margin-top:2rem}
+.vi-item{background:var(--white);border:1px solid rgba(45,15,30,0.07);border-radius:16px;padding:1.1rem 1.25rem;display:flex;align-items:flex-start;gap:0.9rem;transform-style:preserve-3d;transition:transform 0.3s,box-shadow 0.3s}
+.vi-item:hover{transform:translateX(4px) translateZ(4px);box-shadow:6px 8px 24px rgba(45,15,30,0.1)}
+.vi-icon{width:40px;height:40px;border-radius:12px;background:var(--plum);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.vi-text h4{font-size:0.85rem;font-weight:600;color:var(--plum);margin-bottom:0.2rem}
+.vi-text p{font-size:0.78rem;color:var(--text-mid);line-height:1.5}
+
+/* ── PHASES ── */
+.phases{padding:8rem 2.5rem;background:var(--plum);position:relative}
+.phases::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--rose-light),transparent)}
+.ph-header{text-align:center;max-width:700px;margin:0 auto 3.5rem}
+.ph-header .ey{justify-content:center}
+.ph-header .ey::before{display:none}
+.cycle-svg-wrap{display:flex;justify-content:center;margin-bottom:3rem}
+.phases-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+/* 3D PHASE CARDS */
+.ph-card{border-radius:20px;padding:1.75rem 1.5rem;position:relative;overflow:hidden;transform-style:preserve-3d;transition:transform 0.35s,box-shadow 0.35s;cursor:default}
+.ph-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.ph-card:hover{transform:translateY(-6px) rotateX(-4deg);box-shadow:0 20px 50px rgba(0,0,0,0.5)}
+.ph-m{background:linear-gradient(160deg,rgba(180,105,105,0.18),rgba(180,105,105,0.06));border:1px solid rgba(180,105,105,0.25)}
+.ph-m::before{background:linear-gradient(90deg,var(--rose),transparent)}
+.ph-f{background:linear-gradient(160deg,rgba(122,140,110,0.18),rgba(122,140,110,0.06));border:1px solid rgba(122,140,110,0.25)}
+.ph-f::before{background:linear-gradient(90deg,var(--sage-light),transparent)}
+.ph-o{background:linear-gradient(160deg,rgba(180,150,105,0.18),rgba(180,150,105,0.06));border:1px solid rgba(180,150,105,0.25)}
+.ph-o::before{background:linear-gradient(90deg,var(--gold-light),transparent)}
+.ph-l{background:linear-gradient(160deg,rgba(168,184,154,0.18),rgba(168,184,154,0.06));border:1px solid rgba(168,184,154,0.25)}
+.ph-l::before{background:linear-gradient(90deg,var(--sage-light),transparent)}
+.ph-dot{width:10px;height:10px;border-radius:50%;margin-bottom:1rem}
+.ph-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:0.25rem}
+.ph-days{font-size:0.65rem;color:var(--d-text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.85rem}
+.ph-state{font-size:0.8rem;color:var(--d-text);line-height:1.65;margin-bottom:1.1rem}
+.ph-rows{display:flex;flex-direction:column;gap:0.45rem}
+.ph-row{display:flex;align-items:flex-start;gap:0.45rem;font-size:0.73rem;line-height:1.35}
+.ph-row .dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.ph-row.g{color:rgba(168,184,154,0.9)}
+.ph-row.g .dot{background:var(--sage-light)}
+.ph-row.b{color:rgba(180,105,105,0.8)}
+.ph-row.b .dot{background:var(--rose)}
+
+/* ── FOR WHO ── */
+.forwho{padding:8rem 2.5rem;background:var(--cream-2)}
+.fw-header{max-width:600px;margin-bottom:3.5rem}
+.fw-header .ey{color:var(--gold);} .fw-header .ey::before{background:var(--gold)}
+.fw-header h2.st em{color:var(--rose)}
+.fw-header .sb{color:var(--text-mid)}
+.roles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.75rem}
+.role-card{background:var(--white);border:1px solid rgba(45,15,30,0.06);border-radius:20px;padding:1.75rem 1.5rem;transform-style:preserve-3d;transition:transform 0.35s,box-shadow 0.35s}
+.role-card:hover{transform:translateY(-5px) rotateX(-3deg);box-shadow:0 16px 40px rgba(45,15,30,0.12)}
+.role-emoji{font-size:1.75rem;margin-bottom:1.1rem}
+.role-card h3{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--plum);margin-bottom:0.5rem}
+.role-card p{font-size:0.78rem;color:var(--text-mid);line-height:1.65}
+.role-card blockquote{margin-top:1rem;font-size:0.76rem;font-style:italic;color:var(--rose);border-left:2px solid var(--rose-pale);padding-left:0.75rem;line-height:1.5}
+.onboard-note{background:var(--plum);border-radius:16px;padding:1.75rem 2rem;display:flex;gap:1.25rem;align-items:flex-start}
+.onboard-note p{font-size:0.875rem;color:var(--d-text);line-height:1.75}
+.onboard-note p strong{color:var(--white)}
+
+/* ── FEATURES ── */
+.features{padding:8rem 2.5rem;background:var(--d-bg2);position:relative}
+.features::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.feat-header{max-width:620px;margin-bottom:3.5rem}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.feat-card{background:rgba(237,213,213,0.04);border:1px solid var(--d-border);border-radius:20px;padding:2rem;transform-style:preserve-3d;transition:transform 0.35s,box-shadow 0.35s,background 0.25s;display:flex;flex-direction:column}
+.feat-card:hover{background:rgba(237,213,213,0.07);transform:translateY(-5px) rotateX(-3deg) rotateY(2deg);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+.feat-card.span2{grid-column:span 2}
+.feat-icon{width:46px;height:46px;border-radius:14px;background:rgba(180,105,105,0.12);border:1px solid rgba(180,105,105,0.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.4rem}
+.feat-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:0.6rem}
+.feat-card p{font-size:0.82rem;color:var(--d-text);line-height:1.75;flex:1}
+.feat-eg{margin-top:1.25rem;background:rgba(180,105,105,0.08);border-radius:10px;padding:0.85rem 1rem;font-size:0.76rem;color:var(--d-text-muted);font-style:italic;line-height:1.6;border-left:2px solid rgba(180,150,105,0.4)}
+.feat-eg strong{color:rgba(237,213,213,0.65);font-style:normal}
+
+/* ── FOUNDER ── */
+.founder{padding:8rem 2.5rem;background:var(--cream);position:relative;overflow:hidden}
+.founder::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(180,105,105,0.06),transparent 70%);top:50%;right:-100px;transform:translateY(-50%);pointer-events:none}
+.founder-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;position:relative;z-index:1}
+/* 3D founder image card */
+.founder-img-card{border-radius:28px;overflow:hidden;position:relative;transform-style:preserve-3d;transition:transform 0.5s,box-shadow 0.5s;box-shadow:12px 20px 60px rgba(45,15,30,0.15),inset 0 1px 0 rgba(255,255,255,0.5)}
+.founder-img-card:hover{transform:rotateX(-4deg) rotateY(-4deg) translateZ(12px);box-shadow:24px 36px 80px rgba(45,15,30,0.25)}
+.founder-img-inner{background:linear-gradient(160deg,var(--rose-pale),var(--gold-pale));aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative}
+.founder-img-placeholder{font-size:6rem;opacity:0.2}
+.founder-img-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(45,15,30,0.92),transparent);padding:2.5rem 1.75rem 1.75rem}
+.founder-img-overlay h4{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--white)}
+.founder-img-overlay p{font-size:0.78rem;color:rgba(237,213,213,0.6);margin-top:0.2rem}
+.founder-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.85rem}
+.ftag{background:rgba(180,105,105,0.2);border:1px solid rgba(180,105,105,0.3);border-radius:100px;padding:0.25rem 0.7rem;font-size:0.68rem;color:var(--rose-light)}
+.founder-right .ey{color:var(--rose)}
+.founder-right .ey::before{background:var(--rose)}
+.founder-right h2.st em{color:var(--rose)}
+.founder-right p{color:var(--text-mid);line-height:1.85;font-size:0.93rem;margin-bottom:1rem}
+.founder-quote{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--plum);line-height:1.55;border-left:2px solid var(--rose);padding-left:1.5rem;margin:2rem 0}
+.founder-links{display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.75rem}
+.founder-link{display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1.1rem;border-radius:100px;font-size:0.78rem;font-weight:500;border:1px solid rgba(45,15,30,0.15);color:var(--text-mid);transition:all 0.2s;transform-style:preserve-3d}
+.founder-link:hover{border-color:var(--rose);color:var(--plum);transform:translateY(-2px);box-shadow:0 6px 16px rgba(45,15,30,0.1)}
+
+/* ── BLOG ── */
+.blog{padding:8rem 2.5rem;background:var(--d-bg);position:relative}
+.blog::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--sage-light),transparent)}
+.blog-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
+.blog-see-all{font-size:0.78rem;color:var(--d-text-muted);transition:color 0.2s;display:flex;align-items:center;gap:0.3rem}
+.blog-see-all:hover{color:var(--rose-light)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.blog-card{background:rgba(237,213,213,0.04);border:1px solid var(--d-border);border-radius:20px;padding:1.75rem;cursor:pointer;transform-style:preserve-3d;transition:all 0.35s;display:flex;flex-direction:column}
+.blog-card:hover{background:rgba(237,213,213,0.07);transform:translateY(-4px) rotateX(-2deg);box-shadow:0 16px 40px rgba(0,0,0,0.4)}
+.blog-tag{font-size:0.63rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1rem}
+.blog-card h3{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;line-height:1.3;color:var(--white);margin-bottom:0.7rem}
+.blog-intro{font-size:0.79rem;color:var(--d-text-muted);line-height:1.65;margin-bottom:1rem}
+.blog-meta{display:flex;align-items:center;justify-content:space-between;font-size:0.68rem;color:var(--d-text-muted);padding-top:1rem;border-top:1px solid var(--d-border);margin-top:auto}
+.blog-read{color:var(--rose-light);font-weight:500}
+.blog-full{display:none;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--d-border)}
+.blog-full.open{display:block}
+.blog-full h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--white);margin:1.5rem 0 0.6rem}
+.blog-full h4:first-child{margin-top:0}
+.blog-full p{font-size:0.82rem;color:var(--d-text);line-height:1.82;margin-bottom:0.85rem}
+.blog-full ul{margin:0.5rem 0 1rem 1.2rem;display:flex;flex-direction:column;gap:0.4rem}
+.blog-full ul li{font-size:0.82rem;color:var(--d-text);line-height:1.6}
+.blog-full blockquote{border-left:2px solid var(--gold);padding-left:1rem;font-style:italic;font-size:0.84rem;color:var(--gold-light);margin:1rem 0;line-height:1.6}
+.blog-close{font-size:0.72rem;color:var(--d-text-muted);margin-top:1rem;cursor:pointer;display:inline-flex;align-items:center;gap:0.3rem}
+.blog-close:hover{color:var(--rose-light)}
+
+/* ── TESTIMONIALS ── */
+.testi{padding:8rem 2.5rem;background:var(--cream-3)}
+.testi-header{max-width:540px;margin-bottom:3.5rem}
+.testi-header .ey{color:var(--rose)}
+.testi-header .ey::before{background:var(--rose)}
+.testi-header h2.st em{color:var(--rose)}
+.testi-header .sb{color:var(--text-mid)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tcard{background:var(--white);border:1px solid rgba(45,15,30,0.06);border-radius:20px;padding:1.75rem;transform-style:preserve-3d;transition:transform 0.35s,box-shadow 0.35s}
+.tcard:hover{transform:translateY(-5px) rotateX(-3deg);box-shadow:0 16px 40px rgba(45,15,30,0.12)}
+.tcard-stars{color:var(--gold);font-size:0.9rem;letter-spacing:0.04em;margin-bottom:1rem}
+.tcard-text{font-size:0.875rem;color:var(--text-mid);line-height:1.78;font-style:italic;margin-bottom:1.4rem;font-family:'Cormorant Garamond',serif;font-size:1rem}
+.tcard-author{display:flex;align-items:center;gap:0.75rem}
+.tcard-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:var(--white)}
+.tcard-name h4{font-size:0.82rem;font-weight:600;color:var(--plum)}
+.tcard-name p{font-size:0.7rem;color:var(--text-light)}
+
+/* ── FAQ ── */
+.faq{padding:8rem 2.5rem;background:var(--plum);position:relative}
+.faq::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(180,105,105,0.4),transparent)}
+.faq-header{max-width:540px;margin-bottom:3.5rem}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.faq-item{background:rgba(237,213,213,0.05);border:1px solid rgba(180,105,105,0.15);border-radius:18px;padding:1.75rem;transform-style:preserve-3d;transition:transform 0.3s,background 0.25s}
+.faq-item:hover{background:rgba(237,213,213,0.08);transform:translateY(-3px)}
+.faq-q{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.75rem;line-height:1.4}
+.faq-a{font-size:0.82rem;color:var(--d-text-muted);line-height:1.82}
+
+/* ── WAITLIST ── */
+.waitlist{padding:8rem 2.5rem;background:var(--cream);position:relative;overflow:hidden}
+.waitlist::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.wl-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;position:relative;z-index:1}
+.wl-left .ey{color:var(--gold);} .wl-left .ey::before{background:var(--gold)}
+.wl-left h2.st em{color:var(--gold)}
+.wl-left p{color:var(--text-mid);line-height:1.82;font-size:0.93rem;margin-bottom:1rem}
+.wl-perks{display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem}
+.wl-perk{display:flex;align-items:center;gap:0.85rem;font-size:0.85rem;color:var(--text-mid)}
+.wl-perk-icon{width:32px;height:32px;border-radius:10px;background:var(--gold-pale);border:1px solid rgba(180,150,105,0.3);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+/* 3D WAITLIST CARD */
+.wl-card{background:var(--plum);border-radius:28px;padding:2.5rem;position:relative;overflow:hidden;transform-style:preserve-3d;transition:transform 0.4s,box-shadow 0.4s;box-shadow:0 20px 60px rgba(45,15,30,0.2),0 4px 0 rgba(180,105,105,0.2)}
+.wl-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold),var(--sage-light))}
+.wl-card:hover{transform:rotateX(-2deg) rotateY(2deg) translateZ(8px);box-shadow:20px 30px 70px rgba(45,15,30,0.3),0 4px 0 rgba(180,105,105,0.3)}
+.wl-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(180,105,105,0.15);border:1px solid rgba(180,105,105,0.3);border-radius:100px;padding:0.35rem 0.9rem;font-size:0.67rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--rose-light);margin-bottom:1.25rem}
+.wl-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--rose-light);animation:pulse 1.5s infinite}
+.wl-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:0.4rem}
+.wl-price-box{display:flex;align-items:center;gap:0.9rem;background:rgba(180,150,105,0.1);border:1px solid rgba(180,150,105,0.25);border-radius:14px;padding:1rem 1.25rem;margin-bottom:1.5rem}
+.wl-price-big{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--gold-light);line-height:1}
+.wl-price-detail span{display:block;font-size:0.8rem;color:var(--d-text);line-height:1.4}
+.wl-price-detail small{font-size:0.68rem;color:var(--d-text-muted)}
+.wl-success{display:none;text-align:center;padding:2rem 0}
+.wl-success-icon{font-size:3rem;margin-bottom:1rem}
+.wl-success h4{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin-bottom:0.5rem}
+.wl-success p{font-size:0.85rem;color:var(--d-text-muted);line-height:1.65}
+.wl-form{display:flex;flex-direction:column;gap:0.85rem}
+.wl-field{display:flex;flex-direction:column;gap:0.35rem}
+.wl-field label{font-size:0.68rem;font-weight:600;color:var(--d-text-muted);letter-spacing:0.05em;text-transform:uppercase}
+.wl-field input{background:rgba(237,213,213,0.06);border:1px solid rgba(180,105,105,0.2);border-radius:12px;padding:0.85rem 1rem;font-size:0.88rem;color:var(--white);font-family:'Inter',sans-serif;transition:all 0.2s;outline:none;width:100%}
+.wl-field input::placeholder{color:rgba(237,213,213,0.2)}
+.wl-field input:focus{border-color:rgba(180,150,105,0.5);background:rgba(237,213,213,0.08);box-shadow:0 0 0 3px rgba(180,150,105,0.1)}
+.wl-submit{background:linear-gradient(135deg,var(--rose-light),var(--rose));color:var(--plum);border:none;border-radius:12px;padding:1rem;font-size:0.9rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.25s;margin-top:0.25rem;letter-spacing:0.01em;width:100%;box-shadow:0 6px 20px rgba(180,105,105,0.4),0 -2px 0 rgba(120,60,60,0.2) inset}
+.wl-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(180,105,105,0.5)}
+.wl-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.wl-note{font-size:0.7rem;color:var(--d-text-muted);text-align:center;margin-top:0.5rem;line-height:1.5}
+.wl-or{display:flex;align-items:center;gap:1rem;margin:1.25rem 0}
+.wl-or::before,.wl-or::after{content:'';flex:1;height:1px;background:rgba(180,105,105,0.2)}
+.wl-or span{font-size:0.68rem;color:var(--d-text-muted);text-transform:uppercase;letter-spacing:0.06em}
+.wl-alt{display:flex;align-items:center;justify-content:center;padding:0.8rem;border-radius:12px;border:1px solid rgba(180,105,105,0.2);color:var(--d-text-muted);font-size:0.8rem;transition:all 0.2s}
+.wl-alt:hover{border-color:rgba(180,105,105,0.4);color:var(--rose-light)}
+
+/* ── FINAL CTA ── */
+.finalcta{padding:10rem 2.5rem;background:var(--d-bg);text-align:center;position:relative;overflow:hidden}
+.finalcta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--rose),transparent)}
+.fcta-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(180,105,105,0.08),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.fcta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.fcta-inner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:700;letter-spacing:-0.02em;line-height:1.06;margin-bottom:1.25rem;color:var(--white)}
+.fcta-inner h2 em{font-style:italic;color:var(--rose-light)}
+.fcta-sub{font-size:1rem;color:var(--d-text);max-width:500px;margin:0 auto 2.5rem;line-height:1.8;font-weight:300}
+.fcta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem}
+.fcta-note{font-size:0.72rem;color:var(--d-text-muted);margin-bottom:3rem}
+.sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(237,213,213,0.2);max-width:580px;margin:0 auto;line-height:1.65}
+
+/* ── FOOTER ── */
+footer{background:var(--plum);border-top:1px solid rgba(180,105,105,0.15);padding:4.5rem 2.5rem 2.5rem}
+.footer-inner{max-width:1160px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
+.fbrand{display:flex;flex-direction:column;gap:1rem}
+.fbrand-logo{display:flex;align-items:center;gap:0.6rem}
+.fbrand-svg{width:28px;height:28px}
+.fbrand-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--white)}
+.fbrand-name span{color:var(--rose-light)}
+.fbrand p{font-size:0.78rem;color:var(--d-text-muted);line-height:1.65;max-width:220px}
+.fcol h4{font-size:0.66rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(237,213,213,0.25);margin-bottom:1.1rem}
+.fcol a{display:block;font-size:0.78rem;color:var(--d-text-muted);margin-bottom:0.65rem;transition:color 0.2s}
+.fcol a:hover{color:var(--rose-light)}
+.footer-bottom{border-top:1px solid rgba(180,105,105,0.12);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem}
+.footer-bottom p{font-size:0.7rem;color:rgba(237,213,213,0.2)}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{font-size:0.7rem;color:rgba(237,213,213,0.25);transition:color 0.2s}
+.footer-legal a:hover{color:var(--rose-light)}
+
+/* ── MODAL (Privacy / Disclaimer) ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(20,8,16,0.92);z-index:500;display:none;align-items:center;justify-content:center;padding:2rem;backdrop-filter:blur(8px)}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--cream);border-radius:24px;max-width:760px;width:100%;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 40px 100px rgba(0,0,0,0.5)}
+.modal-header{padding:1.75rem 2rem;border-bottom:1px solid var(--cream-3);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.modal-header h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--plum)}
+.modal-close{width:36px;height:36px;border-radius:50%;background:var(--cream-2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--text-mid);transition:all 0.2s}
+.modal-close:hover{background:var(--rose-pale);color:var(--plum)}
+.modal-body{padding:2rem;overflow-y:auto;flex:1}
+.modal-body h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--plum);margin:1.5rem 0 0.6rem}
+.modal-body h4:first-child{margin-top:0}
+.modal-body p{font-size:0.85rem;color:var(--text-mid);line-height:1.8;margin-bottom:0.9rem}
+.modal-body ul{margin:0.5rem 0 1rem 1.2rem;display:flex;flex-direction:column;gap:0.4rem}
+.modal-body ul li{font-size:0.85rem;color:var(--text-mid);line-height:1.6}
+.modal-body .last-updated{font-size:0.72rem;color:var(--text-light);margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--cream-3)}
+
+/* ── ANIMATIONS ── */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes bounce{0%,100%{transform:translateX(-50%)}50%{transform:translateX(-50%) translateY(6px)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .prob-layout,.wi-layout,.founder-layout,.wl-inner{grid-template-columns:1fr;gap:3rem}
+  .phases-grid,.roles-grid,.feat-grid,.testi-grid,.faq-grid,.blog-grid{grid-template-columns:1fr 1fr}
+  .feat-card.span2{grid-column:span 1}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .hero-stats{flex-direction:column;gap:0}
+  .hstat{border-right:none;border-bottom:1px solid rgba(180,105,105,0.15)}
+  .hstat:last-child{border-bottom:none}
+  nav{padding:1rem 1.25rem}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .phases-grid,.roles-grid,.feat-grid,.testi-grid,.faq-grid,.blog-grid{grid-template-columns:1fr}
+  .hero-btns,.fcta-btns{flex-direction:column;align-items:center}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center;gap:1rem}
+  .footer-legal{justify-content:center}
+  .blog-header{flex-direction:column;align-items:flex-start}
+}
 </style>
 </head>
 <body>
 
+<!-- LOGO SVG DEFS (reusable) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="logo-icon" viewBox="0 0 80 80">
+      <!-- Circle outline -->
+      <circle cx="38" cy="40" r="30" fill="none" stroke="#4B2D3C" stroke-width="2.5"/>
+      <!-- Face silhouette simplified -->
+      <path d="M34 18 C28 22 25 30 26 38 C27 44 30 48 34 52 C37 55 38 56 38 56 C38 56 40 54 42 50" fill="none" stroke="#B46969" stroke-width="2" stroke-linecap="round"/>
+      <!-- Hair flow -->
+      <path d="M34 18 C36 16 42 15 46 18 C50 22 51 28 50 34" fill="none" stroke="#B46969" stroke-width="2" stroke-linecap="round"/>
+      <!-- Phase dots -->
+      <circle cx="56" cy="24" r="4" fill="#B46969"/>
+      <circle cx="60" cy="34" r="5.5" fill="#B46969"/>
+      <circle cx="60" cy="46" r="4.5" fill="#B49669"/>
+      <circle cx="57" cy="57" r="3" fill="#7A8C6E"/>
+      <circle cx="52" cy="65" r="2" fill="#7A8C6E" opacity="0.6"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- NAV -->
-<nav>
-  <a href="#" class="logo">Cycle<span>Align</span></a>
-  <a href="#offer" class="nav-cta">Join Waitlist</a>
+<nav id="mainNav">
+  <div class="nav-logo-wrap">
+    <svg class="nav-logo-svg" aria-hidden="true"><use href="#logo-icon"/></svg>
+    <div class="nav-brand">cycle<span>align</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#phases">The 4 Phases</a>
+    <a href="#features">Features</a>
+    <a href="#founder">Founder</a>
+    <a href="#blog">Journal</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#waitlist" class="nav-cta">Join Waitlist — ₹499/yr</a>
 </nav>
 
 <!-- HERO -->
-<div style="padding: 0 2rem;">
-  <div class="hero">
-    <p class="hero-eyebrow">Decision Intelligence platform for Women Leaders</p>
-    <h1>Your biology is your <em>competitive advantage.</em> Stop fighting it.</h1>
-    <p class="hero-sub">A decision-intelligence platform built for women leaders to map their energy, eliminate decision fatigue, and optimize their daily output.</p>
-    <div class="hero-cta-wrap">
-      <a href="#offer" class="btn-primary">Join the Waitlist — ₹499/month</a>
-      <p class="hero-note">Cancel anytime. Early access guaranteed.</p>
+<section class="hero" id="home" aria-labelledby="hero-h1">
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="hero-orb orb1" aria-hidden="true"></div>
+  <div class="hero-orb orb2" aria-hidden="true"></div>
+  <div class="hero-orb orb3" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <svg class="hero-logo-large" aria-label="CycleALIGN logo"><use href="#logo-icon"/></svg>
+    <div class="hero-pill"><span class="hero-pill-dot"></span>India's First · Cycle-Aware Leadership App</div>
+    <h1 class="hero-h1" id="hero-h1">Your biology is not<br/>a liability.<br/><em>It's your edge.</em></h1>
+    <p class="hero-tagline">Align your cycle. Elevate your life.</p>
+    <p class="hero-sub">CycleALIGN tracks your hormonal phase and syncs your tasks, decisions, and energy to when you naturally perform best — so you stop working against your body and start leading with it.</p>
+    <div class="hero-btns">
+      <a href="#waitlist" class="hbtn hbtn-primary">
+        <span class="hbtn-icon">🌸</span>
+        <span class="hbtn-text"><small>Early access · ₹499 for a full year</small>Join the Waitlist</span>
+      </a>
+      <a href="#what-is" class="hbtn hbtn-sec">
+        <span class="hbtn-icon">↓</span>
+        <span class="hbtn-text"><small>No commitment</small>See how it works</span>
+      </a>
     </div>
-    <div class="hero-divider"></div>
+    <p class="hero-note">₹499 for your first year · After launch: ₹499/month · Founding rate locked for life 🇮🇳</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num">4</div><div class="hstat-label">Hormonal phases mapped daily</div></div>
+      <div class="hstat"><div class="hstat-num">28</div><div class="hstat-label">Days — your real unit of time</div></div>
+      <div class="hstat"><div class="hstat-num">₹499</div><div class="hstat-label">Full year. Early access price.</div></div>
+      <div class="hstat"><div class="hstat-num">0</div><div class="hstat-label">Apps like this in India. Until now.</div></div>
+    </div>
   </div>
-</div>
-
-<!-- PAIN -->
-<section class="pain">
-  <p class="section-label">The Problem</p>
-  <h2>The Gap Between Your Ambition and Your Energy</h2>
-  <p>You've mastered your business, but your energy levels still dictate your performance. Why risk a high-stakes negotiation or a board presentation when your cognitive load is at its peak-fatigue point? Stop guessing — start optimizing.</p>
-  <div class="pain-quote">
-    <p>"The most successful leaders don't work harder. They work in alignment with when their mind is built to perform."</p>
-  </div>
+  <div class="hero-scroll" aria-hidden="true"><div class="scroll-bar"></div>Scroll</div>
 </section>
 
-<!-- SOLUTION -->
-<section class="solution">
-  <p class="section-label">The Solution</p>
-  <h2>Meet CycleAlign.in</h2>
-  <p class="solution-sub">We don't track symptoms. We manage performance. CycleAlign integrates with your professional workflow to automatically block your calendar for deep-work, strategy, and collaboration — based on your performance cycle.</p>
-  <div class="cards-grid">
-    <div class="card">
-      <div class="card-icon">◈</div>
-      <span class="card-tag">Phase 01</span>
-      <h3>Strategy Window</h3>
-      <p>High creativity and lateral thinking. Ideal for big-picture decisions and innovation sprints.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">◎</div>
-      <span class="card-tag">Phase 02</span>
-      <h3>Collaboration Window</h3>
-      <p>Communication peak. Schedule negotiations, pitches, and stakeholder meetings here.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">▣</div>
-      <span class="card-tag">Phase 03</span>
-      <h3>Deep Work Block</h3>
-      <p>Sustained focus and execution. Your highest-output window for complex deliverables.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">◉</div>
-      <span class="card-tag">Phase 04</span>
-      <h3>Planning Block</h3>
-      <p>Reflection and systems thinking. Review, restructure, and set the agenda for what's next.</p>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how">
-  <p class="section-label">How It Works</p>
-  <h2>Simple. Private. Powerful.</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">01</div>
-      <div class="step-content">
-        <h3>Join the waitlist</h3>
-        <p>Secure your early access spot at the founding price of ₹499/month.</p>
+<!-- PROBLEM -->
+<section class="problem" aria-labelledby="prob-h2">
+  <div class="si">
+    <div class="prob-layout">
+      <div class="prob-left reveal">
+        <div class="ey ey-dark">The Real Problem</div>
+        <h2 class="st st-dark" id="prob-h2">You've been running on a 24-hour schedule.<br/><em>Your body runs on 28 days.</em></h2>
+        <p class="sb sb-dark">Every productivity system ever built — time-blocking, to-do lists, OKRs — was designed for a body that stays constant. Your body doesn't. Your hormones cycle across four distinct phases every month, shifting your energy, cognition, and decision-making in ways that are completely predictable.</p>
+        <div class="stat-grid">
+          <div class="stat-card-3d"><div class="stat-n">40%</div><div class="stat-l">Of women say their cycle significantly affects work performance every month</div></div>
+          <div class="stat-card-3d"><div class="stat-n">0</div><div class="stat-l">Apps in India built around cycle-aware leadership. Until now.</div></div>
+          <div class="stat-card-3d"><div class="stat-n">3×</div><div class="stat-l">More likely to burn out when working against your hormonal rhythm</div></div>
+          <div class="stat-card-3d"><div class="stat-n">28</div><div class="stat-l">Days — the real calendar women actually operate on</div></div>
+        </div>
       </div>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div class="step-content">
-        <h3>Connect your calendar</h3>
-        <p>Link Google Calendar or Outlook. Takes under 60 seconds.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div class="step-content">
-        <h3>Your schedule optimizes itself</h3>
-        <p>CycleAlign blocks your calendar with professional performance windows. Only you know what they mean.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <div class="step-content">
-        <h3>Lead at your peak, every week</h3>
-        <p>Stop leaving cognitive performance on the table. Start showing up as the sharpest version of yourself.</p>
+      <div class="prob-right reveal">
+        <blockquote>"I knew something was different about certain weeks. I just didn't know it was hormones — or that I could use that pattern strategically."</blockquote>
+        <p>Most period trackers tell you when your next period is coming. That's useful. But it misses the bigger picture — what your biology is doing to your mind, your mood, and your performance every single day of your cycle.</p>
+        <p>The research is clear. Estrogen drives verbal fluency and confidence. Progesterone deepens focus and attention to detail. These are not mood swings. They are biological rhythms — completely predictable once you know how to read them.</p>
+        <p>CycleALIGN is built on one conviction: when women understand their biological rhythms, they stop apologising for them and start leveraging them. Not despite their biology. Because of it.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OFFER -->
-<section class="offer" id="offer">
-  <p class="section-label">Early Access</p>
-  <h2>Be among the first.</h2>
-  <p class="offer-sub">We are opening early access to founding waitlist members. Secure your spot today and get priority access when we launch — at a price that will never be offered again.</p>
-
-  <div class="pricing-box">
-    <p class="pricing-label">Waitlist Early Access</p>
-    <div class="pricing-amount">
-      <span class="price-strike">₹999</span>
-      <span class="price-main">₹499</span>
-      <span class="price-per">/month</span>
+<!-- WHAT IS -->
+<section class="whatis" id="what-is" aria-labelledby="wi-h2">
+  <div class="si">
+    <div class="wi-layout">
+      <div class="reveal perspective">
+        <div class="def-card-3d">
+          <h3>What is CycleALIGN?</h3>
+          <p>CycleALIGN is a hormonal intelligence app for women. It tracks your menstrual cycle, identifies your current hormonal phase, and syncs your tasks, meetings, and decisions to the times when you naturally have the most energy, confidence, and cognitive capacity.</p>
+          <p>It is not just a period tracker. It is a cycle-aware productivity and leadership platform — the first of its kind designed for Indian women — built around the belief that biological rhythm is a competitive advantage, not a liability to manage.</p>
+          <p>Used by working women, founders, homemakers, and students who are done letting their cycle happen to them and ready to lead with it instead.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="ey">Hormonal Intelligence · Defined</div>
+        <h2 class="st" id="wi-h2">What is <em>cycle-aware leadership?</em></h2>
+        <p class="sb">Cycle-aware leadership is the practice of aligning your decisions, communication, and workload to the four phases of your menstrual cycle. Research shows that estrogen, progesterone, and cortisol fluctuate predictably and directly affect energy, cognition, and emotional capacity.</p>
+        <div class="vi-stack">
+          <div class="vi-item"><div class="vi-icon">🧠</div><div class="vi-text"><h4>Decision Intelligence</h4><p>Know which days your cognitive capacity is highest and schedule your most important calls, negotiations, and launches accordingly.</p></div></div>
+          <div class="vi-item"><div class="vi-icon">📅</div><div class="vi-text"><h4>Phase-Based Task Planning</h4><p>Add a task, pick a date, CycleALIGN scores it against your phase. Green = perfect timing. Red = worth rescheduling.</p></div></div>
+          <div class="vi-item"><div class="vi-icon">🔒</div><div class="vi-text"><h4>Privacy-First Design</h4><p>Category-first input keeps your sensitive plans private. You never need to type what the task actually is.</p></div></div>
+        </div>
+      </div>
     </div>
-    <p class="pricing-desc">Founding member price. Locked in for life.</p>
-    <ul class="pricing-features">
-      <li>Priority access at launch</li>
-      <li>Founding member pricing locked forever</li>
-      <li>Google Calendar + Outlook integration</li>
-      <li>28-day performance window scheduling</li>
-      <li>Professional labels only — full discretion</li>
-    </ul>
+  </div>
+</section>
 
-    <!-- ======================================================= -->
-    <!-- REPLACE: Paste your Razorpay Payment Button script here -->
-    <!-- ======================================================= -->
-    <div class="razorpay-wrap">
-      <form>
-        <script
-          src="https://checkout.razorpay.com/v1/payment-button.js"
-          data-payment_button_id="pl_T1ubZ5nlpPwUs1"
-          async>
-        </script>
-      </form>
+<!-- PHASES -->
+<section class="phases" id="phases" aria-labelledby="ph-h2">
+  <div class="si">
+    <div class="ph-header reveal">
+      <div class="ey ey-dark">The Science Behind It</div>
+      <h2 class="st st-dark" id="ph-h2">Your cycle has four phases.<br/><em>Each one a different version of you.</em></h2>
+      <p class="sb sb-dark" style="margin:0 auto;text-align:center">Understanding the four hormonal phases is the foundation of everything CycleALIGN does. Every insight, task score, and morning notification is built on knowing exactly which phase you're in today.</p>
+      <div class="cycle-svg-wrap">
+        <svg width="180" height="180" viewBox="0 0 180 180" aria-hidden="true">
+          <path d="M90 8 A82 82 0 0 1 172 90" stroke="#B46969" stroke-width="13" stroke-linecap="round" fill="none"/>
+          <path d="M172 90 A82 82 0 0 1 90 172" stroke="#7A8C6E" stroke-width="13" stroke-linecap="round" fill="none"/>
+          <path d="M90 172 A82 82 0 0 1 24 138" stroke="#B49669" stroke-width="13" stroke-linecap="round" fill="none"/>
+          <path d="M24 138 A82 82 0 0 1 90 8" stroke="#A8B89A" stroke-width="13" stroke-linecap="round" fill="none"/>
+          <circle cx="90" cy="90" r="56" fill="rgba(237,213,213,0.04)" stroke="rgba(237,213,213,0.08)" stroke-width="1"/>
+          <text x="90" y="85" text-anchor="middle" font-size="9" fill="rgba(237,213,213,0.4)" font-family="Inter" letter-spacing="1">YOUR</text>
+          <text x="90" y="100" text-anchor="middle" font-size="9" fill="rgba(237,213,213,0.4)" font-family="Inter" letter-spacing="1">CYCLE</text>
+        </svg>
+      </div>
     </div>
-    <!-- ======================================================= -->
+    <div class="phases-grid">
+      <article class="ph-card ph-m reveal"><div class="ph-dot" style="background:#B46969"></div><h3 style="color:#D4A0A0">Menstrual</h3><div class="ph-days">Days 1–5 · Rest & Reflect</div><p class="ph-state">Hormones at their lowest. Mind turns analytical and inward. A powerful window for reviewing strategy and resetting direction — not pushing forward.</p><div class="ph-rows"><div class="ph-row g"><span class="dot"></span>Reviewing strategy & results</div><div class="ph-row g"><span class="dot"></span>Big-picture solo planning</div><div class="ph-row b"><span class="dot"></span>High-visibility pitching</div><div class="ph-row b"><span class="dot"></span>Hard negotiations</div></div></article>
+      <article class="ph-card ph-f reveal"><div class="ph-dot" style="background:#7A8C6E"></div><h3 style="color:#A8B89A">Follicular</h3><div class="ph-days">Days 6–13 · Create & Start</div><p class="ph-state">Estrogen rises steadily. Energy, optimism, and verbal fluency climb day by day. Your window for new ideas, outreach, and building momentum.</p><div class="ph-rows"><div class="ph-row g"><span class="dot"></span>Starting new projects</div><div class="ph-row g"><span class="dot"></span>Learning & brainstorming</div><div class="ph-row b"><span class="dot"></span>Rigid, repetitive admin</div></div></article>
+      <article class="ph-card ph-o reveal"><div class="ph-dot" style="background:#B49669"></div><h3 style="color:#D4B888">Ovulatory</h3><div class="ph-days">Days 14–16 · Pitch & Present</div><p class="ph-state">Peak estrogen. Your most magnetic, articulate, and confident window. Best days to pitch investors, negotiate salary, or give a public presentation.</p><div class="ph-rows"><div class="ph-row g"><span class="dot"></span>Investor calls & pitches</div><div class="ph-row g"><span class="dot"></span>Salary negotiations</div><div class="ph-row b"><span class="dot"></span>Detail-heavy admin</div></div></article>
+      <article class="ph-card ph-l reveal"><div class="ph-dot" style="background:#A8B89A"></div><h3 style="color:#A8B89A">Luteal</h3><div class="ph-days">Days 17–28 · Execute & Finish</div><p class="ph-state">Progesterone rises. Attention narrows to detail. Early luteal: audit, finish, organise. Late luteal: protect energy and defer new commitments.</p><div class="ph-rows"><div class="ph-row g"><span class="dot"></span>Editing & detail work</div><div class="ph-row g"><span class="dot"></span>Organising & audits</div><div class="ph-row b"><span class="dot"></span>Starting brand-new things</div></div></article>
+    </div>
+  </div>
+</section>
 
-    <p class="offer-note">Cancel anytime. No questions asked.</p>
+<!-- FOR WHO -->
+<section class="forwho" id="for-who" aria-labelledby="fw-h2">
+  <div class="si">
+    <div class="fw-header reveal">
+      <div class="ey">Every Woman Leads Something</div>
+      <h2 class="st" id="fw-h2">CycleALIGN is built for <em>all of you.</em></h2>
+      <p class="sb">Women in leadership aren't just women with a corner office. Every woman leads something. CycleALIGN speaks your language — whatever that looks like.</p>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card reveal"><div class="role-emoji">👩‍💼</div><h3>Corporate Professional</h3><p>Optimise your performance calendar. Know your best days to pitch, present, and negotiate. Stop hitting walls on days your body is in recovery mode.</p><blockquote>"I schedule all my big client calls in my follicular phase now. My close rate actually went up."</blockquote></div>
+      <div class="role-card reveal"><div class="role-emoji">👩‍💻</div><h3>Entrepreneur / Founder</h3><p>Plan investor calls, product launches, and hiring decisions in your ovulatory window. Use your luteal clarity for audits, systems, and documentation.</p><blockquote>"I launched my last product in my follicular phase on purpose. Best launch I've ever had."</blockquote></div>
+      <div class="role-card reveal"><div class="role-emoji">🏠</div><h3>Homemaker & Family Manager</h3><p>Managing a home is leading. Know your high-energy windows for demanding tasks and protect your rest windows — without guilt, without explaining yourself.</p><blockquote>"Finally an app that treats managing a home like the real leadership it is."</blockquote></div>
+      <div class="role-card reveal"><div class="role-emoji">🎓</div><h3>Student</h3><p>Schedule your hardest exams and presentations to your follicular and ovulatory windows. Stop cramming during your body's natural rest phase.</p><blockquote>"I planned my semester around my cycle phases. Better grades, less burnout."</blockquote></div>
+    </div>
+    <div class="onboard-note reveal"><span style="font-size:1.25rem;flex-shrink:0;margin-top:0.1rem">✨</span><p><strong>One app. Your language.</strong> When you open CycleALIGN for the first time, you tell us what your leadership looks like. The app personalises every insight, nudge, and daily suggestion to your role — a homemaker and a founder both get exactly what they need, never a generic message.</p></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features" aria-labelledby="feat-h2">
+  <div class="si">
+    <div class="feat-header reveal">
+      <div class="ey ey-dark" style="color:var(--gold-light)"><span style="width:20px;height:1px;background:var(--gold-light);display:inline-block"></span>What's Inside the App</div>
+      <h2 class="st st-dark" id="feat-h2">Built around how women<br/><em>actually think and work.</em></h2>
+      <p class="sb sb-dark">A complete system — daily insights, phase-aware task scoring, a weekly forecast, a private log, and a community — all working together so you never have to think about your cycle separately from your work again.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card span2 reveal"><div class="feat-icon">📅</div><h3>Task Sync — Phase-Aware Scheduling</h3><p>Add a task and a date. CycleALIGN checks which hormonal phase you'll be in on that day and scores the match — green for ideal timing, amber for manageable, red for a mismatch worth rescheduling. For high-stakes tasks, it suggests your next best window automatically.</p><div class="feat-eg"><strong>Example:</strong> You schedule a board presentation for Day 24. CycleALIGN flags it: "You'll be in late luteal — high emotional load, lower bandwidth. Want me to find a better date?" It suggests Day 14 — your ovulatory peak.</div></div>
+      <div class="feat-card reveal"><div class="feat-icon">🔔</div><h3>Daily Morning Insight</h3><p>One push notification every morning. Two lines. Your phase, your capacity, your top focus. Not a generic reminder — a personalised signal built around exactly where you are in your cycle today.</p><div class="feat-eg"><strong>Example:</strong> "Day 9 — Estrogen rising. Great day to start something new or have a tough conversation."</div></div>
+      <div class="feat-card reveal"><div class="feat-icon">📊</div><h3>Weekly Phase Forecast</h3><p>Every Monday, your week ahead — mapped to your hormonal phases. Know which days to front-load high-stakes work, which to protect, and which to let yourself rest without guilt.</p></div>
+      <div class="feat-card reveal"><div class="feat-icon">✍️</div><h3>10-Second Daily Log</h3><p>Energy level, mood, one win. Ten seconds. Over three cycles it builds your personal hormone data — your actual patterns, not population averages. Your data becomes irreplaceable.</p></div>
+      <div class="feat-card reveal"><div class="feat-icon">🌸</div><h3>Circle — Phase Community</h3><p>A private space where women in the same phase connect. Phase-gated rooms, not a general forum. Because 5,000 women in late luteal together understand exactly what that week feels like.</p></div>
+      <div class="feat-card reveal"><div class="feat-icon">🛍️</div><h3>Phase-Aware Shop</h3><p>Products recommended by cycle phase — magnesium in luteal, collagen in follicular, adaptogens in menstrual. A shop that knows what your body needs before you do.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder" aria-labelledby="fr-h2">
+  <div class="si">
+    <div class="founder-layout">
+      <div class="reveal perspective">
+        <div class="founder-img-card">
+          <div class="founder-img-inner">
+            <div class="founder-img-placeholder">👩</div>
+            <div class="founder-img-overlay">
+              <h4>Vinita Thakur</h4>
+              <p>Founder, CycleALIGN · Aurang India</p>
+              <div class="founder-tags">
+                <span class="ftag">🇮🇳 Delhi</span><span class="ftag">Founder</span><span class="ftag">Investor</span><span class="ftag">Traveller</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="founder-right reveal">
+        <div class="ey">Meet the Founder</div>
+        <h2 class="st" id="fr-h2">Built by a woman who<br/><em>got tired of the gap.</em></h2>
+        <p>Vinita Thakur is a Delhi-based founder, investor, and entrepreneur with 6+ years of marketing experience across India, Europe, Africa, and Asia. She builds at the intersection of women's health, climate tech, and entrepreneurship.</p>
+        <p>CycleALIGN was born out of a simple observation: every productivity tool in the world was built for a body that stays the same every day. Vinita's doesn't. Yours doesn't either. And nobody was building for that.</p>
+        <p>Through Aurang India, she launched CycleALIGN as India's first decision intelligence platform for women — a tool she wished had existed a decade ago when she was building her first business and spending half her cycle fighting her own energy instead of using it.</p>
+        <blockquote class="founder-quote">"The most commercially powerful businesses are the ones that also solve something real."</blockquote>
+        <div class="founder-links">
+          <a href="https://www.instagram.com/cyclealign.in/" class="founder-link" target="_blank" rel="noopener">📸 Instagram</a>
+          <a href="https://www.linkedin.com/in/vinita-thakur-0a9b79125/" class="founder-link" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a href="mailto:cyclealign@gmail.com" class="founder-link">✉️ cyclealign@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog" aria-labelledby="blog-h2">
+  <div class="si">
+    <div class="blog-header reveal">
+      <div><div class="ey ey-dark">The CycleALIGN Journal</div><h2 class="st st-dark" id="blog-h2">Read. Learn. <em>Lead differently.</em></h2></div>
+      <a href="#" class="blog-see-all">View all articles →</a>
+    </div>
+    <div class="blog-grid">
+      <article class="blog-card reveal" onclick="toggleBlog(this)">
+        <div class="blog-tag">Cycle Science</div>
+        <h3>What Is Cycle-Aware Leadership? A Complete Guide for Working Women</h3>
+        <p class="blog-intro">Cycle-aware leadership is not a wellness trend. It is a performance strategy built on endocrinology. Here's everything you need to know to start applying it today.</p>
+        <div class="blog-full">
+          <h4>What cycle-aware leadership actually means</h4>
+          <p>Cycle-aware leadership is the deliberate practice of aligning your professional decisions, workload, communication style, and energy output to the four hormonal phases of your menstrual cycle. It is grounded in endocrinology: estrogen, progesterone, and cortisol fluctuate predictably across the cycle, and those fluctuations have measurable effects on cognition, mood, verbal fluency, and risk appetite.</p>
+          <h4>The four phases and what they mean for your work</h4>
+          <p>The menstrual phase (days 1–5) is a natural window for reflection and big-picture thinking. Estrogen and progesterone are at their lowest, and the mind tends toward inward, analytical thinking. This is ideal for reviewing strategy and setting direction — not for high-visibility presentations.</p>
+          <p>The follicular phase (days 6–13) brings a steady rise in estrogen, lifting energy, creativity, and social confidence. This is your best window for starting new projects, learning new skills, having difficult conversations, and making outreach calls. Momentum builds day by day.</p>
+          <p>The ovulatory phase (days 14–16) is peak estrogen — your most powerful communication window. Verbal fluency, confidence, and social perception are all elevated. This is the time to pitch investors, negotiate salary, give keynotes, or launch something publicly.</p>
+          <p>The luteal phase (days 17–28) has two halves. In early luteal, progesterone rises and narrows attention to detail — ideal for auditing, editing, and finishing work. In late luteal, both hormones begin to fall, reducing emotional resilience and cognitive bandwidth. Protect this window: defer new commitments and close open loops.</p>
+          <h4>Why it matters more than any productivity system you've tried</h4>
+          <p>Every mainstream productivity system was designed for a body with a constant baseline. Your body doesn't have a constant baseline. It cycles. And when your tools don't account for that, you spend a third of every month fighting your own biology, wondering why the approach that worked last week isn't working today.</p>
+          <blockquote>The women who align with their biology will get ahead of everyone else who's still fighting theirs.</blockquote>
+          <span class="blog-close" onclick="event.stopPropagation();toggleBlog(this.closest('.blog-card'))">↑ Close article</span>
+        </div>
+        <div class="blog-meta"><span>8 min read · June 2026</span><span class="blog-read">Read →</span></div>
+      </article>
+
+      <article class="blog-card reveal" onclick="toggleBlog(this)">
+        <div class="blog-tag">Phase Planning</div>
+        <h3>How to Plan Your Work Calendar Around Your Hormonal Phase — Step by Step</h3>
+        <p class="blog-intro">A practical, week-by-week guide to phase-based productivity — how to front-load your follicular window, protect your luteal phase, and use your cycle as your actual calendar.</p>
+        <div class="blog-full">
+          <h4>Step 1 — Know your dates</h4>
+          <p>Start by noting the date your last period began. From that date, you can estimate your current phase: days 1–5 menstrual, days 6–13 follicular, days 14–16 ovulatory, days 17–28 luteal. CycleALIGN calculates this automatically every day.</p>
+          <h4>Step 2 — Map your highest-stakes tasks to your ovulatory window</h4>
+          <p>Look at the next 28 days. Identify your upcoming ovulatory window (roughly days 14–16). Front-load into this window anything that requires you to be at your most persuasive and articulate: investor meetings, salary conversations, public speaking, client pitches, important negotiations.</p>
+          <h4>Step 3 — Schedule creative and strategic work in the follicular phase</h4>
+          <p>Your follicular phase (days 6–13) is your second-best window for high-performance work and it lasts longer. Use this window for brainstorming, writing, strategy sessions, starting new projects, and any outreach where you want to come across as energetic and open.</p>
+          <h4>Step 4 — Use luteal for finishing, not starting</h4>
+          <p>Early luteal (days 17–21) is excellent for detailed, systematic work — auditing finances, editing documents, creating systems, and organising. Late luteal (days 22–28) is a window to protect. Avoid scheduling new commitments or high-visibility events here if you can help it.</p>
+          <h4>Step 5 — Honour the menstrual phase</h4>
+          <p>Days 1–5 are not for pushing. They are for reviewing, reflecting, and resetting. Use this window for journaling, reviewing the previous month, and setting direction for the next cycle. The ideas and clarity that come during menstruation are often your most honest signal.</p>
+          <blockquote>A cycle-aligned week means doing your highest-value work in your highest-value window — without white-knuckling your way through a low-energy day to do it.</blockquote>
+          <span class="blog-close" onclick="event.stopPropagation();toggleBlog(this.closest('.blog-card'))">↑ Close article</span>
+        </div>
+        <div class="blog-meta"><span>6 min read · June 2026</span><span class="blog-read">Read →</span></div>
+      </article>
+
+      <article class="blog-card reveal" onclick="toggleBlog(this)">
+        <div class="blog-tag">Leadership</div>
+        <h3>The Best Time in Your Cycle to Negotiate Salary, Pitch Investors, and Give Presentations</h3>
+        <p class="blog-intro">The ovulatory phase is your peak communication window. Here's the science behind why — and exactly how to use it in high-stakes professional moments.</p>
+        <div class="blog-full">
+          <h4>What happens in the ovulatory phase</h4>
+          <p>The ovulatory phase — approximately days 14 to 16 of a standard 28-day cycle — is when estrogen reaches its monthly peak. Alongside this, luteinising hormone (LH) surges and testosterone briefly rises. The combined effect: verbal fluency increases, risk tolerance rises, social confidence is heightened, and emotional intelligence sharpens.</p>
+          <h4>What to schedule in your ovulatory window</h4>
+          <ul>
+            <li>Salary negotiations — confidence and verbal fluency are at their highest</li>
+            <li>Investor pitches — storytelling and persuasion capacity peak here</li>
+            <li>Public speaking and keynotes — you are most comfortable being seen and heard</li>
+            <li>Important client presentations — social perception and rapport-building are sharpest</li>
+            <li>Difficult conversations with leadership — you are most likely to advocate clearly for yourself</li>
+            <li>Product launches or brand announcements — the energy you bring is contagious</li>
+          </ul>
+          <h4>How to identify your window in advance</h4>
+          <p>Your ovulatory window typically falls 12 to 16 days before your next expected period. CycleALIGN calculates your personal window based on your cycle data and alerts you 48 hours before it begins — so you can move that important meeting to the right week before it's too late.</p>
+          <h4>What if you can't move the meeting?</h4>
+          <p>You can't always control timing. But knowing your cycle gives you an edge even when you can't optimise the date. If you know you're in late luteal during a big presentation, you can prepare more thoroughly and give yourself more grace if it feels harder — because it is harder, and that's biology, not failure.</p>
+          <blockquote>The goal is not perfection. The goal is self-knowledge. And self-knowledge is the foundation of every form of leadership.</blockquote>
+          <span class="blog-close" onclick="event.stopPropagation();toggleBlog(this.closest('.blog-card'))">↑ Close article</span>
+        </div>
+        <div class="blog-meta"><span>5 min read · June 2026</span><span class="blog-read">Read →</span></div>
+      </article>
+
+      <article class="blog-card reveal" onclick="toggleBlog(this)">
+        <div class="blog-tag">Women's Health</div>
+        <h3>How CycleALIGN Is Different from Every Other Period Tracker</h3>
+        <p class="blog-intro">Most period apps are built for fertility. CycleALIGN is built for performance. Here's a clear breakdown of what's actually different — and why it matters for working women.</p>
+        <div class="blog-full">
+          <h4>What most period trackers actually do</h4>
+          <p>The majority of period tracking apps on the market were built to solve one core problem: predicting your next period and your fertile window. They are excellent at this. But they were not built to help you use your cycle as a professional strategy — to tell you whether to schedule your board presentation this Tuesday or next Thursday.</p>
+          <h4>What CycleALIGN does differently</h4>
+          <p>CycleALIGN starts where other period trackers stop. It tracks your cycle — but the cycle data is not the product. The product is what CycleALIGN does with that data: it calculates your daily hormonal phase, scores your tasks against that phase, delivers a personalised morning insight, and gives you a weekly forecast so you can plan your professional life around your biological rhythm.</p>
+          <ul>
+            <li>Task Sync: add a task and a date, get a phase-match score — green, amber, or red</li>
+            <li>Daily insight notification: one personalised two-line brief every morning based on your phase</li>
+            <li>Weekly forecast: a Monday overview of your best and most protected days ahead</li>
+            <li>Role-specific personalisation: the app speaks differently to a founder vs a homemaker vs a student</li>
+            <li>Privacy-first task input: you never have to type what the task actually is — category only</li>
+          </ul>
+          <h4>The bottom line</h4>
+          <p>Period trackers tell you when your period is coming. CycleALIGN tells you what your biology is capable of every single day — and helps you build your week around that knowledge. It is the difference between tracking and intelligence.</p>
+          <span class="blog-close" onclick="event.stopPropagation();toggleBlog(this.closest('.blog-card'))">↑ Close article</span>
+        </div>
+        <div class="blog-meta"><span>7 min read · July 2026</span><span class="blog-read">Read →</span></div>
+      </article>
+
+      <article class="blog-card reveal" onclick="toggleBlog(this)">
+        <div class="blog-tag">Postpartum</div>
+        <h3>Managing Postpartum Stress While Returning to Work — A Hormone-Aware Guide</h3>
+        <p class="blog-intro">Returning to work after maternity leave while your hormones are still recalibrating is one of the hardest transitions a woman faces. Here's how to do it with your cycle, not against it.</p>
+        <div class="blog-full">
+          <h4>What happens to your hormones postpartum</h4>
+          <p>After delivery, estrogen and progesterone drop sharply — the steepest hormonal drop a human body experiences outside of menopause. Prolactin remains elevated, and cortisol tends to be chronically higher due to sleep deprivation and the psychological adjustment to parenthood. Every woman's postpartum hormonal timeline is different.</p>
+          <h4>Why returning to work feels so hard</h4>
+          <p>It is not just emotional. It is biochemical. When a woman returns to work in the postpartum period, she is often operating with chronically elevated cortisol, disrupted sleep, and a hormonal baseline significantly lower than her pre-pregnancy norm. Asking her to perform at her previous level in the first few months back is asking her body to do something it is not yet equipped to do.</p>
+          <h4>How cycle awareness helps</h4>
+          <p>Once your cycle returns — whether at 6 weeks or 6 months postpartum — CycleALIGN helps you navigate the transition back to work with much greater self-compassion and strategy.</p>
+          <ul>
+            <li>Use your follicular phase for your first big back-to-work presentations or meetings</li>
+            <li>Use your ovulatory window for high-stakes conversations about flexible arrangements</li>
+            <li>Protect your luteal phase from overcommitment — especially in the first 3 months back</li>
+            <li>Use your menstrual phase for planning and reflection, not performance pressure</li>
+          </ul>
+          <blockquote>You are not failing at returning to work. You are navigating one of the most hormonally complex transitions a human body goes through. Give yourself the same grace you would give anyone else in that situation.</blockquote>
+          <span class="blog-close" onclick="event.stopPropagation();toggleBlog(this.closest('.blog-card'))">↑ Close article</span>
+        </div>
+        <div class="blog-meta"><span>9 min read · July 2026</span><span class="blog-read">Read →</span></div>
+      </article>
+
+      <article class="blog-card reveal" onclick="toggleBlog(this)">
+        <div class="blog-tag">Science</div>
+        <h3>Does Cycle Syncing Actually Work? What the Research Really Says</h3>
+        <p class="blog-intro">Cycle syncing is everywhere right now. But is it backed by science or just wellness hype? We go through the actual research — what's proven, what's promising, and what to do with it.</p>
+        <div class="blog-full">
+          <h4>What the science actually shows</h4>
+          <p>The hormonal fluctuations across the menstrual cycle are among the most well-documented phenomena in endocrinology. What is less settled is the precise magnitude of cognitive and emotional effects — but the directional evidence is strong and consistent.</p>
+          <ul>
+            <li>Verbal fluency peaks around ovulation — consistent finding across multiple studies</li>
+            <li>Cognitive performance varies across the cycle — supported by peer-reviewed research</li>
+            <li>Emotional reactivity increases in late luteal — well-documented in clinical literature</li>
+            <li>Physical recovery from exercise is faster in the follicular phase — emerging evidence</li>
+            <li>Sleep quality fluctuates with hormonal changes — strongly supported</li>
+          </ul>
+          <h4>What cycle syncing claims that science doesn't fully support yet</h4>
+          <p>Some advocates claim highly specific effects — particular foods for each phase, precise exercise types for each day — that go beyond what current evidence can confirm. CycleALIGN is built only on the well-supported aspects: phase-based task scheduling, daily energy forecasting, and personalised guidance — without making claims the science cannot yet back.</p>
+          <h4>So should you practice cycle syncing?</h4>
+          <p>Yes — with appropriate calibration. The core principle is sound: your hormones fluctuate, those fluctuations affect your energy and cognition, and you can make smarter decisions by accounting for them. The goal is not to turn your cycle into a rigid constraint. It is to use it as one more data point in understanding yourself.</p>
+          <span class="blog-close" onclick="event.stopPropagation();toggleBlog(this.closest('.blog-card'))">↑ Close article</span>
+        </div>
+        <div class="blog-meta"><span>10 min read · July 2026</span><span class="blog-read">Read →</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi" id="testimonials" aria-labelledby="testi-h2">
+  <div class="si">
+    <div class="testi-header reveal">
+      <div class="ey">What Women Are Saying</div>
+      <h2 class="st" id="testi-h2">From women who stopped<br/><em>fighting their biology.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="tcard reveal"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"I finally understand why certain weeks I'm unstoppable and other weeks I feel like I'm wading through mud. CycleALIGN doesn't just track — it explains. And then it helps me plan around it."</p><div class="tcard-author"><div class="tcard-av" style="background:#4B2D3C">P</div><div class="tcard-name"><h4>Priya S.</h4><p>Founder, Delhi</p></div></div></div>
+      <div class="tcard reveal"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"I moved my quarterly review to my follicular phase after CycleALIGN suggested it. The difference was noticeable — I was sharper, calmer, and more articulate. This is actual performance intelligence."</p><div class="tcard-author"><div class="tcard-av" style="background:#7A8C6E">R</div><div class="tcard-name"><h4>Ritu M.</h4><p>Senior Manager, Bangalore</p></div></div></div>
+      <div class="tcard reveal"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"As a homemaker, I never thought an app like this would be for me. CycleALIGN speaks my language. I batch cook in my follicular phase now and protect my luteal phase fiercely. My family notices the difference."</p><div class="tcard-author"><div class="tcard-av" style="background:#B46969">A</div><div class="tcard-name"><h4>Ananya K.</h4><p>Homemaker, Mumbai</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq" aria-labelledby="faq-h2">
+  <div class="si">
+    <div class="faq-header reveal">
+      <div class="ey ey-dark">Common Questions</div>
+      <h2 class="st st-dark" id="faq-h2">Everything you need to know<br/>about <em>CycleALIGN</em></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal"><h3 class="faq-q">How is CycleALIGN different from other period trackers?</h3><p class="faq-a">Most period trackers are built for fertility and symptom logging. CycleALIGN is built for performance and leadership. It uses your cycle data to score tasks, forecast your weekly energy, and tell you the best day to pitch, negotiate, or present. No other period app does this. It is the difference between tracking and intelligence.</p></div>
+      <div class="faq-item reveal"><h3 class="faq-q">How does your menstrual cycle affect work performance?</h3><p class="faq-a">During the follicular and ovulatory phases (days 6–16), rising estrogen boosts energy, creativity, and verbal fluency — the best days for pitching, negotiating, and presenting. During the late luteal phase (days 22–28), cognitive bandwidth naturally reduces. Scheduling high-stakes work to match these windows significantly improves output and reduces burnout.</p></div>
+      <div class="faq-item reveal"><h3 class="faq-q">What is cycle syncing and does it actually work?</h3><p class="faq-a">Cycle syncing is adjusting your work habits, exercise, and commitments to the four phases of your menstrual cycle. The science is grounded in endocrinology — your hormones shift in predictable ways with measurable effects on cognition, mood, and energy. CycleALIGN automates cycle syncing so you do not have to track it manually.</p></div>
+      <div class="faq-item reveal"><h3 class="faq-q">What is the best time in your cycle to pitch or negotiate salary?</h3><p class="faq-a">The ovulatory phase (days 14–16) is your peak window. Estrogen is at its highest, verbal fluency and confidence are elevated, and social perception is sharpest. CycleALIGN identifies this window automatically and notifies you when it is approaching.</p></div>
+      <div class="faq-item reveal"><h3 class="faq-q">Is CycleALIGN only for women in corporate jobs?</h3><p class="faq-a">No. CycleALIGN is for any woman who leads something — a boardroom, a business, a home, or a classroom. The app personalises its language and suggestions to your life role, not just your job title.</p></div>
+      <div class="faq-item reveal"><h3 class="faq-q">What does ₹499 for a year mean exactly?</h3><p class="faq-a">Joining the waitlist costs ₹499 — and that gives you full access for an entire year. This is the founding member rate available only to early users. After the public launch, pricing moves to ₹499/month. Early members keep their annual access locked at ₹499 and can renew at a preferred rate. No hidden charges. Cancel anytime.</p></div>
+      <div class="faq-item reveal"><h3 class="faq-q">How does CycleALIGN protect my privacy?</h3><p class="faq-a">You never need to type what a task actually is — you pick a category, and the app gives guidance without knowing your sensitive details. Optional task labels stay on your device only, never synced to a server. Calendar sync is selective — you choose which calendars to connect. Your account can be permanently deleted anytime.</p></div>
+      <div class="faq-item reveal"><h3 class="faq-q">Is CycleALIGN available in India?</h3><p class="faq-a">Yes. CycleALIGN is built in India, by an Indian founder, for Indian women and women globally. Pricing is in Indian Rupees. Early access is ₹499 for a full year. Founded in Delhi by Vinita Thakur under Aurang India. Contact us at cyclealign@gmail.com.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist" id="waitlist" aria-labelledby="wl-h2">
+  <div class="si">
+    <div class="wl-inner">
+      <div class="wl-left reveal">
+        <div class="ey">Early Access — Limited Spots</div>
+        <h2 class="st" id="wl-h2">Be the first to lead with<br/><em>your cycle.</em></h2>
+        <p>CycleALIGN is launching soon. Join the waitlist today and get an entire year of full access for ₹499 — a one-time founding member price. After the public launch, pricing moves to ₹499/month.</p>
+        <p>This rate is locked for life for founding members. No spam. One email when it's time.</p>
+        <div class="wl-perks">
+          <div class="wl-perk"><div class="wl-perk-icon">🚀</div>Early access before the public launch</div>
+          <div class="wl-perk"><div class="wl-perk-icon">💛</div>Full year for ₹499 — then ₹499/month for everyone else</div>
+          <div class="wl-perk"><div class="wl-perk-icon">🔒</div>Founding rate locked for life</div>
+          <div class="wl-perk"><div class="wl-perk-icon">🎁</div>Exclusive guide: Plan Your First Cycle with CycleALIGN</div>
+          <div class="wl-perk"><div class="wl-perk-icon">🌸</div>First access to Circle — our phase-gated community</div>
+          <div class="wl-perk"><div class="wl-perk-icon">🔕</div>No spam. One email when the app is ready.</div>
+        </div>
+      </div>
+      <div class="reveal perspective">
+        <div class="wl-card">
+          <div class="wl-badge"><span class="wl-badge-dot"></span>Waitlist Open Now</div>
+          <h3>Join the Waitlist</h3>
+          <div class="wl-price-box">
+            <div class="wl-price-big">₹499</div>
+            <div class="wl-price-detail">
+              <span>Full year of access · Founding member rate</span>
+              <small>After launch: ₹499/month for everyone else</small>
+            </div>
+          </div>
+          <div class="wl-success" id="wlSuccess">
+            <div class="wl-success-icon">🌸</div>
+            <h4>You're on the list.</h4>
+            <p>We'll email you the moment CycleALIGN is ready — with your founding member offer locked in. Welcome to the beginning of something different.</p>
+          </div>
+          <div id="wlForm">
+            <div class="wl-form">
+              <div class="wl-field"><label for="wl-name">Your Name *</label><input type="text" id="wl-name" placeholder="Priya Sharma" autocomplete="name" required/></div>
+              <div class="wl-field"><label for="wl-email">Email Address *</label><input type="email" id="wl-email" placeholder="priya@example.com" autocomplete="email" required/></div>
+              <div class="wl-field"><label for="wl-phone">Contact Number *</label><input type="tel" id="wl-phone" placeholder="+91 98765 43210" autocomplete="tel" required/></div>
+              <div class="wl-field"><label for="wl-role">I am a…</label><input type="text" id="wl-role" placeholder="e.g. Founder, Corporate professional, Homemaker…"/></div>
+              <button class="wl-submit" id="wlSubmit" type="button" onclick="submitWaitlist()">Reserve My Spot — ₹499/year →</button>
+              <p class="wl-note">🔒 Your information is private and will never be shared. Unsubscribe anytime.</p>
+            </div>
+          </div>
+          <div class="wl-or"><span>or</span></div>
+          <a href="https://www.cyclealign.in/#offer" class="wl-alt" target="_blank" rel="noopener">View early access offer on cyclealign.in ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="finalcta" aria-labelledby="cta-h2">
+  <div class="fcta-orb" aria-hidden="true"></div>
+  <div class="fcta-inner reveal">
+    <h2 id="cta-h2">Start leading with<br/><em>your biology.</em></h2>
+    <p class="fcta-sub">Join the waitlist today. ₹499 for a full year — the founding member rate before the price moves to ₹499/month at public launch.</p>
+    <div class="fcta-btns">
+      <a href="#waitlist" class="hbtn hbtn-primary"><span class="hbtn-icon">🌸</span><span class="hbtn-text"><small>Full year · Founding rate</small>Join Waitlist — ₹499</span></a>
+      <a href="https://www.cyclealign.in/#offer" class="hbtn hbtn-sec" target="_blank" rel="noopener"><span class="hbtn-icon">↗</span><span class="hbtn-text"><small>On cyclealign.in</small>Early Access Offer</span></a>
+    </div>
+    <p class="fcta-note">₹499 for your first year · Founding rate locked for life · ₹499/month after public launch</p>
+    <p class="sig">"Because the women who align with their biology will get ahead of everyone else who's still fighting theirs."</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Cycle<span>Align</span></div>
-  <ul class="footer-links">
-    <li><a href="/privacy">Privacy Policy</a></li>
-    <li><a href="mailto:hello@cyclealign.in">Contact Us</a></li>
-  </ul>
-  <p class="footer-copy">© 2024 CycleAlign. All rights reserved. cyclealign.in</p>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="fbrand">
+        <div class="fbrand-logo">
+          <svg class="fbrand-svg" aria-hidden="true"><use href="#logo-icon"/></svg>
+          <div class="fbrand-name">cycle<span>align</span></div>
+        </div>
+        <p>India's first cycle-aware hormonal intelligence app for women. Built by Aurang India, founded by Vinita Thakur, Delhi.</p>
+        <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
+          <a href="https://www.instagram.com/cyclealign.in/" target="_blank" rel="noopener" style="font-size:0.78rem;color:rgba(237,213,213,0.4);transition:color 0.2s" onmouseover="this.style.color='#D4A0A0'" onmouseout="this.style.color='rgba(237,213,213,0.4)'">Instagram</a>
+          <a href="https://www.linkedin.com/in/vinita-thakur-0a9b79125/" target="_blank" rel="noopener" style="font-size:0.78rem;color:rgba(237,213,213,0.4);transition:color 0.2s" onmouseover="this.style.color='#D4A0A0'" onmouseout="this.style.color='rgba(237,213,213,0.4)'">LinkedIn</a>
+          <a href="mailto:cyclealign@gmail.com" style="font-size:0.78rem;color:rgba(237,213,213,0.4);transition:color 0.2s" onmouseover="this.style.color='#D4A0A0'" onmouseout="this.style.color='rgba(237,213,213,0.4)'">Email</a>
+        </div>
+      </div>
+      <div class="fcol"><h4>Product</h4><a href="#what-is">What is CycleALIGN</a><a href="#phases">The 4 Phases</a><a href="#features">Features</a><a href="#for-who">Who it's for</a></div>
+      <div class="fcol"><h4>Join Us</h4><a href="#waitlist">Join Waitlist</a><a href="https://www.cyclealign.in/#offer" target="_blank">Early Access Offer</a><a href="#founder">About Vinita</a><a href="#blog">Journal</a></div>
+      <div class="fcol"><h4>Connect</h4><a href="https://www.instagram.com/cyclealign.in/" target="_blank">Instagram</a><a href="https://www.linkedin.com/in/vinita-thakur-0a9b79125/" target="_blank">LinkedIn</a><a href="mailto:cyclealign@gmail.com">cyclealign@gmail.com</a><a href="#" onclick="openModal('privacy');return false">Privacy Policy</a><a href="#" onclick="openModal('disclaimer');return false">Disclaimer</a></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CycleALIGN · Aurang India · cyclealign.in</p>
+      <div class="footer-legal">
+        <a href="#" onclick="openModal('privacy');return false">Privacy Policy</a>
+        <a href="#" onclick="openModal('disclaimer');return false">Disclaimer</a>
+        <a href="mailto:cyclealign@gmail.com">Contact</a>
+      </div>
+      <p>Made with intention in India 🇮🇳</p>
+    </div>
+  </div>
 </footer>
 
-<!-- ============================================================= -->
-<!-- SUPABASE INTEGRATION                                           -->
-<!-- Replace SUPABASE_URL and SUPABASE_ANON_KEY with your values   -->
-<!-- ============================================================= -->
+<!-- PRIVACY POLICY MODAL -->
+<div class="modal-overlay" id="privacyModal" onclick="if(event.target===this)closeModal('privacy')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Privacy Policy</h3>
+      <button class="modal-close" onclick="closeModal('privacy')">✕</button>
+    </div>
+    <div class="modal-body">
+      <h4>Introduction</h4>
+      <p>CycleALIGN ("we", "our", or "us"), operated by Aurang India, is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our website (cyclealign.in) and join our waitlist.</p>
+      <h4>Information We Collect</h4>
+      <p>When you join our waitlist, we collect the following information:</p>
+      <ul>
+        <li>Your full name</li>
+        <li>Your email address</li>
+        <li>Your contact number</li>
+        <li>Your self-identified life role (e.g. founder, homemaker, student)</li>
+      </ul>
+      <p>We do not collect any health or menstrual cycle data through this website. Cycle and health data is only collected within the CycleALIGN app, under separate terms.</p>
+      <h4>How We Use Your Information</h4>
+      <p>We use the information you provide to:</p>
+      <ul>
+        <li>Notify you when CycleALIGN is ready for early access</li>
+        <li>Share your founding member offer and pricing details</li>
+        <li>Send occasional product updates — never spam</li>
+        <li>Understand our early audience to build a better product</li>
+      </ul>
+      <h4>Data Storage & Security</h4>
+      <p>Your waitlist data is stored securely via Google Forms and Google Sheets, protected by Google's enterprise-grade security. We do not sell, rent, or share your personal data with any third party for marketing purposes.</p>
+      <h4>Your Rights</h4>
+      <p>You have the right to access, correct, or delete any personal data we hold about you at any time. To exercise any of these rights, please contact us at cyclealign@gmail.com. We will respond within 7 working days.</p>
+      <h4>Cookies</h4>
+      <p>Our website uses minimal cookies for basic functionality and analytics. We do not use advertising cookies or track you across other websites.</p>
+      <h4>Contact</h4>
+      <p>For any privacy-related concerns, please contact: <strong>cyclealign@gmail.com</strong><br/>CycleALIGN, Aurang India, New Delhi, India.</p>
+      <p class="last-updated">Last updated: July 2026</p>
+    </div>
+  </div>
+</div>
+
+<!-- DISCLAIMER MODAL -->
+<div class="modal-overlay" id="disclaimerModal" onclick="if(event.target===this)closeModal('disclaimer')">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Disclaimer</h3>
+      <button class="modal-close" onclick="closeModal('disclaimer')">✕</button>
+    </div>
+    <div class="modal-body">
+      <h4>General Information Only</h4>
+      <p>The information provided on this website and within the CycleALIGN application is intended for general informational and educational purposes only. It does not constitute medical advice, diagnosis, or treatment.</p>
+      <h4>Not a Medical Device</h4>
+      <p>CycleALIGN is a productivity and lifestyle application. It is not a medical device and has not been evaluated or approved by any medical regulatory authority. The app tracks menstrual cycle phases and provides productivity insights based on general hormonal patterns. It is not designed to diagnose, treat, cure, or prevent any medical condition.</p>
+      <h4>Consult a Healthcare Professional</h4>
+      <p>If you have concerns about your menstrual health, hormonal health, fertility, or any other health condition, please consult a qualified healthcare professional. Do not disregard professional medical advice or delay seeking it based on information provided by CycleALIGN.</p>
+      <h4>Individual Variation</h4>
+      <p>Every woman's cycle is unique. The insights, recommendations, and phase predictions provided by CycleALIGN are based on general hormonal patterns and averages. Individual experiences may vary significantly. CycleALIGN does not guarantee the accuracy of phase predictions or productivity recommendations for any individual user.</p>
+      <h4>Earnings & Results Disclaimer</h4>
+      <p>Any testimonials, success stories, or examples of productivity improvements shared on this website reflect individual experiences. They are not guarantees of similar results. Individual outcomes depend on many factors outside CycleALIGN's control.</p>
+      <h4>Pricing & Availability</h4>
+      <p>All pricing mentioned on this website is subject to change. The ₹499/year founding member rate is offered on a limited-availability basis and may be withdrawn at any time. The ₹499/month post-launch price is indicative and may change prior to the app's official launch.</p>
+      <h4>Limitation of Liability</h4>
+      <p>To the maximum extent permitted by applicable law, CycleALIGN and Aurang India shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of this website or application, or from reliance on any information provided herein.</p>
+      <h4>Governing Law</h4>
+      <p>This disclaimer is governed by the laws of India. Any disputes arising from the use of this website or application shall be subject to the exclusive jurisdiction of the courts of New Delhi, India.</p>
+      <h4>Contact</h4>
+      <p>For questions about this disclaimer, please contact: <strong>cyclealign@gmail.com</strong></p>
+      <p class="last-updated">Last updated: July 2026</p>
+    </div>
+  </div>
+</div>
+
 <script>
-  const SUPABASE_URL = 'https://pjegckgxudcgcxvmueev.supabase.co'
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqZWdja2d4dWRjZ2N4dm11ZWV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyMzc2NzAsImV4cCI6MjA5NjgxMzY3MH0.siBVPAQXfUQqK4H2ZtBzUVBp9wBtVH5NhR6Uu8mtH-0'
+// Nav scroll
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
 
-  function saveToWaitlist(email, paymentId) {
-    fetch(SUPABASE_URL + '/rest/v1/waitlist', {
-      method: 'POST',
-      headers: {
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-        'Content-Type': 'application/json',
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({
-        email: email,
-        razorpay_payment_id: paymentId,
-        status: 'waitlist'
-      })
-    })
-  }
-
-  window.addEventListener('message', function(e) {
-    if (e.data && e.data.razorpay_payment_id) {
-      saveToWaitlist(e.data.email || '', e.data.razorpay_payment_id)
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),(Array.from(reveals).indexOf(e.target)%4)*90);
+      obs.unobserve(e.target);
     }
-  })
-</script>
-<!-- ============================================================= -->
+  });
+},{threshold:0.08});
+reveals.forEach(el=>obs.observe(el));
 
+// 3D tilt on mouse move for key cards
+document.querySelectorAll('.stat-card-3d,.feat-card,.tcard,.faq-item,.role-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width-0.5)*10;
+    const y=((e.clientY-r.top)/r.height-0.5)*-10;
+    card.style.transform=`rotateX(${y}deg) rotateY(${x}deg) translateZ(6px)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+});
+
+// Blog expand/collapse
+function toggleBlog(card){
+  const content=card.querySelector('.blog-full');
+  const isOpen=content.classList.contains('open');
+  document.querySelectorAll('.blog-full.open').forEach(c=>{c.classList.remove('open');});
+  if(!isOpen){content.classList.add('open');setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),100);}
+}
+
+// Modal
+function openModal(type){
+  document.getElementById(type+'Modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(type){
+  document.getElementById(type+'Modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('privacy');closeModal('disclaimer');}});
+
+// Waitlist form
+function submitWaitlist(){
+  const name=document.getElementById('wl-name').value.trim();
+  const email=document.getElementById('wl-email').value.trim();
+  const phone=document.getElementById('wl-phone').value.trim();
+  const role=document.getElementById('wl-role').value.trim();
+  if(!name){alert('Please enter your name.');return;}
+  if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
+  if(!phone){alert('Please enter your contact number.');return;}
+  const btn=document.getElementById('wlSubmit');
+  btn.textContent='Submitting…';btn.disabled=true;
+  const formUrl='https://docs.google.com/forms/d/e/1FAIpQLSewoCflo8-6SVSzX4f_M7DZZYMqHy-Jl_R0YukpuGE3uHnYNQ/formResponse';
+  const form=document.createElement('form');
+  form.method='POST';form.action=formUrl;form.target='wl-frame';
+  [['entry.1359102439',name],['entry.1045781291',email],['entry.1166974658',phone],['entry.839337160',role||'Not specified']].forEach(([k,v])=>{
+    const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;form.appendChild(i);
+  });
+  document.body.appendChild(form);form.submit();document.body.removeChild(form);
+  setTimeout(()=>{document.getElementById('wlForm').style.display='none';document.getElementById('wlSuccess').style.display='block';},1200);
+}
+</script>
+<iframe name="wl-frame" style="display:none" aria-hidden="true"></iframe>
 </body>
 </html>
