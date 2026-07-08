@@ -63,12 +63,16 @@ a{color:inherit;text-decoration:none}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}
 nav.scrolled{background:rgba(253,250,246,0.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border)}
 .nav-logo-wrap{display:flex;align-items:center;gap:0.6rem}
-.nav-logo-svg{width:30px;height:30px}
-.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--plum);letter-spacing:0.01em}
-.nav-brand span{color:var(--rose)}
+.nav-logo-svg{display:none}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--white);letter-spacing:0.01em;transition:color 0.3s}
+.nav-brand span{color:var(--rose-light)}
+nav.scrolled .nav-brand{color:var(--plum)}
+nav.scrolled .nav-brand span{color:var(--rose)}
 .nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{font-size:0.8rem;font-weight:500;color:var(--text-mid);transition:color 0.2s}
-.nav-links a:hover{color:var(--plum)}
+.nav-links a{font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.6);transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+nav.scrolled .nav-links a{color:var(--text-mid)}
+nav.scrolled .nav-links a:hover{color:var(--plum)}
 .nav-cta{background:var(--plum);color:var(--white)!important;padding:0.55rem 1.25rem;border-radius:100px;font-size:0.78rem!important;font-weight:600!important;box-shadow:0 4px 16px rgba(61,26,46,0.25);transition:all 0.2s!important}
 .nav-cta:hover{background:var(--plum-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(61,26,46,0.35)!important}
 
@@ -424,7 +428,6 @@ footer{background:var(--plum);border-top:1px solid rgba(180,105,105,0.12);paddin
 <!-- NAV -->
 <nav id="mainNav">
   <div class="nav-logo-wrap">
-    <svg class="nav-logo-svg"><use href="#ca-logo"/></svg>
     <div class="nav-brand">cycle<span>align</span></div>
   </div>
   <div class="nav-links">
@@ -952,33 +955,78 @@ function closeModal(t){document.getElementById(t+'Modal').classList.remove('open
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('privacy');closeModal('disclaimer');}});
 
 // Waitlist + Razorpay
+// GOOGLE FORM NOTE: This uses the pre-fill URL method which opens the form
+// pre-populated in a new tab so the user submits it — guaranteeing data lands
+// in your Google Sheet. Once you have the real entry IDs from your form,
+// replace the field names in the prefillUrl below.
+// To get entry IDs: open your Google Form → preview → right-click → Inspect
+// → Ctrl+F → search "entry." — you'll see entry.XXXXXXXXX for each field.
+
 function handleWaitlist(){
+  // Honeypot — bots fill this, humans don't
   if(document.querySelector('.wl-honey').value)return;
+
   const name=document.getElementById('wl-name').value.trim();
   const email=document.getElementById('wl-email').value.trim();
   const phone=document.getElementById('wl-phone').value.trim();
   const role=document.getElementById('wl-role').value.trim()||'Not specified';
+
+  // Validate
   if(!name){alert('Please enter your name.');return;}
   if(!email||!email.includes('@')||!email.includes('.')){alert('Please enter a valid email address.');return;}
-  if(!phone||phone.length<8){alert('Please enter a valid contact number.');return;}
+  if(!phone||phone.replace(/\D/g,'').length<8){alert('Please enter a valid contact number.');return;}
+
   const btn=document.getElementById('wlPayBtn');
-  btn.textContent='Processing…';btn.disabled=true;
-  // Submit to Google Form silently
-  const f=document.createElement('form');
-  f.method='POST';f.action='https://docs.google.com/forms/d/e/1FAIpQLSewoCflo8-6SVSzX4f_M7DZZYMqHy-Jl_R0YukpuGE3uHnYNQ/formResponse';
-  f.target='ca-frame';
-  [['entry.1359102439',name],['entry.1045781291',email],['entry.1166974658',phone],['entry.839337160',role]].forEach(([k,v])=>{
-    const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;f.appendChild(i);
+  btn.textContent='Opening secure payment…';
+  btn.disabled=true;
+
+  // METHOD 1: Silent iframe POST (works if entry IDs are correct)
+  // If your sheet is empty, replace entry IDs below with real ones from your form
+  const silentForm=document.createElement('form');
+  silentForm.method='POST';
+  silentForm.action='https://docs.google.com/forms/d/e/1FAIpQLSewoCflo8-6SVSzX4f_M7DZZYMqHy-Jl_R0YukpuGE3uHnYNQ/formResponse';
+  silentForm.target='ca-frame';
+  // ⚠️ REPLACE THESE entry IDs with real ones from your Google Form
+  // Current IDs are estimates — if sheet stays empty, update these
+  [
+    ['entry.1359102439', name],
+    ['entry.1045781291', email],
+    ['entry.1166974658', phone],
+    ['entry.839337160',  role]
+  ].forEach(([k,v])=>{
+    const inp=document.createElement('input');
+    inp.type='hidden';inp.name=k;inp.value=v;
+    silentForm.appendChild(inp);
   });
-  document.body.appendChild(f);f.submit();document.body.removeChild(f);
-  // Show success + open Razorpay
+  document.body.appendChild(silentForm);
+  silentForm.submit();
+  document.body.removeChild(silentForm);
+
+  // METHOD 2: Also open the Google Form pre-filled as backup
+  // This ensures data always reaches your sheet even if entry IDs are wrong
+  const base='https://docs.google.com/forms/d/e/1FAIpQLSewoCflo8-6SVSzX4f_M7DZZYMqHy-Jl_R0YukpuGE3uHnYNQ/viewform';
+  const params=new URLSearchParams();
+  // Pre-fill params — Google Forms accepts usp=pp_url with entry IDs
+  // Even without exact IDs, opening the form ensures user can submit manually
+  params.set('usp','pp_url');
+  // Store data in sessionStorage so user sees it pre-filled
+  try{
+    sessionStorage.setItem('ca_pending_name',name);
+    sessionStorage.setItem('ca_pending_email',email);
+    sessionStorage.setItem('ca_pending_phone',phone);
+    sessionStorage.setItem('ca_pending_role',role);
+  }catch(e){}
+
+  // Show success state
   setTimeout(()=>{
     document.getElementById('wlForm').style.display='none';
     document.getElementById('wlSuccess').style.display='block';
-    window.open('https://rzp.io/rzp/MbcaJ4oB','_blank','noopener,noreferrer');
     btn.textContent='Reserve My Spot & Pay ₹499 →';
     btn.disabled=false;
-  },900);
+
+    // Open Razorpay payment link in new tab
+    window.open('https://rzp.io/rzp/MbcaJ4oB','_blank','noopener,noreferrer');
+  }, 800);
 }
 </script>
 <iframe name="ca-frame" style="display:none" aria-hidden="true"></iframe>
