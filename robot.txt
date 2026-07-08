@@ -1,4 +1,45 @@
+# robots.txt for cyclealign.in
+# Generated July 2026
+
 User-agent: *
 Allow: /
 
+# Disallow any admin or private paths if they exist
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Allow all major search engine bots explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap location
 Sitemap: https://www.cyclealign.in/sitemap.xml
