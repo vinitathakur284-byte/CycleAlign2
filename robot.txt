@@ -7,7 +7,6 @@ Allow: /
 # Disallow any admin or private paths if they exist
 Disallow: /admin/
 Disallow: /private/
-Disallow: /*.json$
 
 # Allow all major search engine bots explicitly
 User-agent: Googlebot
