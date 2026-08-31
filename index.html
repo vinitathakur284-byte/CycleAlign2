@@ -38,7 +38,9 @@
 <meta http-equiv="content-language" content="en-IN"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CycleALIGN?","acceptedAnswer":{"@type":"Answer","text":"CycleALIGN is India's first hormonal intelligence app for women. It tracks your menstrual cycle, identifies your current hormonal phase, and syncs your tasks, meetings, and decisions to the times when you naturally have the most energy, confidence, and cognitive capacity."}},{"@type":"Question","name":"How is CycleALIGN different from other period trackers?","acceptedAnswer":{"@type":"Answer","text":"Most period trackers are built for fertility and symptom logging. CycleALIGN is built for performance and leadership. It uses your cycle data to score tasks, forecast your weekly energy, and tell you the best day to pitch, negotiate, or present."}},{"@type":"Question","name":"Is CycleALIGN available in India?","acceptedAnswer":{"@type":"Answer","text":"Yes. CycleALIGN is built in India, by an Indian founder, for Indian women. Early access is Rs 499 for a full year. After public launch, pricing moves to Rs 499 per month."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CycleALIGN","url":"https://www.cyclealign.in","founder":{"@type":"Person","name":"Vinita Thakur"},"contactPoint":{"@type":"ContactPoint","email":"yourcyclealign@gmail.com","contactType":"customer support"},"sameAs":["https://www.instagram.com/cyclealign.in/","https://www.linkedin.com/in/vinita-thakur-0a9b79125/"]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CycleALIGN","url":"https://www.cyclealign.in"}</script><link rel="preconnect" href="https://fonts.googleapis.com"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CycleALIGN","url":"https://www.cyclealign.in"}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</script><link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -638,7 +640,7 @@ footer{background:var(--plum);border-top:1px solid rgba(180,105,105,0.12);paddin
         <div class="founder-links">
           <a href="https://www.instagram.com/cyclealign.in/" class="founder-link" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
           <a href="https://www.linkedin.com/in/vinita-thakur-0a9b79125/" class="founder-link" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-          <a href="mailto:yourcyclealign@gmail.com" class="founder-link">✉️ Email</a>
+          <a href="mailto:hellocyclealign@gmail.com" class="founder-link">✉️ Email</a>
         </div>
       </div>
     </div>
@@ -878,7 +880,7 @@ footer{background:var(--plum);border-top:1px solid rgba(180,105,105,0.12);paddin
         <div class="fsocials">
           <a href="https://www.instagram.com/cyclealign.in/" class="fsocial" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://www.linkedin.com/in/vinita-thakur-0a9b79125/" class="fsocial" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="mailto:yourcyclealign@gmail.com" class="fsocial">Email</a>
+          <a href="mailto:hellocyclealign@gmail.com" class="fsocial">Email</a>
         </div>
       </div>
       <div class="fcol"><h4>Product</h4><a href="#what-is">What is CycleALIGN</a><a href="#phases">The 4 Phases</a><a href="#features">Features</a><a href="#for-who">Who it's for</a></div>
@@ -890,7 +892,7 @@ footer{background:var(--plum);border-top:1px solid rgba(180,105,105,0.12);paddin
       <div class="footer-legal">
         <a href="#" onclick="openModal('privacy');return false">Privacy Policy</a>
         <a href="#" onclick="openModal('disclaimer');return false">Disclaimer</a>
-        <a href="mailto:yourcyclealign@gmail.com">Contact</a>
+        <a href="mailto:hellocyclealign@gmail.com">Contact</a>
       </div>
       <p>Made with intention in India 🇮🇳</p>
     </div>
@@ -985,8 +987,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('privacy
 // To get entry IDs: open your Google Form → preview → right-click → Inspect
 // → Ctrl+F → search "entry." — you'll see entry.XXXXXXXXX for each field.
 
-function handleWaitlist(){
-  // Honeypot — bots fill this, humans don't
+async function handleWaitlist(){
   if(document.querySelector('.wl-honey').value)return;
 
   const name=document.getElementById('wl-name').value.trim();
@@ -994,51 +995,93 @@ function handleWaitlist(){
   const phone=document.getElementById('wl-phone').value.trim();
   const role=document.getElementById('wl-role').value.trim()||'Not specified';
 
-  // Validate
   if(!name){alert('Please enter your name.');return;}
   if(!email||!email.includes('@')||!email.includes('.')){alert('Please enter a valid email address.');return;}
   if(!phone||phone.replace(/\D/g,'').length<8){alert('Please enter a valid contact number.');return;}
 
   const btn=document.getElementById('wlPayBtn');
-  btn.textContent='Opening secure payment…';
+  btn.textContent='Creating secure order…';
   btn.disabled=true;
 
-  // METHOD 1: Silent iframe POST (works if entry IDs are correct)
-  // If your sheet is empty, replace entry IDs below with real ones from your form
-  const silentForm=document.createElement('form');
-  silentForm.method='POST';
-  silentForm.action='https://docs.google.com/forms/d/e/1FAIpQLSewoCflo8-6SVSzX4f_M7DZZYMqHy-Jl_R0YukpuGE3uHnYNQ/formResponse';
-  silentForm.target='ca-frame';
-  // ⚠️ REPLACE THESE entry IDs with real ones from your Google Form
-  // Current IDs are estimates — if sheet stays empty, update these
-  [
-    ['entry.2096714420', name],
-    ['entry.1236089142', email],
-    ['entry.219577005', phone],
-    ['entry.1338063417',  role]
-  ].forEach(([k,v])=>{
-    const inp=document.createElement('input');
-    inp.type='hidden';inp.name=k;inp.value=v;
-    silentForm.appendChild(inp);
-  });
-  document.body.appendChild(silentForm);
-  silentForm.submit();
-  document.body.removeChild(silentForm);
+  try {
+    // Step 1: Create a real order on the server
+    const orderRes = await fetch('/api/create-order', { method: 'POST' });
+    const orderData = await orderRes.json();
 
-  // METHOD 2: Also open the Google Form pre-filled as backup
-  // This ensures data always reaches your sheet even if entry IDs are wrong
-  const base='https://docs.google.com/forms/d/e/1FAIpQLSewoCflo8-6SVSzX4f_M7DZZYMqHy-Jl_R0YukpuGE3uHnYNQ/viewform';
-  const params=new URLSearchParams();
-  // Pre-fill params — Google Forms accepts usp=pp_url with entry IDs
-  // Even without exact IDs, opening the form ensures user can submit manually
-  params.set('usp','pp_url');
-  // Store data in sessionStorage so user sees it pre-filled
-  try{
-    sessionStorage.setItem('ca_pending_name',name);
-    sessionStorage.setItem('ca_pending_email',email);
-    sessionStorage.setItem('ca_pending_phone',phone);
-    sessionStorage.setItem('ca_pending_role',role);
-  }catch(e){}
+    if (!orderRes.ok || !orderData.orderId) {
+      alert('Could not start payment. Please try again in a moment.');
+      btn.textContent='Reserve My Spot & Pay ₹499 →';
+      btn.disabled=false;
+      return;
+    }
+
+    btn.textContent='Opening payment…';
+
+    // Step 2: Open Razorpay's official checkout with the real order
+    const options = {
+      key: orderData.keyId,
+      amount: orderData.amount,
+      currency: orderData.currency,
+      order_id: orderData.orderId,
+      name: 'CycleALIGN',
+      description: 'Early Access — Full Year',
+      prefill: { name: name, email: email, contact: phone },
+      theme: { color: '#3D1A2E' },
+      handler: async function(response) {
+        // Step 3: Verify payment on the server BEFORE showing success
+        btn.textContent='Verifying payment…';
+        try {
+          const verifyRes = await fetch('/api/verify-payment', {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature
+            })
+          });
+          const verifyData = await verifyRes.json();
+
+          if (verifyData.verified) {
+            // Payment genuinely confirmed — NOW submit to Google Form and show success
+            const f=document.createElement('form');
+            f.method='POST';
+            f.action='https://docs.google.com/forms/d/e/1FAIpQLSewoCflo8-6SVSzX4f_M7DZZYMqHy-Jl_R0YukpuGE3uHnYNQ/formResponse';
+            f.target='ca-frame';
+            [['entry.2096714420',name],['entry.1236089142',email],['entry.219577005',phone],['entry.1338063417',role]].forEach(([k,v])=>{
+              const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;f.appendChild(i);
+            });
+            document.body.appendChild(f);f.submit();document.body.removeChild(f);
+
+            document.getElementById('wlForm').style.display='none';
+            document.getElementById('wlSuccess').style.display='block';
+          } else {
+            alert('Payment could not be verified. If money was deducted, please contact cyclealign@gmail.com with your payment ID.');
+          }
+        } catch(e) {
+          alert('Payment verification failed. If money was deducted, please contact cyclealign@gmail.com.');
+        }
+        btn.textContent='Reserve My Spot & Pay ₹499 →';
+        btn.disabled=false;
+      },
+      modal: {
+        ondismiss: function() {
+          // User closed the popup without paying — reset button, no success shown
+          btn.textContent='Reserve My Spot & Pay ₹499 →';
+          btn.disabled=false;
+        }
+      }
+    };
+
+    const rzp = new Razorpay(options);
+    rzp.open();
+
+  } catch (err) {
+    alert('Something went wrong. Please try again.');
+    btn.textContent='Reserve My Spot & Pay ₹499 →';
+    btn.disabled=false;
+  }
+}
 
   // Show success state
   setTimeout(()=>{
