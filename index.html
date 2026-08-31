@@ -950,7 +950,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
 </div>
 
 <script>
-// Nav scroll
+document.documentElement.classList.add('js');
 const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60));
 
@@ -1082,3 +1082,7 @@ async function handleWaitlist(){
     btn.disabled=false;
   }
 }
+</script>
+<iframe name="ca-frame" id="ca-frame" style="display:none;" aria-hidden="true"></iframe>
+</body>
+</html>
