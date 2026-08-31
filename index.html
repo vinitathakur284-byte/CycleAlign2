@@ -989,12 +989,6 @@ async function handleWaitlist() {
   console.log("Button clicked!");
 
   // Check honeypot safely
-  const honey = document.querySelector('.wl-honey');
-  if (honey && honey.value.trim() !== '') {
-    console.warn("Honeypot triggered");
-    return;
-  }
-
   const btn = document.getElementById('wlPayBtn');
   if (btn.disabled) return;
 
