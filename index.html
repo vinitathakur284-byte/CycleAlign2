@@ -38,9 +38,9 @@
 <meta http-equiv="content-language" content="en-IN"/>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CycleALIGN?","acceptedAnswer":{"@type":"Answer","text":"CycleALIGN is India's first hormonal intelligence app for women. It tracks your menstrual cycle, identifies your current hormonal phase, and syncs your tasks, meetings, and decisions to the times when you naturally have the most energy, confidence, and cognitive capacity."}},{"@type":"Question","name":"How is CycleALIGN different from other period trackers?","acceptedAnswer":{"@type":"Answer","text":"Most period trackers are built for fertility and symptom logging. CycleALIGN is built for performance and leadership. It uses your cycle data to score tasks, forecast your weekly energy, and tell you the best day to pitch, negotiate, or present."}},{"@type":"Question","name":"Is CycleALIGN available in India?","acceptedAnswer":{"@type":"Answer","text":"Yes. CycleALIGN is built in India, by an Indian founder, for Indian women. Early access is Rs 499 for a full year. After public launch, pricing moves to Rs 499 per month."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CycleALIGN","url":"https://www.cyclealign.in","founder":{"@type":"Person","name":"Vinita Thakur"},"contactPoint":{"@type":"ContactPoint","email":"yourcyclealign@gmail.com","contactType":"customer support"},"sameAs":["https://www.instagram.com/cyclealign.in/","https://www.linkedin.com/in/vinita-thakur-0a9b79125/"]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CycleALIGN","url":"https://www.cyclealign.in"}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CycleALIGN","url":"https://www.cyclealign.in"}</script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-</script><link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -915,9 +915,9 @@ footer{background:var(--plum);border-top:1px solid rgba(180,105,105,0.12);paddin
       <h4>Data Storage & Security</h4>
       <p>Your waitlist data is stored securely via Google Forms and Google Sheets, protected by Google's enterprise-grade security. We do not sell, rent, or share your personal data with any third party for marketing purposes.</p>
       <h4>Your Rights</h4>
-      <p>You have the right to access, correct, or delete any personal data we hold about you at any time. Contact us at youryouryourcyclealign@gmail.com and we will respond within 7 working days.</p>
+      <p>You have the right to access, correct, or delete any personal data we hold about you at any time. Contact us at hellocyclealign@gmail.com and we will respond within 7 working days.</p>
       <h4>Contact</h4>
-      <p><strong>yourcyclealign@gmail.com</strong> · CycleALIGN, Aurang India, New Delhi, India.</p>
+      <p><strong>hellocyclealign@gmail.com</strong> · CycleALIGN, Aurang India, New Delhi, India.</p>
       <p class="mfooter">Last updated: July 2026</p>
     </div>
   </div>
@@ -1082,19 +1082,3 @@ async function handleWaitlist(){
     btn.disabled=false;
   }
 }
-
-  // Show success state
-  setTimeout(()=>{
-    document.getElementById('wlForm').style.display='none';
-    document.getElementById('wlSuccess').style.display='block';
-    btn.textContent='Reserve My Spot & Pay ₹499 →';
-    btn.disabled=false;
-
-    // Open Razorpay payment link in new tab
-    window.open('https://rzp.io/rzp/MbcaJ4oB','_blank','noopener,noreferrer');
-  }, 800);
-}
-</script>
-<iframe name="ca-frame" style="display:none" aria-hidden="true"></iframe>
-</body>
-</html>
