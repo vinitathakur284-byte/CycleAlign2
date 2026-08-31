@@ -829,10 +829,10 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
             </div>
           </div>
           <div class="wl-success" id="wlSuccess">
-            <div class="wl-success-icon">🌸</div>
-            <h4>You're on the list.</h4>
-            <p>A Razorpay payment window has opened. Complete your ₹499 payment to lock in your founding member access. Welcome to the beginning of something different.</p>
-          </div>
+  <div class="wl-success-icon">🌸</div>
+  <h4>Thank you for joining the waitlist!</h4>
+  <p>Your payment of ₹499 has been received. You will get early access soon on your registered email address.</p>
+        </div>
           <div id="wlForm">
             <div class="wl-form">
               <input class="wl-honey" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"/>
@@ -987,37 +987,39 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('privacy
 // To get entry IDs: open your Google Form → preview → right-click → Inspect
 // → Ctrl+F → search "entry." — you'll see entry.XXXXXXXXX for each field.
 
-async function handleWaitlist(){
-  if(document.querySelector('.wl-honey').value)return;
+async function handleWaitlist() {
+  if (document.querySelector('.wl-honey').value) return;
 
-  const name=document.getElementById('wl-name').value.trim();
-  const email=document.getElementById('wl-email').value.trim();
-  const phone=document.getElementById('wl-phone').value.trim();
-  const role=document.getElementById('wl-role').value.trim()||'Not specified';
+  const btn = document.getElementById('wlPayBtn');
+  if (btn.disabled) return; // Prevent double-clicking
 
-  if(!name){alert('Please enter your name.');return;}
-  if(!email||!email.includes('@')||!email.includes('.')){alert('Please enter a valid email address.');return;}
-  if(!phone||phone.replace(/\D/g,'').length<8){alert('Please enter a valid contact number.');return;}
+  const name = document.getElementById('wl-name').value.trim();
+  const email = document.getElementById('wl-email').value.trim();
+  const phone = document.getElementById('wl-phone').value.trim();
+  const role = document.getElementById('wl-role').value.trim() || 'Not specified';
 
-  const btn=document.getElementById('wlPayBtn');
-  btn.textContent='Creating secure order…';
-  btn.disabled=true;
+  if (!name) { alert('Please enter your name.'); return; }
+  if (!email || !email.includes('@') || !email.includes('.')) { alert('Please enter a valid email address.'); return; }
+  if (!phone || phone.replace(/\D/g, '').length < 8) { alert('Please enter a valid contact number.'); return; }
+
+  btn.textContent = 'Creating secure order…';
+  btn.disabled = true;
 
   try {
-    // Step 1: Create a real order on the server
+    // 1. Create order on the server
     const orderRes = await fetch('/api/create-order', { method: 'POST' });
     const orderData = await orderRes.json();
 
     if (!orderRes.ok || !orderData.orderId) {
       alert('Could not start payment. Please try again in a moment.');
-      btn.textContent='Reserve My Spot & Pay ₹499 →';
-      btn.disabled=false;
+      btn.textContent = 'Reserve My Spot & Pay ₹499 →';
+      btn.disabled = false;
       return;
     }
 
-    btn.textContent='Opening payment…';
+    btn.textContent = 'Opening payment…';
 
-    // Step 2: Open Razorpay's official checkout with the real order
+    // 2. Open Razorpay modal
     const options = {
       key: orderData.keyId,
       amount: orderData.amount,
@@ -1028,12 +1030,12 @@ async function handleWaitlist(){
       prefill: { name: name, email: email, contact: phone },
       theme: { color: '#3D1A2E' },
       handler: async function(response) {
-        // Step 3: Verify payment on the server BEFORE showing success
-        btn.textContent='Verifying payment…';
+        btn.textContent = 'Verifying payment…';
         try {
+          // 3. Verify payment on the server
           const verifyRes = await fetch('/api/verify-payment', {
             method: 'POST',
-            headers: {'Content-Type':'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
@@ -1043,32 +1045,37 @@ async function handleWaitlist(){
           const verifyData = await verifyRes.json();
 
           if (verifyData.verified) {
-            // Payment genuinely confirmed — NOW submit to Google Form and show success
-            const f=document.createElement('form');
-            f.method='POST';
-            f.action='https://docs.google.com/forms/d/e/1FAIpQLSewoCflo8-6SVSzX4f_M7DZZYMqHy-Jl_R0YukpuGE3uHnYNQ/formResponse';
-            f.target='ca-frame';
-            [['entry.2096714420',name],['entry.1236089142',email],['entry.219577005',phone],['entry.1338063417',role]].forEach(([k,v])=>{
-              const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;f.appendChild(i);
+            // 4. Submit details to Google Form
+            const f = document.createElement('form');
+            f.method = 'POST';
+            f.action = 'https://docs.google.com/forms/d/e/1FAIpQLSewoCflo8-6SVSzX4f_M7DZZYMqHy-Jl_R0YukpuGE3uHnYNQ/formResponse';
+            f.target = 'ca-frame';
+            [['entry.2096714420', name], ['entry.1236089142', email], ['entry.219577005', phone], ['entry.1338063417', role]].forEach(([k, v]) => {
+              const i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = v; f.appendChild(i);
             });
-            document.body.appendChild(f);f.submit();document.body.removeChild(f);
+            document.body.appendChild(f);
+            f.submit();
+            document.body.removeChild(f);
 
-            document.getElementById('wlForm').style.display='none';
-            document.getElementById('wlSuccess').style.display='block';
+            // 5. Show popup and success message
+            alert('Thank you for joining the waitlist! You will get access soon.');
+            document.getElementById('wlForm').style.display = 'none';
+            document.getElementById('wlSuccess').style.display = 'block';
           } else {
-            alert('Payment could not be verified. If money was deducted, please contact cyclealign@gmail.com with your payment ID.');
+            alert('Payment could not be verified. If money was deducted, please contact yourcyclealign@gmail.com with your payment ID.');
+            btn.textContent = 'Reserve My Spot & Pay ₹499 →';
+            btn.disabled = false;
           }
-        } catch(e) {
-          alert('Payment verification failed. If money was deducted, please contact cyclealign@gmail.com.');
+        } catch (e) {
+          alert('Payment verification failed. If money was deducted, please contact yourcyclealign@gmail.com.');
+          btn.textContent = 'Reserve My Spot & Pay ₹499 →';
+          btn.disabled = false;
         }
-        btn.textContent='Reserve My Spot & Pay ₹499 →';
-        btn.disabled=false;
       },
       modal: {
         ondismiss: function() {
-          // User closed the popup without paying — reset button, no success shown
-          btn.textContent='Reserve My Spot & Pay ₹499 →';
-          btn.disabled=false;
+          btn.textContent = 'Reserve My Spot & Pay ₹499 →';
+          btn.disabled = false;
         }
       }
     };
@@ -1078,8 +1085,8 @@ async function handleWaitlist(){
 
   } catch (err) {
     alert('Something went wrong. Please try again.');
-    btn.textContent='Reserve My Spot & Pay ₹499 →';
-    btn.disabled=false;
+    btn.textContent = 'Reserve My Spot & Pay ₹499 →';
+    btn.disabled = false;
   }
 }
 </script>
