@@ -25,8 +25,8 @@
 <meta name="geo.region" content="IN-DL"/>
 <meta name="geo.placename" content="New Delhi, India"/>
 <!-- Theme colour for mobile browsers -->
-<meta name="theme-color" content="#1C0A14"/>
-<meta name="msapplication-TileColor" content="#1C0A14"/>
+<meta name="theme-color" content="#120810"/>
+<meta name="msapplication-TileColor" content="#120810"/>
 <!-- Robots -->
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
 <!-- Sitemap reference -->
@@ -55,20 +55,20 @@
   --sage:#6E7E62;
   --sage-light:#9AAD8E;
   --cream:#FDFAF6;
-  --cream-2:#F5EFE8;
-  --cream-3:#EDE5DA;
-  --cream-4:#E4D8CC;
+  --cream-2:#F6EFE9;
+  --cream-3:#ECE2D5;
+  --cream-4:#E2D3C4;
   --white:#FFFFFF;
   --text-dark:#1C0A14;
-  --text-mid:rgba(28,10,20,0.6);
-  --text-light:rgba(28,10,20,0.35);
+  --text-mid:rgba(28,10,20,0.68);
+  --text-light:rgba(28,10,20,0.4);
   --border:rgba(28,10,20,0.08);
-  --border-strong:rgba(28,10,20,0.15);
+  --border-strong:rgba(201,168,76,0.3);
   --d-bg:#120810;
   --d-bg2:#1A0C14;
-  --d-border:rgba(212,160,160,0.12);
-  --d-text:rgba(242,224,224,0.7);
-  --d-muted:rgba(242,224,224,0.38);
+  --d-border:rgba(212,160,160,0.14);
+  --d-text:rgba(242,224,224,0.76);
+  --d-muted:rgba(242,224,224,0.45);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -77,67 +77,74 @@ a{color:inherit;text-decoration:none}
 ::selection{background:var(--rose);color:var(--white)}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}
 nav.scrolled{background:rgba(253,250,246,0.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--border)}
 .nav-logo-wrap{display:flex;align-items:center;gap:0.6rem}
-.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--white);letter-spacing:0.01em;transition:color 0.3s}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--white);letter-spacing:0.02em;transition:color 0.3s}
 .nav-brand span{color:var(--rose-light)}
 nav.scrolled .nav-brand{color:var(--plum)}
 nav.scrolled .nav-brand span{color:var(--rose)}
 .nav-links{display:flex;align-items:center;gap:2rem}
-.nav-links a{font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.6);transition:color 0.2s}
+.nav-links a{font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.7);transition:color 0.2s}
 .nav-links a:hover{color:var(--white)}
 nav.scrolled .nav-links a{color:var(--text-mid)}
 nav.scrolled .nav-links a:hover{color:var(--plum)}
-.nav-cta{background:var(--plum);color:var(--white)!important;padding:0.55rem 1.25rem;border-radius:100px;font-size:0.78rem!important;font-weight:600!important;box-shadow:0 4px 16px rgba(61,26,46,0.25);transition:all 0.2s!important}
-.nav-cta:hover{background:var(--plum-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(61,26,46,0.35)!important}
+.nav-cta{background:linear-gradient(135deg,#C97E7E,#8C4444);color:var(--white)!important;padding:0.6rem 1.4rem;border-radius:100px;font-size:0.8rem!important;font-weight:600!important;box-shadow:0 4px 18px rgba(61,26,46,0.28);transition:all 0.25s!important}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(61,26,46,0.42)!important}
 
-/* ── APP DOWNLOAD BADGES & CRED-STYLE QR ── */
+/* ── STORE BUTTONS & QR BOX ── */
 .app-badges-wrap{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
-.store-btn{display:inline-flex;align-items:center;gap:0.75rem;background:rgba(242,224,224,0.08);border:1px solid rgba(180,105,105,0.3);border-radius:14px;padding:0.75rem 1.4rem;color:var(--white);transition:all 0.25s;text-decoration:none}
-.store-btn:hover{background:rgba(242,224,224,0.15);transform:translateY(-2px);border-color:var(--gold-light)}
+.store-btn{display:inline-flex;align-items:center;gap:0.85rem;background:rgba(242,224,224,0.08);border:1px solid rgba(212,160,160,0.28);border-radius:14px;padding:0.8rem 1.4rem;color:var(--white);transition:all 0.25s;text-decoration:none}
+.store-btn:hover{background:rgba(242,224,224,0.16);transform:translateY(-2px);border-color:var(--gold-light);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
 .store-btn svg{width:24px;height:24px;fill:currentColor}
 .store-btn-text{display:flex;flex-direction:column;text-align:left;line-height:1.2}
-.store-btn-text small{font-size:0.65rem;color:var(--d-muted);text-transform:uppercase;letter-spacing:0.05em}
+.store-btn-text small{font-size:0.65rem;color:var(--d-muted);text-transform:uppercase;letter-spacing:0.06em}
 .store-btn-text span{font-size:0.95rem;font-weight:600;color:var(--white)}
 
-.cred-qr-card{background:var(--plum);border-radius:28px;padding:2.5rem;border:1px solid rgba(212,160,160,0.2);box-shadow:0 24px 60px rgba(28,10,20,0.35);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;text-align:center}
+/* CRED-STYLE DUAL QR */
+.cred-qr-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;width:100%}
+.cred-qr-card{background:linear-gradient(180deg,rgba(40,16,30,0.95) 0%,rgba(24,10,18,0.98) 100%);border-radius:24px;padding:2rem 1.5rem;border:1px solid rgba(201,168,76,0.22);box-shadow:0 24px 60px rgba(0,0,0,0.35);display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;overflow:hidden;transition:all 0.3s ease}
+.cred-qr-card:hover{transform:translateY(-4px);border-color:var(--gold-light);box-shadow:0 28px 70px rgba(0,0,0,0.45)}
 .cred-qr-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold-light))}
-.cred-qr-box{background:var(--white);padding:0.75rem;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.25);margin:1.5rem 0;width:180px;height:180px;display:flex;align-items:center;justify-content:center}
+.cred-qr-badge{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;color:var(--gold-light);margin-bottom:0.6rem}
+.cred-qr-card h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.2rem}
+.cred-qr-box{background:var(--white);padding:0.75rem;border-radius:18px;box-shadow:0 10px 28px rgba(0,0,0,0.3);margin:1.2rem 0;width:160px;height:160px;display:flex;align-items:center;justify-content:center}
 .cred-qr-box img{width:100%;height:100%;object-fit:contain}
+.cred-qr-btn{margin-top:0.4rem;font-size:0.75rem;font-weight:600;color:var(--rose-light);display:inline-flex;align-items:center;gap:0.4rem}
+.cred-qr-btn:hover{color:var(--white)}
 
 /* ── HERO ── */
 .hero{min-height:100vh;background:var(--d-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden}
 .hero-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
-.orb1{width:550px;height:550px;background:radial-gradient(circle,rgba(180,105,105,0.25),transparent 70%);top:-120px;left:-120px}
-.orb2{width:450px;height:450px;background:radial-gradient(circle,rgba(168,132,58,0.15),transparent 70%);bottom:-80px;right:-80px}
+.orb1{width:550px;height:550px;background:radial-gradient(circle,rgba(180,105,105,0.22),transparent 70%);top:-120px;left:-120px}
+.orb2{width:450px;height:450px;background:radial-gradient(circle,rgba(168,132,58,0.16),transparent 70%);bottom:-80px;right:-80px}
 .orb3{width:300px;height:300px;background:radial-gradient(circle,rgba(110,126,98,0.1),transparent 70%);top:50%;left:55%}
 .hero-inner{position:relative;z-index:1;max-width:880px}
-.hero-pill{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,160,160,0.08);border:1px solid rgba(180,105,105,0.25);border-radius:100px;padding:0.4rem 1rem;font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-light);margin-bottom:1.75rem}
-.hero-pill-dot{width:5px;height:5px;border-radius:50%;background:var(--rose-light);animation:glow 2s infinite}
+.hero-pill{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,160,160,0.08);border:1px solid rgba(180,105,105,0.25);border-radius:100px;padding:0.4rem 1.1rem;font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-light);margin-bottom:1.75rem}
+.hero-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--rose-light);animation:glow 2s infinite}
 h1.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,7vw,5.8rem);line-height:1.03;font-weight:700;letter-spacing:-0.025em;color:var(--white);margin-bottom:1.25rem}
 h1.hero-h1 em{font-style:italic;color:var(--rose-light)}
-.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-style:italic;color:var(--gold-light);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1.5rem}
-.hero-sub{font-size:1.05rem;color:rgba(242,224,224,0.6);max-width:560px;margin:0 auto 2.5rem;line-height:1.85;font-weight:300}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--gold-light);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-sub{font-size:1.05rem;color:rgba(242,224,224,0.65);max-width:580px;margin:0 auto 2.5rem;line-height:1.85;font-weight:300}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.2rem}
 .hbtn{display:flex;align-items:center;gap:0.75rem;padding:0.95rem 1.75rem;border-radius:16px;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.25s;border:none}
 .hbtn:hover{transform:translateY(-3px)}
-.hbtn-sec{background:rgba(242,224,224,0.07);color:rgba(242,224,224,0.75);border:1px solid rgba(180,105,105,0.25)}
-.hbtn-sec:hover{background:rgba(242,224,224,0.11)}
+.hbtn-sec{background:rgba(242,224,224,0.07);color:rgba(242,224,224,0.85);border:1px solid rgba(180,105,105,0.28)}
+.hbtn-sec:hover{background:rgba(242,224,224,0.12);color:var(--white)}
 .hbtn-icon{font-size:1.2rem}
-.hbtn-text small{display:block;font-size:0.6rem;font-weight:400;opacity:0.65;letter-spacing:0.03em}
-.hero-note{font-size:0.75rem;color:rgba(242,224,224,0.45);margin-bottom:3rem}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(180,105,105,0.15);border-radius:20px;overflow:hidden;background:rgba(242,224,224,0.03)}
+.hbtn-text small{display:block;font-size:0.62rem;font-weight:400;opacity:0.7;letter-spacing:0.04em}
+.hero-note{font-size:0.76rem;color:rgba(242,224,224,0.45);margin-bottom:3rem}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(180,105,105,0.18);border-radius:20px;overflow:hidden;background:rgba(242,224,224,0.03)}
 .hstat{padding:1.5rem 1rem;text-align:center;border-right:1px solid rgba(180,105,105,0.12)}
 .hstat:last-child{border-right:none}
 .hstat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--rose-light);line-height:1}
-.hstat-label{font-size:0.66rem;color:rgba(242,224,224,0.35);margin-top:0.3rem;line-height:1.4}
-.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(242,224,224,0.2);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;animation:bounce 2.5s infinite}
-.scroll-bar{width:1px;height:36px;background:linear-gradient(to bottom,rgba(242,224,224,0.25),transparent)}
+.hstat-label{font-size:0.66rem;color:rgba(242,224,224,0.4);margin-top:0.3rem;line-height:1.4}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(242,224,224,0.25);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;animation:bounce 2.5s infinite}
+.scroll-bar{width:1px;height:36px;background:linear-gradient(to bottom,rgba(242,224,224,0.3),transparent)}
 
 /* ── SHARED ── */
 .si{max-width:1160px;margin:0 auto}
-.ey{font-size:0.67rem;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
+.ey{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
 .ey::before{content:'';width:20px;height:1px;background:currentColor}
 h2.st{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1.25rem;color:var(--plum)}
 h2.st em{font-style:italic;color:var(--rose)}
@@ -239,16 +246,17 @@ h2.st-w em{color:var(--rose-light)}
 .fcard-eg{margin-top:1.2rem;background:rgba(168,132,58,0.08);border-radius:10px;padding:0.85rem 1rem;font-size:0.76rem;color:var(--d-muted);font-style:italic;line-height:1.6;border-left:2px solid rgba(168,132,58,0.35)}
 .fcard-eg strong{color:rgba(242,224,224,0.6);font-style:normal}
 
-/* ── FOUNDER ── */
+/* ── FOUNDER SECTION ── */
 .founder{padding:8rem 2.5rem;background:var(--cream);position:relative;overflow:hidden}
-.founder-layout{display:grid;grid-template-columns:420px 1fr;gap:6rem;align-items:center;position:relative;z-index:1}
+.founder-layout{display:grid;grid-template-columns:400px 1fr;gap:6rem;align-items:center;position:relative;z-index:1}
 .founder-img-wrap{position:relative}
-.founder-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:28px;display:block;filter:contrast(1.02);box-shadow:0 24px 80px rgba(28,10,20,0.2),0 4px 16px rgba(28,10,20,0.1)}
-.founder-img-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(28,10,20,0.92) 0%,transparent 100%);border-radius:0 0 28px 28px;padding:3rem 1.75rem 1.75rem}
+.founder-frame{position:relative;border-radius:26px;overflow:hidden;box-shadow:0 24px 70px rgba(28,10,20,0.22);border:2px solid var(--cream-3)}
+.founder-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:contrast(1.03)}
+.founder-img-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(28,10,20,0.92) 0%,transparent 100%);padding:2.5rem 1.5rem 1.25rem}
 .founder-img-caption h4{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--white)}
-.founder-img-caption p{font-size:0.78rem;color:rgba(242,224,224,0.55);margin-top:0.2rem}
-.founder-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.75rem}
-.ftag{background:rgba(180,105,105,0.2);border:1px solid rgba(180,105,105,0.3);border-radius:100px;padding:0.25rem 0.7rem;font-size:0.67rem;color:var(--rose-light)}
+.founder-img-caption p{font-size:0.75rem;color:rgba(242,224,224,0.6);margin-top:0.15rem}
+.founder-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.65rem}
+.ftag{background:rgba(180,105,105,0.2);border:1px solid rgba(180,105,105,0.3);border-radius:100px;padding:0.25rem 0.7rem;font-size:0.65rem;color:var(--rose-light)}
 .founder-right .ey{color:var(--rose)}
 .founder-right p{color:var(--text-mid);line-height:1.85;font-size:0.93rem;margin-bottom:1rem}
 .founder-quote{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--plum);line-height:1.55;border-left:2px solid var(--rose);padding-left:1.5rem;margin:1.75rem 0}
@@ -257,14 +265,14 @@ h2.st-w em{color:var(--rose-light)}
 .founder-link:hover{border-color:var(--rose);color:var(--plum);transform:translateY(-2px);box-shadow:0 6px 16px rgba(28,10,20,0.1)}
 
 /* ── MEDICAL ADVISORY SECTION ── */
-.medical-section{padding:7rem 2.5rem;background:var(--cream-2);position:relative;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.med-layout{display:grid;grid-template-columns:320px 1fr;gap:4.5rem;align-items:center;max-width:1050px;margin:0 auto}
-.med-img-box{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 20px 50px rgba(28,10,20,0.15);border:2px solid var(--cream-3)}
+.medical-section{padding:7.5rem 2.5rem;background:var(--cream-2);position:relative;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.med-layout{display:grid;grid-template-columns:360px 1fr;gap:5rem;align-items:center;max-width:1100px;margin:0 auto}
+.med-img-box{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 24px 60px rgba(28,10,20,0.15);border:2px solid var(--cream-3)}
 .med-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block}
-.med-quote{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--plum);line-height:1.65;border-left:3px solid var(--gold);padding-left:1.5rem;margin-bottom:1.5rem}
-.med-author h4{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--plum);font-weight:700;margin-bottom:0.2rem}
-.med-author p{font-size:0.85rem;color:var(--text-mid);font-weight:500}
-.med-author span{font-size:0.75rem;color:var(--rose-deep);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-top:0.2rem}
+.med-quote{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-style:italic;color:var(--plum);line-height:1.7;border-left:3px solid var(--gold);padding-left:1.5rem;margin-bottom:1.5rem}
+.med-author h4{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--plum);font-weight:700;margin-bottom:0.25rem}
+.med-author p{font-size:0.86rem;color:var(--text-mid);font-weight:500}
+.med-author span{font-size:0.76rem;color:var(--rose-deep);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-top:0.25rem;font-weight:600}
 
 /* ── BLOG ── */
 .blog{padding:8rem 2.5rem;background:var(--d-bg);position:relative}
@@ -318,21 +326,19 @@ h2.st-w em{color:var(--rose-light)}
 .fqitem-q{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.75rem;line-height:1.4}
 .fqitem-a{font-size:0.82rem;color:var(--d-muted);line-height:1.82}
 
-/* ── DOWNLOAD (CRED-STYLE QR SECTION) ── */
+/* ── DOWNLOAD (CRED-STYLE DUAL QR SECTION) ── */
 .download-sec{padding:8rem 2.5rem;background:var(--gold-bg);position:relative;overflow:hidden}
 .download-sec::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);pointer-events:none}
-.dl-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;position:relative;z-index:1}
+.dl-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
 .dl-left .ey{color:var(--gold)}
 .dl-left h2.st em{color:var(--gold)}
-.dl-left p{color:var(--text-mid);line-height:1.82;font-size:0.93rem;margin-bottom:1rem}
+.dl-left p{color:var(--text-mid);line-height:1.82;font-size:0.95rem;margin-bottom:1rem}
 .dl-perks{display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem}
 .dl-perk{display:flex;align-items:center;gap:0.85rem;font-size:0.84rem;color:var(--text-mid)}
 .dl-perk-icon{width:32px;height:32px;border-radius:10px;background:var(--gold-pale);border:1px solid rgba(168,132,58,0.25);display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0}
-.dl-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(180,105,105,0.15);border:1px solid rgba(180,105,105,0.28);border-radius:100px;padding:0.35rem 0.9rem;font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--rose-light);margin-bottom:1rem}
-.dl-badge-dot{width:5px;height:5px;border-radius:50%;background:var(--rose-light);animation:glow 1.5s infinite}
 
 /* ── FINAL CTA ── */
-.finalcta{padding:10rem 2.5rem;background:var(--d-bg2);text-align:center;position:relative;overflow:hidden}
+.finalcta{padding:9rem 2.5rem;background:var(--d-bg2);text-align:center;position:relative;overflow:hidden}
 .finalcta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--rose),transparent)}
 .fcta-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(180,105,105,0.07),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .fcta-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
@@ -341,7 +347,7 @@ h2.st-w em{color:var(--rose-light)}
 .fcta-sub{font-size:0.97rem;color:var(--d-text);max-width:500px;margin:0 auto 2.5rem;line-height:1.82;font-weight:300}
 .fcta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem}
 .fcta-note{font-size:0.7rem;color:var(--d-muted);margin-bottom:3rem}
-.sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(242,224,224,0.2);max-width:580px;margin:0 auto;line-height:1.65}
+.sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(242,224,224,0.25);max-width:580px;margin:0 auto;line-height:1.65}
 
 /* ── FOOTER ── */
 footer{background:var(--plum);border-top:1px solid rgba(180,105,105,0.12);padding:4.5rem 2.5rem 2.5rem}
@@ -401,6 +407,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
   .nav-links{display:none}
 }
 @media(max-width:600px){
+  .cred-qr-grid{grid-template-columns:1fr}
   .phases-grid,.roles-grid,.feat-grid,.testi-grid,.faq-grid,.blog-grid{grid-template-columns:1fr}
   .hero-btns,.fcta-btns{flex-direction:column;align-items:center}
   .hero-stats{grid-template-columns:1fr 1fr}
@@ -456,14 +463,14 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
       </a>
       <a href="#download" class="hbtn hbtn-sec">
         <span class="hbtn-icon">📱</span>
-        <span class="hbtn-text"><small>Scan to download</small>Get QR Code</span>
+        <span class="hbtn-text"><small>Scan QR code</small>Get App Directly</span>
       </a>
     </div>
-    <p class="hero-note">Available now worldwide on iOS &amp; Android 🇮🇳</p>
+    <p class="hero-note">Live on iOS &amp; Android · Built for performance, backed by endocrinology 🇮🇳</p>
     <div class="hero-stats">
       <div class="hstat"><div class="hstat-num">4</div><div class="hstat-label">Hormonal phases mapped daily</div></div>
       <div class="hstat"><div class="hstat-num">28</div><div class="hstat-label">Days — your real unit of time</div></div>
-      <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-label">Privacy-first task mapping</div></div>
+      <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-label">Privacy-first category input</div></div>
       <div class="hstat"><div class="hstat-num">0</div><div class="hstat-label">Apps like this in India. Until now.</div></div>
     </div>
   </div>
@@ -587,22 +594,25 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
   </div>
 </section>
 
-<!-- FOUNDER -->
+<!-- FOUNDER SECTION -->
 <section class="founder" id="founder" aria-labelledby="fr-h2">
   <div class="si">
     <div class="founder-layout">
       <div class="founder-img-wrap reveal">
-        <img
-          class="founder-photo"
-          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4QBoRXhpZgAASUkqAAgAAAACADEBAgAHAAAAJgAAAGmHBAABAAAALgAAAAAAAABQaWNhc2EAAAIAAJAHAAQAAAAwMjIwA5ACABQAAABMAAAAAAAAADIwMjY6MDE6MDcgMTU6MDU6MzYA/+ECtWh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczpJcHRjNHhtcEV4dD0iaHR0cDovL2lwdGMub3JnL3N0ZC9JcHRjNHhtcEV4dC8yMDA4LTAyLTI5LyIgZXhpZjpEYXRlVGltZU9yaWdpbmFsPSIyMDI2LTAxLTA3VDE1OjA1OjM2KzAwOjAwIiBwaG90b3Nob3A6Q3JlZGl0PSJNYWRlIHdpdGggR29vZ2xlIEFJIiBwaG90b3Nob3A6RGF0ZUNyZWF0ZWQ9IjIwMjYtMDEtMDdUMTU6MDU6MzYrMDA6MDAiIElwdGM0eG1wRXh0OkRpZ2l0YWxTb3VyY2VUeXBlPSJodHRwczovL2N2LmlwdGMub3JnL25ld3Njb2Rlcy9kaWdpdGFsc291cmNldHlwZS90cmFpbmVkQWxnb3JpdGhtaWNNZWRpYSIvPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiAgIDw/eHBhY2tldCBlbmQ9InciPz7/4gv4SUNDX1BST0ZJTEUAAQEAAAvoAAAAAAIAAABtbnRyUkdCIFhZWiAH2QADABsAFQAkAB9hY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA9tYAAQAAAADTLQAAAAAp+D3er/JVrnhC+uTKgzkNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBkZXNjAAABRAAAAHliWFlaAAABwAAAABRiVFJDAAAB1AAACAxkbWRkAAAJ4AAAAIhnWFlaAAAKaAAAABRnVFJDAAAB1AAACAxsdW1pAAAKfAAAABRtZWFzAAAKkAAAACRia3B0AAAKtAAAABRyWFlaAAAKyAAAABRyVFJDAAAB1AAACAx0ZWNoAAAK3AAAAAx2dWVkAAAK6AAAAId3dHB0AAALcAAAABRjcHJ0AAALhAAAADdjaGFkAAALvAAAACxkZXNjAAAAAAAAAB9zUkdCIElFQzYxOTY2LTItMSBibGFjayBzY2FsZWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAACSgAAAPhAAAts9jdXJ2AAAAAAAABAAAAAAFAAoADwAUABkAHgAjACgALQAyADcAOwBAAEUASgBPAFQAWQBeAGMAaABtAHIAdwB8AIEAhgCLAJAAlQCaAJ8ApACpAK4AsgC3ALwAwQDGAMsA0ADVANsA4ADlAOsA8AD2APsBAQEHAQ0BEwEZAR8BJQErATIBOAE+AUUBTAFSAVkBYAFnAW4BdQF8AYMBiwGSAZoBoQGpAbEBuQHBAckB0QHZAeEB6QHyAfoCAwIMAhQCHQImAi8COAJBAksCVAJdAmcCcQJ6AoQCjgKYAqICrAK2AsECywLVAuAC6wL1AwADCwMWAyEDLQM4A0MDTwNaA2YDcgN+A4oDlgOiA64DugPHA9MD4APsA/kEBgQTBCAELQQ7BEgEVQRjBHEEfgSMBJoEqAS2BMQE0wThBPAE/gUNBRwFKwU6BUkFWAVnBXcFhgWWBaYFtQXFBdUF5QX2BgYGFgYnBjcGSAZZBmoGewaMBp0GrwbABtEG4wb1BwcHGQcrBz0HTwdhB3QHhgeZB6wHvwfSB+UH+AgLCB8IMghGCFoIbgiCCJYIqgi+CNII5wj7CRAJJQk6CU8JZAl5CY8JpAm6Cc8J5Qn7ChEKJwo9ClQKagqBCpgKrgrFCtwK8wsLCyILOQtRC2kLgAuYC7ALyAvhC/kMEgwqDEMMXAx1DI4MpwzADNkM8w0NDSYNQA1aDXQNjg2pDcMN3g34DhMOLg5JDmQOfw6bDrYO0g7uDwkPJQ9BD14Peg+WD7MPzw/sEAkQJhBDEGEQfhCbELkQ1xD1ERMRMRFPEW0RjBGqEckR6BIHEiYSRRJkEoQSoxLDEuMTAxMjE0MTYxODE6QTxRPlFAYUJxRJFGoUixStFM4U8BUSFTQVVhV4FZsVvRXgFgMWJhZJFmwWjxayFtYW+hcdF0EXZReJF64X0hf3GBsYQBhlGIoYrxjVGPoZIBlFGWsZkRm3Gd0aBBoqGlEadxqeGsUa7BsUGzsbYxuKG7Ib2hwCHCocUhx7HKMczBz1HR4dRx1wHZkdwx3sHhYeQB5qHpQevh7pHxMfPh9pH5Qfvx/qIBUgQSBsIJggxCDwIRwhSCF1IaEhziH7IiciVSKCIq8i3SMKIzgjZiOUI8Ij8CQfJE0kfCSrJNolCSU4JWgllyXHJfcmJyZXJocmtyboJxgnSSd6J6sn3CgNKD8ocSiiKNQpBik4KWspnSnQKgIqNSpoKpsqzysCKzYraSudK9EsBSw5LG4soizXLQwtQS12Last4S4WLkwugi63Lu4vJC9aL5Evxy/+MDUwbDCkMNsxEjFKMYIxujHyMioyYzKbMtQzDTNGM38zuDPxNCs0ZTSeNNg1EzVNNYc1wjX9Njc2cjauNuk3JDdgN5w31zgUOFA4jDjIOQU5Qjl/Obw5+To2OnQ6sjrvOy07azuqO+g8JzxlPKQ84z0iPWE9oT3gPiA+YD6gPuA/IT9hP6I/4kAjQGRApkDnQSlBakGsQe5CMEJyQrVC90M6Q31DwEQDREdEikTORRJFVUWaRd5GIkZnRqtG8Ec1R3tHwEgFSEtIkUjXSR1JY0mpSfBKN0p9SsRLDEtTS5pL4kwqTHJMuk0CTUpNk03cTiVObk63TwBPSU+TT91QJ1BxULtRBlFQUZtR5lIxUnxSx1MTU19TqlP2VEJUj1TbVShVdVXCVg9WXFapVvdXRFeSV+BYL1h9WMtZGllpWbhaB1pWWqZa9VtFW5Vb5Vw1XIZc1l0nXXhdyV4aXmxevV8PX2Ffs2AFYFdgqmD8YU9homH1YklinGLwY0Njl2PrZEBklGTpZT1lkmXnZj1mkmboZz1nk2fpaD9olmjsaUNpmmnxakhqn2r3a09rp2v/bFdsr20IbWBtuW4SbmtuxG8eb3hv0XArcIZw4HE6cZVx8HJLcqZzAXNdc7h0FHRwdMx1KHWFdeF2Pnabdvh3VnezeBF4bnjMeSp5iXnnekZ6pXsEe2N7wnwhfIF84X1BfaF+AX5ifsJ/I3+Ef+WAR4CogQqBa4HNgjCCkoL0g1eDuoQdhICE44VHhauGDoZyhteHO4efiASIaYjOiTOJmYn+imSKyoswi5aL/IxjjMqNMY2Yjf+OZo7OjzaPnpAGkG6Q1pE/kaiSEZJ6kuOTTZO2lCCUipT0lV+VyZY0lp+XCpd1l+CYTJi4mSSZkJn8mmia1ZtCm6+cHJyJnPedZJ3SnkCerp8dn4uf+qBpoNihR6G2oiailqMGo3aj5qRWpMelOKWpphqmi6b9p26n4KhSqMSpN6mpqhyqj6sCq3Wr6axcrNCtRK24ri2uoa8Wr4uwALB1sOqxYLHWskuywrM4s660JbSctRO1irYBtnm28Ldot+C4WbjRuUq5wro7urW7LrunvCG8m70VvY++Cr6Evv+/er/1wHDA7MFnwePCX8Lbw1jD1MRRxM7FS8XIxkbGw8dBx7/IPci8yTrJuco4yrfLNsu2zDXMtc01zbXONs62zzfPuNA50LrRPNG+0j/SwdNE08bUSdTL1U7V0dZV1tjXXNfg2GTY6Nls2fHadtr724DcBdyK3RDdlt4c3qLfKd+v4DbgveFE4cziU+Lb42Pj6+Rz5PzlhOYN5pbnH+ep6DLovOlG6dDqW+rl63Dr++yG7RHtnO4o7rTvQO/M8Fjw5fFy8f/yjPMZ86f0NPTC9VD13vZt9vv3ivgZ+Kj5OPnH+lf65/t3/Af8mP0p/br+S/7c/23//2Rlc2MAAAAAAAAALklFQyA2MTk2Ni0yLTEgRGVmYXVsdCBSR0IgQ29sb3VyIFNwYWNlIC0gc1JHQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYWVogAAAAAAAAYpkAALeFAAAY2lhZWiAAAAAAAAAAAABQAAAAAAAAbWVhcwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWFlaIAAAAAAAAAMWAAADMwAAAqRYWVogAAAAAAAAb6IAADj1AAADkHNpZyAAAAAAQ1JUIGRlc2MAAAAAAAAALVJlZmVyZW5jZSBWaWV3aW5nIENvbmRpdGlvbiBpbiBJRUMgNjE5NjYtMi0xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYWVogAAAAAAAA9tYAAQAAAADTLXRleHQAAAAAQ29weXJpZ2h0IEludGVybmF0aW9uYWwgQ29sb3IgQ29uc29ydGl1bSwgMjAwOQAAc2YzMgAAAAAAAQxEAAAF3///8yYAAAeUAAD9j///+6H///2iAAAD2wAAwHX/2wCEAAgGBgoKCgoKCgoJCQkKCQgJCQkJCQ0JCQkJHQ4fHh0OHBwgGCsgIBYsGRAQIDUgLCsrMDAwHydFPTYrPC4rMCoBCQkJCAcIGAkIECYVHCEmJiYmJiYyJiYmJiYmJjIyJiYmJiYmJjImJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJv/AABEIBUADAAMBEQACEQEDEQH/xAAcAAEBAAMBAQEBAAAAAAAAAAAAAQIDBAUGBwj/xABFEAACAgECBAMGBAQGAQIFAwUAAQIRAyExBBJBUQVhcRMiMoGRoQaxwfBCUtHhBxQjYnLxM4KiJENzkrIVY8IWF1OD4v/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFxEBAQEBAAAAAAAAAAAAAAAAAAERMf/aAAwDAQACEQMRAD8A4/EPEMSxvZ6PqEfD8ZnUpSrbUK8ucwNMpAa3IDBsDBsQYNgYtgYtgYMDFgRgYgRgGBAAEAAAAACMAAAAADAMCAAAAAAAAAAAAAAASwAAAAAAAAACAAIAAAAAAAAAlgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD73iOPlLr366Aeblyt9QOaUgNbYGDYGDYGDYGLYGLAxYGLAxYEYEYEAjAAAIwAAAAAAQAAAAAAEAAAAAAAAAAAAAAAjAAAAAAAAAAIwAEAAAAAAAAARgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD6mc2BplIDW2BrbAwbAwbAxbAxbAxYEYGLAxAgEYACAAAEYAAAAARgAAAAAAMAwCAgAAAAAAAAAAAAAIAAAAAAAAAAQCAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPpZMDVJga2wMGwMGBiwMQMWBiwMWBAMWAAjAgAAAAgAAAsAAAASgFAKAALAAAAEAAAAAAAAAAAAABAAAAAAAAAEAAAIAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD6OTA1SYGDYGtsDFgYMCMDFgYsCWBGBiBLAMCAAIAQABQCgFAAAAAAAAAJQCgAAABAAAAAAAAAAAAAAQAAAAAAAABAFAQAAAAAAAAAAARgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+hkwNTYGtsDBsDFgYtgY2BGBiwIBiAAjAAQABGAAALAWAAAAAAAAAAAIAAAAAEAAAAAAAAAAAEAIAAAAAAAABKAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHutgYNgYNgYNgYsDFgYsCMDFgQCAQABAAACUAoAAoAwAAAAAAAAAAAAgCgAACAUCAAAAAAAAAAACAAAAAAAAAIwIAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD25MDBsDBsDBsDEDFgRgRgYsCAAIBAAAAAAAAAEYAAAAAAAAAAAAAAACAAAEAAAAAAAAAAIAAAAAAAAAAAIwIAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHstgYNgYtgYNgY2BAMWBAIBKAgACAAAAAAAAAIAAWAsAAAAAAAAAAAQAAAAGAsCAAAAAAAAQBQCgAAAAAAAAEoAwIAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPXbAwbAxbAxbAxbAxsCNgQCMABADAgEoCgAAAAAAjAUAoBQBgAAAAAAAAAACAAAACAAAAAAAAAAAABAAAAAAAAABgSgIAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeq2Bg2Bi2Bi2BLAxAMDFgLAgAABAAAAAAAAAAAAAAAIAAAAAAAAAAAAEAAAFAQAAAAAAAAAAASgFAAAAAAAMCAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9JsCNgYtgYsCAQCAQCAAAEAAAAAAAAAAAAAAAAAAEAAAAAAAAASwACwAAAAAgAAAAAAAAAAAgAAAAAGBKAgAAAAAAAAABKAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9BsDFsCWBAIBAAGNgAAAAAoAAAMCAAAAAAAAAAACMCgQAAAAAAAAAAgAAAAAAACgIAAAAAAABGAAAUCWAsABKAgACgQAAAAAAAABAAAAAQFAlgAAAAAAoEsBYAAAAALAAAAAAB3NgSwIBAIAAgACAAFAAAAAwAEAAAAAAAAAAAAAAAgAAAAAAAEYAAAAAKAAAFgAIAAAAAAAAAgFAgAAAYEoCAAAAAAAAAAEYAAAAAKAUAAAAAAAAoAAAAAAAAAAAAAADtAgEAgBgSwAACAAAAAAAAKAUBAAAAAAAAAAAAAAAAACAAAAAAoCAAAAAAAAADAgAAAAAAAAABAAACgRgSwIAAAAAAAAAAQAAAAAAAAAAAAFgAAAAAAAAAAAAAAAOwCAQABAAACAAAAAAAWAAWAAgAABQIAAAAAAAAAAAAEAALAAAAACUAAWAAAAAAAwIAAAAAAAAAAQAAQCgIwAEAAAAAAAAAQAAAAAFgAAACgAJYCwAAAAAWAsAAAAAAADrsAgMbAoEAAQAAAAAAAAAAMBYEAAAAAAAAAAAAAAAAAAEAAAAAAAAUBGAAAEAAAAIAAAAAAAAAAQAAQFAlAQCAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAB1AAAEAASwAFAjAMAAAAAAAAAAAAACgIAAAAAAAAAAAAACAAAAAAAARgAAAAAAAAAEAAAAAAAAlAAACwAEYEAAAAAAAAAAIwAAAAAAAAAAAAAAAAAAAAAAAAAAAdQEAAAAAAAAgAAAAAAAAAAAUAAAAFAKAUAoABAAEoCgAAACAKAAAAAAAAAQAAAAKAAAIAAAAAAAAAjAAAAACUBAAAAAAlAUAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAdIAAAAAAAACAAKAAgAAwKAAiAAGAAAAAAAAYEAAAAAAAAASwKBKAAAAAAAAARgAKBGAAgAAAAASwKAAjAAAAACMABAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAADpAAAAAAAAARgUAgKBKAUAoCgQABGAAUAAAAAAABAAAAAAAAAAAAAAQAAAAAAABQAAAAMDEAAAAAAAABGAAAAAACMCAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAOkAAAAAAAAAAUBQAACUAAAUABiwAAAAAAAACgIAAAAAAAAAAAAACAKAAAACgKAAgAAAAgCgIAAAAAACMAAAAAACgIBAACgAAAAAlAAAAAAAAAAAAAAAAAAAAAAAAADpAAAAAAAAAEBQAAAAAAAAACAAIAAUAAAAAAAAAAQAAAAAAAAAAAAIBQIgKAAgAAAAgAABAAAAAAAAAAABGAAjAgAAAAAAAAABGAAoEAAAAAAAAAAAAAAAAAAADpAAAAFAgACgAAAAAAAAAAAAAASgAEYAAAAAAAAAAAMCAAAAAAAAAAAAAAAAJQAAAAASgFAGBAAAAAAAAAAABAAEAgAAAAAAAAABGAAAAAAAAAAAAAAAAAAAAAB0gAAAABQJYFAAAAAAAAAAAAAAAAAIAAgCgAFQAABAAAAAAMBYEAAAAACgQAAAAAAEsAAAAKAgAAAsCAAAAABLAAGAAjAAAAEAAAAAC2BAIAAAAKBLAWAAAAAABYAAAAAAOkCgAAAABGBQAAAAAAAAAAAAAAAAABKAAAIBQFAKAAQAAAUAAUAAgAAAAAAAAAAAAQAAAAAJQAAAAgAAAAAQABQIAAlAKAgAAAAAAAACUAAAAACgKBAAAABQJQAAAAAAOoAAAAAAAAAAAAAAAAAAAAAAAAlgLAoEYAABLAoAABAAAAAAAAAEAAAAAAAAAGBAAAAAAAAIAAMCAAAAABGAAAEAoCMABAAAAAAAAAACUAAoEAAAAAAAAAAAAAAAAdQAAAAAAAAAAAAAAAAAAAAAAAAsAAAgAAgKBGAAAAAEsBYAAAAIAAAgAAAAAADAgAAAAAEAAAQABAAAAAAAQABQAEYEYEAAAAFsBYEAAAAAABLAWAAAAAFAgAAAAAAAHUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoABKAWBGAQFAAQAAAAAAAABAAAAAAAAIBQIAAAUABAIAAAGBAAAABGAAAUABGBGBAAAAAAAAJYFAgAAAAAAAAAAAAAAAAAA6gAAAAAAALQEAAAAAAAAAAAAAAAAAAAAAAASgAEAoAAAAlAKAAAABAGBAAAAAAAAIAYCgAAAAAAQAwFgQAAAAAIAAAUCARgQAAAAAAAAAAARgAAAAAAAAAAAAAAAAHUAAAAAAAAAAAAAAAAAAAAAAAAAJQCgKAAAAJQCgAAAAAAQBQAAAoAAAgAKBAAAAAAIAAAAAA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"
-          alt="Vinita Thakur — Founder of CycleALIGN"
-          loading="lazy"
-        />
-        <div class="founder-img-caption">
-          <h4>Vinita Thakur</h4>
-          <p>Founder, CycleALIGN · Aurang India</p>
-          <div class="founder-tags">
-            <span class="ftag">🇮🇳 Delhi</span><span class="ftag">Founder</span><span class="ftag">Investor</span><span class="ftag">Traveller</span>
+        <div class="founder-frame">
+          <img
+            class="founder-photo"
+            src="ME.jpg"
+            alt="Vinita Thakur — Founder of CycleALIGN"
+            loading="lazy"
+            onerror="this.src='https://vinitathakur.com/assets/ME.jpg'"
+          />
+          <div class="founder-img-caption">
+            <h4>Vinita Thakur</h4>
+            <p>Founder, CycleALIGN · Aurang India</p>
+            <div class="founder-tags">
+              <span class="ftag">🇮🇳 Delhi</span><span class="ftag">Founder</span><span class="ftag">Investor</span><span class="ftag">Femtech</span>
+            </div>
           </div>
         </div>
       </div>
@@ -629,7 +639,13 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
     <div class="med-layout">
       <div class="reveal">
         <div class="med-img-box">
-          <img src="dr-arjun.png" alt="Dr. Arjun M.B. — Consultant Internal Medicine" class="med-photo" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80'" />
+          <img 
+            src="dr-arjun.png" 
+            alt="Dr. Arjun M.B. — Consultant Internal Medicine" 
+            class="med-photo" 
+            loading="lazy" 
+            onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&auto=format&fit=crop&q=80'" 
+          />
         </div>
       </div>
       <div class="reveal">
@@ -791,7 +807,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
       <div class="fqitem reveal"><h3 class="fqitem-q">What is cycle syncing and does it actually work?</h3><p class="fqitem-a">Cycle syncing is adjusting your work habits, exercise, and commitments to the four phases of your menstrual cycle. The science is grounded in endocrinology — your hormones shift in predictable ways with measurable effects on cognition, mood, and energy. CycleALIGN automates cycle syncing so you do not have to track it manually.</p></div>
       <div class="fqitem reveal"><h3 class="fqitem-q">What is the best time in your cycle to pitch or negotiate salary?</h3><p class="fqitem-a">The ovulatory phase (days 14–16) is your peak window. Estrogen is at its highest, verbal fluency and confidence are elevated, and social perception is sharpest. CycleALIGN identifies this window automatically and notifies you when it is approaching.</p></div>
       <div class="fqitem reveal"><h3 class="fqitem-q">Is CycleALIGN only for women in corporate jobs?</h3><p class="fqitem-a">No. CycleALIGN is for any woman who leads something — a boardroom, a business, a home, or a classroom. The app personalises its language and suggestions to your life role, not just your job title.</p></div>
-      <div class="fqitem reveal"><h3 class="fqitem-q">Where can I download CycleALIGN?</h3><p class="fqitem-a">CycleALIGN is live and available on the Apple App Store for iOS devices and on Google Play for Android devices. You can also scan the QR code in our download section to get instant store access.</p></div>
+      <div class="fqitem reveal"><h3 class="fqitem-q">Where can I download CycleALIGN?</h3><p class="fqitem-a">CycleALIGN is live and available on the Apple App Store for iOS devices and on Google Play for Android devices. You can scan the QR codes above directly with your smartphone to download.</p></div>
       <div class="fqitem reveal"><h3 class="fqitem-q">How does CycleALIGN protect my privacy?</h3><p class="fqitem-a">You never need to type what a task actually is — you pick a category, and the app gives guidance without knowing your sensitive details. Optional task labels stay on your device only, never synced to a server. Calendar sync is selective. Your account can be permanently deleted anytime with all data removed completely.</p></div>
       <div class="fqitem reveal"><h3 class="fqitem-q">Does CycleALIGN integrate with my calendar?</h3><p class="fqitem-a">Yes. CycleALIGN syncs with your Google or Apple calendar to read your upcoming commitments, then suggests better dates for meetings, pitches, and reviews based on where you are in your hormonal phase. This is one of the most powerful features — moving a single high-stakes meeting to the right phase can meaningfully reduce burnout and improve outcomes.</p></div>
       <div class="fqitem reveal"><h3 class="fqitem-q">What is the fake shop feature?</h3><p class="fqitem-a">CycleALIGN's fake shop is designed to satisfy the urge to impulse-buy without spending real money. When you feel that pull to shop — typical in certain hormonal phases — you open a beautifully designed fake shopping experience where you can browse, add to cart, and "check out" with zero real charges. Your dopamine gets the hit. Your bank account stays safe.</p></div>
@@ -801,14 +817,14 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
   </div>
 </section>
 
-<!-- APP DOWNLOAD + CRED-STYLE QR -->
+<!-- APP DOWNLOAD + CRED-STYLE DUAL QR -->
 <section class="download-sec" id="download" aria-labelledby="dl-h2">
   <div class="si">
     <div class="dl-inner">
       <div class="dl-left reveal">
-        <div class="ey">Available Now</div>
+        <div class="ey">Available Worldwide</div>
         <h2 class="st" id="dl-h2">Start leading with<br/><em>your biology today.</em></h2>
-        <p>Stop working against your body. Download CycleALIGN now to map your hormonal phases, forecast your energy, and sync your highest-stakes decisions to when you perform at your peak.</p>
+        <p>Stop fighting your natural chemistry. Download CycleALIGN now to map your hormonal phases, forecast your mental bandwidth, and execute your highest-value goals when you are at your biological peak.</p>
         <div class="dl-perks">
           <div class="dl-perk"><div class="dl-perk-icon">🧠</div>Phase-aware task planning & decision scoring</div>
           <div class="dl-perk"><div class="dl-perk-icon">🔔</div>Personalised daily 2-line morning brief</div>
@@ -818,7 +834,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
         <div class="app-badges-wrap">
           <a href="https://apps.apple.com/in/app/cyclealign/id6788590698" target="_blank" rel="noopener noreferrer" class="store-btn">
             <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-            <div class="store-btn-text"><small>Download on the</small><span>App Store</span></div>
+            <div class="store-btn-text"><small>Download on</small><span>App Store</span></div>
           </a>
           <a href="https://play.google.com/store/apps/details?id=com.cyclealign.app" target="_blank" rel="noopener noreferrer" class="store-btn">
             <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
@@ -827,14 +843,26 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
         </div>
       </div>
       <div class="reveal">
-        <div class="cred-qr-card">
-          <div class="dl-badge"><span class="dl-badge-dot"></span>Instant Download</div>
-          <h3 style="color:var(--white);">Scan to get the app</h3>
-          <p style="font-size:0.8rem; color:var(--d-muted); margin-top:0.4rem;">Point your phone camera at the QR code to open store</p>
-          <div class="cred-qr-box">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://play.google.com/store/apps/details?id=com.cyclealign.app" alt="Scan to download CycleALIGN app" loading="lazy" />
+        <div class="cred-qr-grid">
+          <!-- iOS QR Card -->
+          <div class="cred-qr-card">
+            <div class="cred-qr-badge">Apple iOS</div>
+            <h4>App Store</h4>
+            <div class="cred-qr-box">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://apps.apple.com/in/app/cyclealign/id6788590698" alt="Scan to download CycleALIGN on Apple App Store" loading="lazy" />
+            </div>
+            <a href="https://apps.apple.com/in/app/cyclealign/id6788590698" target="_blank" rel="noopener noreferrer" class="cred-qr-btn">Scan or Tap to Open ↗</a>
           </div>
-          <p style="font-size:0.75rem; color:var(--rose-light);">Available for iOS &amp; Android</p>
+
+          <!-- Android QR Card -->
+          <div class="cred-qr-card">
+            <div class="cred-qr-badge">Android</div>
+            <h4>Google Play</h4>
+            <div class="cred-qr-box">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://play.google.com/store/apps/details?id=com.cyclealign.app" alt="Scan to download CycleALIGN on Google Play Store" loading="lazy" />
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.cyclealign.app" target="_blank" rel="noopener noreferrer" class="cred-qr-btn">Scan or Tap to Open ↗</a>
+          </div>
         </div>
       </div>
     </div>
