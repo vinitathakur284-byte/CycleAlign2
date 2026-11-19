@@ -1,8 +1,41 @@
 {
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/((?!api/|sitemap\\.xml|robots\\.txt|favicon\\.ico|.*\\.png|.*\\.jpg|.*\\.svg).*)",
-      "destination": "/index.html"
+      "source": "/best-period-tracker-apps-india-2026.html",
+      "destination": "/best-period-tracker-apps-india-2026",
+      "permanent": true
+    },
+    {
+      "source": "/cyclealign-vs-clue.html",
+      "destination": "/cyclealign-vs-clue",
+      "permanent": true
+    },
+    {
+      "source": "/cyclealign-vs-flo.html",
+      "destination": "/cyclealign-vs-flo",
+      "permanent": true
+    },
+    {
+      "source": "/cyclealign-vs-nua.html",
+      "destination": "/cyclealign-vs-nua",
+      "permanent": true
+    },
+    {
+      "source": "/cyclealign-vs-stardust.html",
+      "destination": "/cyclealign-vs-stardust",
+      "permanent": true
+    },
+    {
+      "source": "/period-tracker.html",
+      "destination": "/period-tracker",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
     }
   ],
   "headers": [
