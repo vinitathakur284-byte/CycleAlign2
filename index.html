@@ -1,11 +1,16 @@
+
+
+
+HTML icon
+index
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CycleALIGN — Cycle-Aware Leadership App | Download App Now </title>
+<title>CycleALIGN — Cycle-Aware Leadership App | Download App Now</title>
 <meta name="description" content="CycleALIGN is India's 1st cycle-aware leadership app for women. Track your cycle phase & sync your tasks, decisions & energy to when you perform best. Download on iOS & Android."/>
-<meta name="keywords" content="period tracker, cycle tracker, hormonal intelligence, cycle-aware leadership, phase-based productivity, hormone health app, women in leadership, period app India, cycle syncing, menstrual cycle productivity"/>
+<meta name="keywords" content="period tracker, cycle tracker, hormonal intelligence, cycle-aware leadership, phase-based productivity, hormone health app, women in leadership, period app India, cycle syncing, menstrual cycle productivity, PCOS productivity"/>
 <meta property="og:title" content="CycleALIGN — Hormone Intelligence for Women Who Lead"/>
 <meta property="og:description" content="Because the women who align with their biology will get ahead of everyone else who's still fighting theirs."/>
 <meta property="og:type" content="website"/>
@@ -34,7 +39,7 @@
 <!-- Language -->
 <meta name="language" content="English"/>
 <meta http-equiv="content-language" content="en-IN"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CycleALIGN?","acceptedAnswer":{"@type":"Answer","text":"CycleALIGN is India's first hormonal intelligence app for women. It tracks your menstrual cycle, identifies your current hormonal phase, and syncs your tasks, meetings, and decisions to the times when you naturally have the most energy, confidence, and cognitive capacity."}},{"@type":"Question","name":"How is CycleALIGN different from other period trackers?","acceptedAnswer":{"@type":"Answer","text":"Most period trackers are built for fertility and symptom logging. CycleALIGN is built for performance and leadership. It uses your cycle data to score tasks, forecast your weekly energy, and tell you the best day to pitch, negotiate, or present."}},{"@type":"Question","name":"Is CycleALIGN available in India?","acceptedAnswer":{"@type":"Answer","text":"Yes. CycleALIGN is built in India, by an Indian founder, for Indian women. Available for download on the Apple App Store and Google Play Store."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is CycleALIGN?","acceptedAnswer":{"@type":"Answer","text":"CycleALIGN is India's first hormonal intelligence app for women. It tracks your menstrual cycle, identifies your current hormonal phase, and syncs your tasks, meetings, and decisions to the times when you naturally have the most energy, confidence, and cognitive capacity."}},{"@type":"Question","name":"How is CycleALIGN different from other period trackers?","acceptedAnswer":{"@type":"Answer","text":"Most period trackers are built for fertility and symptom logging. CycleALIGN is built for performance and leadership. It uses your cycle data to score tasks, forecast your weekly energy, and tell you the best day to pitch, negotiate, or present."}},{"@type":"Question","name":"Does CycleALIGN work for irregular cycles or PCOS?","acceptedAnswer":{"@type":"Answer","text":"Yes. CycleALIGN adapts its forecasting window dynamically using rolling cycle averages rather than forcing a rigid 28-day template."}},{"@type":"Question","name":"Is CycleALIGN available in India?","acceptedAnswer":{"@type":"Answer","text":"Yes. CycleALIGN is built in India, by an Indian founder, for Indian women. Available for download on the Apple App Store and Google Play Store."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CycleALIGN","url":"https://www.cyclealign.in","founder":{"@type":"Person","name":"Vinita Thakur"},"contactPoint":{"@type":"ContactPoint","email":"hellocyclealign@gmail.com","contactType":"customer support"},"sameAs":["https://www.instagram.com/cyclealign.in/","https://www.linkedin.com/in/vinita-thakur-0a9b79125/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CycleALIGN","url":"https://www.cyclealign.in"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -113,34 +118,70 @@ nav.scrolled .nav-links a:hover{color:var(--plum)}
 .cred-qr-btn{margin-top:0.4rem;font-size:0.75rem;font-weight:600;color:var(--rose-light);display:inline-flex;align-items:center;gap:0.4rem}
 .cred-qr-btn:hover{color:var(--white)}
 
-/* ── HERO ── */
-.hero{min-height:100vh;background:var(--d-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden}
+/* ── SPLIT HERO WITH IN-APP UI PREVIEW ── */
+.hero{min-height:96vh;background:var(--d-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8rem 2.5rem 5rem;position:relative;overflow:hidden}
 .hero-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
 .orb1{width:550px;height:550px;background:radial-gradient(circle,rgba(180,105,105,0.22),transparent 70%);top:-120px;left:-120px}
 .orb2{width:450px;height:450px;background:radial-gradient(circle,rgba(168,132,58,0.16),transparent 70%);bottom:-80px;right:-80px}
 .orb3{width:300px;height:300px;background:radial-gradient(circle,rgba(110,126,98,0.1),transparent 70%);top:50%;left:55%}
-.hero-inner{position:relative;z-index:1;max-width:880px}
-.hero-pill{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,160,160,0.08);border:1px solid rgba(180,105,105,0.25);border-radius:100px;padding:0.4rem 1.1rem;font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-light);margin-bottom:1.75rem}
+
+.hero-split{position:relative;z-index:1;max-width:1160px;width:100%;margin:0 auto;display:grid;grid-template-columns:1.15fr 0.85fr;gap:4rem;align-items:center}
+.hero-left{text-align:left}
+.hero-pill{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,160,160,0.08);border:1px solid rgba(180,105,105,0.25);border-radius:100px;padding:0.4rem 1.1rem;font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose-light);margin-bottom:1.5rem}
 .hero-pill-dot{width:6px;height:6px;border-radius:50%;background:var(--rose-light);animation:glow 2s infinite}
-h1.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,7vw,5.8rem);line-height:1.03;font-weight:700;letter-spacing:-0.025em;color:var(--white);margin-bottom:1.25rem}
+h1.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,4.8rem);line-height:1.05;font-weight:700;letter-spacing:-0.025em;color:var(--white);margin-bottom:1rem}
 h1.hero-h1 em{font-style:italic;color:var(--rose-light)}
-.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--gold-light);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1.5rem}
-.hero-sub{font-size:1.05rem;color:rgba(242,224,224,0.65);max-width:580px;margin:0 auto 2.5rem;line-height:1.85;font-weight:300}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.2rem}
-.hbtn{display:flex;align-items:center;gap:0.75rem;padding:0.95rem 1.75rem;border-radius:16px;font-weight:600;font-size:0.9rem;cursor:pointer;transition:all 0.25s;border:none}
-.hbtn:hover{transform:translateY(-3px)}
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--gold-light);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1.25rem}
+.hero-sub{font-size:1rem;color:rgba(242,224,224,0.7);max-width:540px;margin:0 0 2rem;line-height:1.8;font-weight:300}
+.hero-btns{display:flex;gap:0.9rem;justify-content:flex-start;flex-wrap:wrap;margin-bottom:1.25rem}
+.hbtn{display:flex;align-items:center;gap:0.75rem;padding:0.85rem 1.4rem;border-radius:14px;font-weight:600;font-size:0.85rem;cursor:pointer;transition:all 0.25s;border:none}
+.hbtn:hover{transform:translateY(-2px)}
 .hbtn-sec{background:rgba(242,224,224,0.07);color:rgba(242,224,224,0.85);border:1px solid rgba(180,105,105,0.28)}
 .hbtn-sec:hover{background:rgba(242,224,224,0.12);color:var(--white)}
-.hbtn-icon{font-size:1.2rem}
+.hbtn-icon{font-size:1.1rem}
 .hbtn-text small{display:block;font-size:0.62rem;font-weight:400;opacity:0.7;letter-spacing:0.04em}
-.hero-note{font-size:0.76rem;color:rgba(242,224,224,0.45);margin-bottom:3rem}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(180,105,105,0.18);border-radius:20px;overflow:hidden;background:rgba(242,224,224,0.03)}
-.hstat{padding:1.5rem 1rem;text-align:center;border-right:1px solid rgba(180,105,105,0.12)}
+
+.hero-trust{display:flex;flex-wrap:wrap;gap:1.1rem;font-size:0.75rem;color:rgba(242,224,224,0.55);margin-bottom:2rem}
+.hero-trust span{display:inline-flex;align-items:center;gap:0.35rem}
+
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(180,105,105,0.18);border-radius:18px;overflow:hidden;background:rgba(242,224,224,0.03);max-width:1160px;width:100%;margin:3.5rem auto 0;position:relative;z-index:1}
+.hstat{padding:1.35rem 1rem;text-align:center;border-right:1px solid rgba(180,105,105,0.12)}
 .hstat:last-child{border-right:none}
-.hstat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--rose-light);line-height:1}
-.hstat-label{font-size:0.66rem;color:rgba(242,224,224,0.4);margin-top:0.3rem;line-height:1.4}
-.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(242,224,224,0.25);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;animation:bounce 2.5s infinite}
-.scroll-bar{width:1px;height:36px;background:linear-gradient(to bottom,rgba(242,224,224,0.3),transparent)}
+.hstat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--rose-light);line-height:1}
+.hstat-label{font-size:0.66rem;color:rgba(242,224,224,0.45);margin-top:0.3rem;line-height:1.4}
+
+/* Interactive App UI Preview Frame */
+.hero-right{display:flex;justify-content:center}
+.phone-mockup{width:340px;background:#1A0C16;border:3px solid rgba(212,160,160,0.28);border-radius:38px;padding:1.25rem;box-shadow:0 32px 80px rgba(0,0,0,0.65),0 0 40px rgba(180,105,105,0.15);position:relative}
+.mockup-notch{width:90px;height:18px;background:#120810;border-radius:0 0 12px 12px;margin:-1.25rem auto 1rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mockup-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding:0 0.25rem}
+.mockup-greet{font-size:0.7rem;color:var(--d-muted)}
+.mockup-badge{font-size:0.62rem;background:rgba(201,168,76,0.15);color:var(--gold-light);padding:3px 9px;border-radius:100px;border:1px solid rgba(201,168,76,0.3);font-weight:600}
+.mockup-phase{background:linear-gradient(145deg,rgba(168,132,58,0.22),rgba(61,26,46,0.6));border:1px solid rgba(201,168,76,0.32);border-radius:20px;padding:1.15rem;margin-bottom:1.1rem;text-align:left}
+.mockup-phase-day{font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold-light);font-weight:600;margin-bottom:0.2rem}
+.mockup-phase h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--white);margin-bottom:0.25rem}
+.mockup-phase p{font-size:0.74rem;color:var(--d-text);line-height:1.45}
+.mockup-sec-title{font-size:0.66rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--d-muted);margin-bottom:0.6rem;text-align:left;padding-left:0.2rem}
+.mockup-task{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:0.75rem 0.85rem;display:flex;align-items:center;gap:0.75rem;margin-bottom:0.6rem;text-align:left}
+.m-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.m-green{background:#68D391;box-shadow:0 0 8px rgba(104,211,145,0.6)}
+.m-amber{background:#F6AD55;box-shadow:0 0 8px rgba(246,173,85,0.6)}
+.m-info{flex:1}
+.m-info strong{display:block;font-size:0.76rem;color:var(--white);font-weight:600}
+.m-info small{font-size:0.64rem;color:var(--d-muted);display:block;margin-top:1px}
+.m-pill{font-size:0.62rem;font-weight:600;padding:3px 8px;border-radius:8px}
+.m-pill.ok{background:rgba(104,211,145,0.15);color:#68D391}
+.m-pill.warn{background:rgba(246,173,85,0.15);color:#F6AD55}
+.mockup-footer{margin-top:0.85rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center;font-size:0.65rem;color:var(--d-muted)}
+
+/* ── HOW IT WORKS ── */
+.how-sec{padding:5.5rem 2.5rem;background:var(--d-bg2);border-top:1px solid var(--d-border);border-bottom:1px solid var(--d-border)}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.how-card{background:rgba(242,224,224,0.04);border:1px solid var(--d-border);border-radius:20px;padding:1.75rem;transition:transform 0.3s}
+.how-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,0.3)}
+.how-num{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:700;color:var(--gold-light);line-height:1;margin-bottom:0.75rem;display:block}
+.how-card h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--white);margin-bottom:0.45rem}
+.how-card p{font-size:0.82rem;color:var(--d-text);line-height:1.65}
 
 /* ── SHARED ── */
 .si{max-width:1160px;margin:0 auto}
@@ -155,17 +196,16 @@ h2.st-w em{color:var(--rose-light)}
 
 /* ── PROBLEM ── */
 .problem{padding:8rem 2.5rem;background:var(--d-bg2);position:relative}
-.problem::before,.problem::after{content:'';position:absolute;left:0;right:0;height:1px}
-.problem::before{top:0;background:linear-gradient(90deg,transparent,rgba(180,105,105,0.4),transparent)}
-.problem::after{bottom:0;background:linear-gradient(90deg,transparent,rgba(168,132,58,0.2),transparent)}
+.problem::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(168,132,58,0.2),transparent)}
 .prob-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
 .prob-right blockquote{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-style:italic;color:var(--rose-light);line-height:1.5;border-left:2px solid var(--rose);padding-left:1.5rem;margin-bottom:2rem}
 .prob-right p{color:var(--d-text);line-height:1.85;margin-bottom:1rem;font-size:0.92rem}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:2rem}
 .scard{background:rgba(212,160,160,0.07);border:1px solid rgba(180,105,105,0.18);border-radius:18px;padding:1.5rem;text-align:center;transition:transform 0.3s,box-shadow 0.3s}
 .scard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.35)}
-.scard-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--rose-light);line-height:1}
-.scard-l{font-size:0.7rem;color:var(--d-muted);margin-top:0.4rem;line-height:1.4}
+.scard-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--rose-light);line-height:1}
+.scard-l{font-size:0.72rem;color:var(--d-muted);margin-top:0.45rem;line-height:1.45}
+.scard-cite{font-size:0.6rem;color:rgba(242,224,224,0.32);margin-top:0.4rem;display:block}
 
 /* ── WHAT IS ── */
 .whatis{padding:8rem 2.5rem;background:var(--cream)}
@@ -214,6 +254,11 @@ h2.st-w em{color:var(--rose-light)}
 .phr-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:4px}
 .phr.g{color:rgba(154,173,142,0.9)} .phr.g .phr-dot{background:var(--sage-light)}
 .phr.b{color:rgba(212,160,160,0.8)} .phr.b .phr-dot{background:var(--rose)}
+
+/* Irregular cycle note */
+.pcos-note{margin-top:2.25rem;background:rgba(242,224,224,0.045);border:1px solid rgba(201,168,76,0.25);border-radius:18px;padding:1.5rem 2rem;display:flex;align-items:flex-start;gap:1.2rem}
+.pcos-note h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);margin-bottom:0.3rem}
+.pcos-note p{font-size:0.82rem;color:var(--d-text);line-height:1.65}
 
 /* ── FOR WHO ── */
 .forwho{padding:8rem 2.5rem;background:var(--cream-2)}
@@ -274,30 +319,18 @@ h2.st-w em{color:var(--rose-light)}
 .med-author p{font-size:0.86rem;color:var(--text-mid);font-weight:500}
 .med-author span{font-size:0.76rem;color:var(--rose-deep);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-top:0.25rem;font-weight:600}
 
-/* ── BLOG ── */
+/* ── BLOG (COMPACT SCANNER LAYOUT + READER MODAL) ── */
 .blog{padding:8rem 2.5rem;background:var(--d-bg);position:relative}
 .blog::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--sage-light),transparent)}
 .blog-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
-.blog-see-all{font-size:0.78rem;color:var(--d-muted);transition:color 0.2s}
-.blog-see-all:hover{color:var(--rose-light)}
-.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .bcard{background:rgba(242,224,224,0.035);border:1px solid var(--d-border);border-radius:20px;padding:1.75rem;cursor:pointer;transition:all 0.3s;display:flex;flex-direction:column}
-.bcard:hover{background:rgba(242,224,224,0.06);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.35)}
-.bcard-tag{font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1rem}
-.bcard h3{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;line-height:1.3;color:var(--white);margin-bottom:0.65rem}
-.bcard-intro{font-size:0.79rem;color:var(--d-muted);line-height:1.65;margin-bottom:1rem}
+.bcard:hover{background:rgba(242,224,224,0.065);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.35);border-color:rgba(212,160,160,0.28)}
+.bcard-tag{font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.9rem}
+.bcard h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;line-height:1.35;color:var(--white);margin-bottom:0.7rem}
+.bcard-intro{font-size:0.8rem;color:var(--d-muted);line-height:1.65;margin-bottom:1.25rem}
 .bcard-meta{display:flex;align-items:center;justify-content:space-between;font-size:0.68rem;color:var(--d-muted);padding-top:1rem;border-top:1px solid var(--d-border);margin-top:auto}
-.bcard-read{color:var(--rose-light);font-weight:500}
-.bcard-full{display:none;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--d-border)}
-.bcard-full.open{display:block}
-.bcard-full h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--white);margin:1.5rem 0 0.6rem}
-.bcard-full h4:first-child{margin-top:0}
-.bcard-full p{font-size:0.82rem;color:var(--d-text);line-height:1.82;margin-bottom:0.85rem}
-.bcard-full ul{margin:0.5rem 0 1rem 1.2rem;display:flex;flex-direction:column;gap:0.4rem}
-.bcard-full ul li{font-size:0.82rem;color:var(--d-text);line-height:1.6}
-.bcard-full blockquote{border-left:2px solid var(--gold);padding-left:1rem;font-style:italic;font-size:0.84rem;color:var(--gold-light);margin:1rem 0;line-height:1.6}
-.bcard-close{font-size:0.72rem;color:var(--d-muted);margin-top:1rem;cursor:pointer;display:inline-flex;align-items:center;gap:0.3rem}
-.bcard-close:hover{color:var(--rose-light)}
+.bcard-read{color:var(--rose-light);font-weight:600}
 
 /* ── TESTIMONIALS ── */
 .testi{padding:8rem 2.5rem;background:var(--cream-3)}
@@ -346,7 +379,6 @@ h2.st-w em{color:var(--rose-light)}
 .fcta-inner h2 em{font-style:italic;color:var(--rose-light)}
 .fcta-sub{font-size:0.97rem;color:var(--d-text);max-width:500px;margin:0 auto 2.5rem;line-height:1.82;font-weight:300}
 .fcta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.25rem}
-.fcta-note{font-size:0.7rem;color:var(--d-muted);margin-bottom:3rem}
 .sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(242,224,224,0.25);max-width:580px;margin:0 auto;line-height:1.65}
 
 /* ── FOOTER ── */
@@ -379,16 +411,16 @@ footer{background:var(--plum);border-top:1px solid rgba(180,105,105,0.12);paddin
 .mclose{width:36px;height:36px;border-radius:50%;background:var(--cream-2);border:none;cursor:pointer;font-size:1rem;color:var(--text-mid);transition:all 0.2s;display:flex;align-items:center;justify-content:center}
 .mclose:hover{background:var(--rose-pale);color:var(--plum)}
 .mbody{padding:2rem;overflow-y:auto;flex:1}
-.mbody h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--plum);margin:1.5rem 0 0.6rem}
+.mbody h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--plum);margin:1.5rem 0 0.6rem}
 .mbody h4:first-child{margin-top:0}
-.mbody p{font-size:0.85rem;color:var(--text-mid);line-height:1.8;margin-bottom:0.9rem}
+.mbody p{font-size:0.86rem;color:var(--text-mid);line-height:1.8;margin-bottom:0.9rem}
 .mbody ul{margin:0.5rem 0 1rem 1.2rem;display:flex;flex-direction:column;gap:0.4rem}
-.mbody ul li{font-size:0.85rem;color:var(--text-mid);line-height:1.6}
+.mbody ul li{font-size:0.86rem;color:var(--text-mid);line-height:1.6}
+.mbody blockquote{border-left:3px solid var(--rose);padding-left:1rem;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--plum);margin:1.25rem 0}
 .mbody .mfooter{font-size:0.72rem;color:var(--text-light);margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--cream-3)}
 
 /* ── ANIMATIONS ── */
 @keyframes glow{0%,100%{opacity:1;box-shadow:0 0 4px currentColor}50%{opacity:0.4;box-shadow:none}}
-@keyframes bounce{0%,100%{transform:translateX(-50%)}50%{transform:translateX(-50%) translateY(6px)}}
 .reveal{opacity:1;transform:none;transition:opacity 0.7s ease,transform 0.7s ease}
 html.js .reveal{opacity:0;transform:translateY(22px)}
 html.js .reveal.visible{opacity:1;transform:translateY(0)}
@@ -396,7 +428,12 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){.founder-layout,.med-layout{grid-template-columns:1fr 1fr}}
 @media(max-width:960px){
-  .prob-layout,.wi-layout,.founder-layout,.med-layout,.dl-inner{grid-template-columns:1fr;gap:3rem}
+  .hero-split{grid-template-columns:1fr;text-align:center}
+  .hero-left{text-align:center}
+  .hero-left .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-left .hero-btns{justify-content:center}
+  .hero-trust{justify-content:center}
+  .how-grid,.prob-layout,.wi-layout,.founder-layout,.med-layout,.dl-inner{grid-template-columns:1fr;gap:2.5rem}
   .phases-grid,.roles-grid,.feat-grid,.testi-grid,.faq-grid,.blog-grid{grid-template-columns:1fr 1fr}
   .fcard.span2{grid-column:span 1}
   .footer-top{grid-template-columns:1fr 1fr;gap:2.5rem}
@@ -426,6 +463,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
     <div class="nav-brand">cycle<span>align</span></div>
   </div>
   <div class="nav-links">
+    <a href="#how-it-works">How It Works</a>
     <a href="#phases">The 4 Phases</a>
     <a href="#features">Features</a>
     <a href="#founder">Founder</a>
@@ -436,45 +474,115 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
   <a href="#download" class="nav-cta">Download App</a>
 </nav>
 
-<!-- HERO -->
+<!-- SPLIT HERO WITH INTERACTIVE IN-APP UI PREVIEW -->
 <section class="hero" id="home" aria-labelledby="hero-h1">
   <div class="hero-orb orb1" aria-hidden="true"></div>
   <div class="hero-orb orb2" aria-hidden="true"></div>
   <div class="hero-orb orb3" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <div class="hero-pill"><span class="hero-pill-dot"></span>India's First · Cycle-Aware Leadership App · Available Now</div>
-    <h1 class="hero-h1" id="hero-h1">Your biology is not<br/>a liability.<br/><em>It's your edge.</em></h1>
-    <p class="hero-tagline">Align your cycle. Elevate your life.</p>
-    <p class="hero-sub">CycleALIGN tracks your hormonal phase and syncs your tasks, decisions, and energy to when you naturally perform best — so you stop working against your body and start leading with it.</p>
-    <div class="hero-btns">
-      <a href="https://apps.apple.com/in/app/cyclealign/id6788590698" target="_blank" rel="noopener noreferrer" class="store-btn">
-        <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-        <div class="store-btn-text">
-          <small>Download on the</small>
-          <span>App Store</span>
-        </div>
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.cyclealign.app" target="_blank" rel="noopener noreferrer" class="store-btn">
-        <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
-        <div class="store-btn-text">
-          <small>Get it on</small>
-          <span>Google Play</span>
-        </div>
-      </a>
-      <a href="#download" class="hbtn hbtn-sec">
-        <span class="hbtn-icon">📱</span>
-        <span class="hbtn-text"><small>Scan QR code</small>Get App Directly</span>
-      </a>
+  
+  <div class="hero-split">
+    <div class="hero-left">
+      <div class="hero-pill"><span class="hero-pill-dot"></span>India's First · Cycle-Aware Leadership App</div>
+      <h1 class="hero-h1" id="hero-h1">Your biology is not a liability.<br/><em>It's your edge.</em></h1>
+      <p class="hero-tagline">Align your cycle. Elevate your life.</p>
+      <p class="hero-sub">CycleALIGN maps your hormonal phase to your calendar and scores your upcoming tasks, meetings, and decisions — so you execute high-stakes work when your brain and energy naturally peak.</p>
+      
+      <div class="hero-btns">
+        <a href="https://apps.apple.com/in/app/cyclealign/id6788590698" target="_blank" rel="noopener noreferrer" class="store-btn">
+          <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <div class="store-btn-text">
+            <small>Download on the</small>
+            <span>App Store</span>
+          </div>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.cyclealign.app" target="_blank" rel="noopener noreferrer" class="store-btn">
+          <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+          <div class="store-btn-text">
+            <small>Get it on</small>
+            <span>Google Play</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <span>✓ Free to download</span>
+        <span>✓ No credit card required</span>
+        <span>✓ Category-only privacy</span>
+      </div>
     </div>
-    <p class="hero-note">Live on iOS &amp; Android · Built for performance, backed by endocrinology 🇮🇳</p>
-    <div class="hero-stats">
-      <div class="hstat"><div class="hstat-num">4</div><div class="hstat-label">Hormonal phases mapped daily</div></div>
-      <div class="hstat"><div class="hstat-num">28</div><div class="hstat-label">Days — your real unit of time</div></div>
-      <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-label">Privacy-first category input</div></div>
-      <div class="hstat"><div class="hstat-num">0</div><div class="hstat-label">Apps like this in India. Until now.</div></div>
+
+    <!-- IN-HERO APP INTERFACE PREVIEW -->
+    <div class="hero-right">
+      <div class="phone-mockup" role="img" aria-label="CycleALIGN mobile interface showing Ovulatory Phase Day 14 and task compatibility scores">
+        <div class="mockup-notch"></div>
+        <div class="mockup-top">
+          <span class="mockup-greet">Today's Brief · 8:30 AM</span>
+          <span class="mockup-badge">CycleALIGN</span>
+        </div>
+        <div class="mockup-phase">
+          <div class="mockup-phase-day">Day 14 · Peak Estrogen Window</div>
+          <h3>Ovulatory Phase ⚡</h3>
+          <p>Verbal fluency, confidence, and social perception are at their monthly peak.</p>
+        </div>
+        <div class="mockup-sec-title">Phase-Scored Tasks</div>
+        <div class="mockup-task">
+          <span class="m-dot m-green"></span>
+          <div class="m-info">
+            <strong>Investor Pitch &amp; Negotiation</strong>
+            <small>Category: High-Stakes · Match: 98%</small>
+          </div>
+          <span class="m-pill ok">Ideal</span>
+        </div>
+        <div class="mockup-task">
+          <span class="m-dot m-amber"></span>
+          <div class="m-info">
+            <strong>Quarterly Financial Audit</strong>
+            <small>Category: Detail Work · Match: 44%</small>
+          </div>
+          <span class="m-pill warn">Shift to Luteal</span>
+        </div>
+        <div class="mockup-footer">
+          <span>🔒 Task details stay on device</span>
+          <span>Forecast: 7-Day Ready</span>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="hero-scroll" aria-hidden="true"><div class="scroll-bar"></div>Scroll</div>
+
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-num">4</div><div class="hstat-label">Hormonal phases mapped daily</div></div>
+    <div class="hstat"><div class="hstat-num">60s</div><div class="hstat-label">Onboarding from period log to forecast</div></div>
+    <div class="hstat"><div class="hstat-num">100%</div><div class="hstat-label">Privacy-first category input</div></div>
+    <div class="hstat"><div class="hstat-num">PCOS+</div><div class="hstat-label">Adapts dynamically to irregular cycles</div></div>
+  </div>
+</section>
+
+<!-- COMPACT HOW IT WORKS SEQUENCE -->
+<section class="how-sec" id="how-it-works" aria-labelledby="how-h2">
+  <div class="si">
+    <div style="text-align:center;max-width:620px;margin:0 auto">
+      <div class="ey" style="justify-content:center;color:var(--gold-light)">How It Works</div>
+      <h2 class="st st-w" id="how-h2">From install to clarity <em>in 60 seconds.</em></h2>
+      <p class="sb sb-d" style="margin:0 auto">Core cycle tracking, daily morning briefs, and task phase-scoring are free to start with an account — no credit card required.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <span class="how-num">01</span>
+        <h3>Log Your Cycle Dates</h3>
+        <p>Enter your last period start date and select your leadership role (founder, corporate, homemaker, or student). Supports variable and irregular cycle lengths.</p>
+      </div>
+      <div class="how-card reveal">
+        <span class="how-num">02</span>
+        <h3>See Your Weekly Energy Forecast</h3>
+        <p>Immediately view which days this week carry high verbal confidence, deep analytical focus, or lower bandwidth requiring recovery protection.</p>
+      </div>
+      <div class="how-card reveal">
+        <span class="how-num">03</span>
+        <h3>Score &amp; Align Key Tasks</h3>
+        <p>Pick a task category and target date. CycleALIGN scores hormonal compatibility (Green, Amber, or Red) and recommends optimal dates for critical meetings.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- PROBLEM -->
@@ -483,13 +591,29 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
     <div class="prob-layout">
       <div class="reveal">
         <div class="ey" style="color:var(--rose-light)">The Real Problem</div>
-        <h2 class="st st-w" id="prob-h2">You've been running on a 24-hour schedule.<br/><em>Your body runs on 28 days.</em></h2>
-        <p class="sb sb-d">Every productivity system ever built — time-blocking, to-do lists, OKRs — was designed for a body that stays constant. Your body doesn't. Your hormones cycle across four distinct phases every month, shifting your energy, cognition, and decision-making in ways that are completely predictable once you know how to read them.</p>
+        <h2 class="st st-w" id="prob-h2">You've been running on a 24-hour schedule.<br/><em>Your body runs on a monthly rhythm.</em></h2>
+        <p class="sb sb-d">Every productivity system ever built — time-blocking, to-do lists, OKRs — was designed for a body with flat 24-hour hormone cycles. Female biology operates on an infradian rhythm across four distinct hormonal phases, shifting energy, verbal fluency, and cognitive bandwidth in predictable patterns.</p>
         <div class="stat-grid">
-          <div class="scard"><div class="scard-n">40%</div><div class="scard-l">Of women say their cycle significantly affects work performance every month</div></div>
-          <div class="scard"><div class="scard-n">0</div><div class="scard-l">Apps in India built around cycle-aware leadership and productivity. Until now.</div></div>
-          <div class="scard"><div class="scard-n">3×</div><div class="scard-l">More likely to experience burnout when working against your hormonal rhythm</div></div>
-          <div class="scard"><div class="scard-n">28</div><div class="scard-l">Days — the real calendar women actually operate on, not 24 hours</div></div>
+          <div class="scard">
+            <div class="scard-n">80.7%</div>
+            <div class="scard-l">Of women report productivity loss due to menstrual symptoms</div>
+            <span class="scard-cite">Source: BMJ Open (Schoep et al., n=32,748)</span>
+          </div>
+          <div class="scard">
+            <div class="scard-n">4</div>
+            <div class="scard-l">Distinct hormonal phases shaping cognition and energy each cycle</div>
+            <span class="scard-cite">Endocrine &amp; Neurobiology Literature</span>
+          </div>
+          <div class="scard">
+            <div class="scard-n">100%</div>
+            <div class="scard-l">Category-only task scoring so private work plans never leave your phone</div>
+            <span class="scard-cite">CycleALIGN Privacy Architecture</span>
+          </div>
+          <div class="scard">
+            <div class="scard-n">Dynamic</div>
+            <div class="scard-l">Rolling cycle calibration — built for real cycles, not a rigid 28-day myth</div>
+            <span class="scard-cite">Adaptive Cycle Engine</span>
+          </div>
         </div>
       </div>
       <div class="reveal">
@@ -548,10 +672,19 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
       </div>
     </div>
     <div class="phases-grid">
-      <article class="phc phc-m reveal"><div class="phc-dot" style="background:#B46969"></div><h3 style="color:#D4A0A0">Menstrual</h3><div class="phc-days">Days 1–5 · Rest & Reflect</div><p class="phc-state">Hormones at their lowest. Mind turns analytical and inward. A powerful window for reviewing strategy and resetting direction — not pushing forward.</p><div class="phc-rows"><div class="phr g"><span class="phr-dot"></span>Reviewing strategy & results</div><div class="phr g"><span class="phr-dot"></span>Big-picture solo planning</div><div class="phr b"><span class="phr-dot"></span>High-visibility pitching</div><div class="phr b"><span class="phr-dot"></span>Hard negotiations</div></div></article>
-      <article class="phc phc-f reveal"><div class="phc-dot" style="background:#6E7E62"></div><h3 style="color:#9AAD8E">Follicular</h3><div class="phc-days">Days 6–13 · Create & Start</div><p class="phc-state">Estrogen rises steadily. Energy, optimism, and verbal fluency climb day by day. Your window for new ideas, outreach, and building momentum.</p><div class="phc-rows"><div class="phr g"><span class="phr-dot"></span>Starting new projects</div><div class="phr g"><span class="phr-dot"></span>Learning & brainstorming</div><div class="phr b"><span class="phr-dot"></span>Rigid repetitive admin</div></div></article>
-      <article class="phc phc-o reveal"><div class="phc-dot" style="background:#A8843A"></div><h3 style="color:#C9A85C">Ovulatory</h3><div class="phc-days">Days 14–16 · Pitch & Present</div><p class="phc-state">Peak estrogen. Your most magnetic, articulate, and confident window. Best days to pitch investors, negotiate salary, or give a public presentation.</p><div class="phc-rows"><div class="phr g"><span class="phr-dot"></span>Investor calls & pitches</div><div class="phr g"><span class="phr-dot"></span>Salary negotiations</div><div class="phr b"><span class="phr-dot"></span>Detail-heavy admin</div></div></article>
-      <article class="phc phc-l reveal"><div class="phc-dot" style="background:#9AAD8E"></div><h3 style="color:#9AAD8E">Luteal</h3><div class="phc-days">Days 17–28 · Execute & Finish</div><p class="phc-state">Progesterone rises. Attention narrows to detail. Early luteal: audit, finish, organise. Late luteal: protect energy and defer new commitments.</p><div class="phc-rows"><div class="phr g"><span class="phr-dot"></span>Editing & detail work</div><div class="phr g"><span class="phr-dot"></span>Organising & audits</div><div class="phr b"><span class="phr-dot"></span>Starting brand-new things</div></div></article>
+      <article class="phc phc-m reveal"><div class="phc-dot" style="background:#B46969"></div><h3 style="color:#D4A0A0">Menstrual</h3><div class="phc-days">Early Phase · Rest &amp; Reflect</div><p class="phc-state">Hormones at their lowest. Mind turns analytical and inward. A powerful window for reviewing strategy and resetting direction — not pushing forward.</p><div class="phc-rows"><div class="phr g"><span class="phr-dot"></span>Reviewing strategy &amp; results</div><div class="phr g"><span class="phr-dot"></span>Big-picture solo planning</div><div class="phr b"><span class="phr-dot"></span>High-visibility pitching</div><div class="phr b"><span class="phr-dot"></span>Hard negotiations</div></div></article>
+      <article class="phc phc-f reveal"><div class="phc-dot" style="background:#6E7E62"></div><h3 style="color:#9AAD8E">Follicular</h3><div class="phc-days">Pre-Ovulatory · Create &amp; Start</div><p class="phc-state">Estrogen rises steadily. Energy, optimism, and verbal fluency climb day by day. Your window for new ideas, outreach, and building momentum.</p><div class="phc-rows"><div class="phr g"><span class="phr-dot"></span>Starting new projects</div><div class="phr g"><span class="phr-dot"></span>Learning &amp; brainstorming</div><div class="phr b"><span class="phr-dot"></span>Rigid repetitive admin</div></div></article>
+      <article class="phc phc-o reveal"><div class="phc-dot" style="background:#A8843A"></div><h3 style="color:#C9A85C">Ovulatory</h3><div class="phc-days">Mid-Cycle Peak · Pitch &amp; Present</div><p class="phc-state">Peak estrogen. Your most magnetic, articulate, and confident window. Best days to pitch investors, negotiate salary, or give a public presentation.</p><div class="phc-rows"><div class="phr g"><span class="phr-dot"></span>Investor calls &amp; pitches</div><div class="phr g"><span class="phr-dot"></span>Salary negotiations</div><div class="phr b"><span class="phr-dot"></span>Detail-heavy admin</div></div></article>
+      <article class="phc phc-l reveal"><div class="phc-dot" style="background:#9AAD8E"></div><h3 style="color:#9AAD8E">Luteal</h3><div class="phc-days">Post-Ovulatory · Execute &amp; Finish</div><p class="phc-state">Progesterone rises. Attention narrows to detail. Early luteal: audit, finish, organise. Late luteal: protect energy and defer new commitments.</p><div class="phc-rows"><div class="phr g"><span class="phr-dot"></span>Editing &amp; detail work</div><div class="phr g"><span class="phr-dot"></span>Organising &amp; audits</div><div class="phr b"><span class="phr-dot"></span>Starting brand-new things</div></div></article>
+    </div>
+
+    <!-- IRREGULAR CYCLES, PCOS & CONTRACEPTION CLARIFICATION -->
+    <div class="pcos-note reveal">
+      <span style="font-size:1.5rem;flex-shrink:0">🔬</span>
+      <div>
+        <h4>Irregular cycles, PCOS, postpartum, or hormonal contraception?</h4>
+        <p>Real biology rarely follows a textbook 28-day clock. CycleALIGN dynamically recalculates phase windows using your rolling cycle history and daily 10-second energy logs. If you are postpartum, navigating PCOS, or on hormonal birth control where endogenous ovulation is suppressed, the app shifts guidance toward your logged energy, sleep, and mood patterns rather than assuming fixed textbook day numbers.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -567,7 +700,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
     <div class="roles-grid">
       <div class="rcard reveal"><div class="rcard-emoji">👩‍💼</div><h3>Corporate Professional</h3><p>Optimise your performance calendar. Know your best days to pitch, present, and negotiate. Stop hitting walls on days your body is in recovery mode.</p><blockquote>"I schedule all my big client calls in my follicular phase now. My close rate actually went up."</blockquote></div>
       <div class="rcard reveal"><div class="rcard-emoji">👩‍💻</div><h3>Entrepreneur / Founder</h3><p>Plan investor calls, product launches, and hiring decisions in your ovulatory window. Use your luteal clarity for audits, systems, and documentation.</p><blockquote>"I launched my last product in my follicular phase on purpose. Best launch I've ever had."</blockquote></div>
-      <div class="rcard reveal"><div class="rcard-emoji">🏠</div><h3>Homemaker & Family Manager</h3><p>Managing a home is leading. Know your high-energy windows for demanding tasks and protect your rest windows — without guilt, without explaining yourself.</p><blockquote>"Finally an app that treats managing a home like the real leadership it is."</blockquote></div>
+      <div class="rcard reveal"><div class="rcard-emoji">🏠</div><h3>Homemaker &amp; Family Manager</h3><p>Managing a home is leading. Know your high-energy windows for demanding tasks and protect your rest windows — without guilt, without explaining yourself.</p><blockquote>"Finally an app that treats managing a home like the real leadership it is."</blockquote></div>
       <div class="rcard reveal"><div class="rcard-emoji">🎓</div><h3>Student</h3><p>Schedule your hardest exams and presentations to your follicular and ovulatory windows. Stop cramming during your body's natural rest phase.</p><blockquote>"I planned my semester around my cycle phases. Better grades, less burnout."</blockquote></div>
     </div>
     <div class="onote reveal"><span style="font-size:1.25rem;flex-shrink:0;margin-top:0.1rem">✨</span><p><strong>One app. Your language.</strong> When you open CycleALIGN for the first time, you tell us what your leadership looks like. The app personalises every insight, nudge, and daily suggestion to your role — a homemaker and a founder both get exactly what they need, never a generic message.</p></div>
@@ -663,116 +796,48 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
   </div>
 </section>
 
-<!-- BLOG -->
+<!-- BLOG (CONCISE SUMMARIES + READER MODAL) -->
 <section class="blog" id="blog" aria-labelledby="blog-h2">
   <div class="si">
     <div class="blog-header reveal">
       <div><div class="ey" style="color:var(--sage-light)">The CycleALIGN Journal</div><h2 class="st st-w" id="blog-h2">Read. Learn. <em>Lead differently.</em></h2></div>
-      <a href="#" class="blog-see-all">View all articles →</a>
     </div>
     <div class="blog-grid">
-      <article class="bcard reveal" onclick="toggleBlog(this)">
+      <article class="bcard reveal" onclick="openArticle(0)">
         <div class="bcard-tag">Cycle Science</div>
         <h3>What Is Cycle-Aware Leadership? A Complete Guide for Working Women</h3>
-        <p class="bcard-intro">Cycle-aware leadership is not a wellness trend. It is a performance strategy built on endocrinology. Here's everything you need to know.</p>
-        <div class="bcard-full">
-          <h4>What cycle-aware leadership actually means</h4>
-          <p>Cycle-aware leadership is the deliberate practice of aligning your professional decisions, workload, and communication style to the four hormonal phases of your menstrual cycle. It is grounded in endocrinology: estrogen, progesterone, and cortisol fluctuate predictably across the cycle, with measurable effects on cognition, mood, verbal fluency, and risk appetite.</p>
-          <h4>The four phases and your work</h4>
-          <p>Menstrual (days 1–5): ideal for reviewing strategy and resetting direction. Follicular (days 6–13): rising estrogen lifts energy, creativity, and social confidence — best for new projects and outreach. Ovulatory (days 14–16): peak estrogen, the time to pitch, negotiate, give keynotes, or launch publicly. Luteal (days 17–28): early for auditing and finishing, late for protecting energy and deferring new commitments.</p>
-          <blockquote>The women who align with their biology will get ahead of everyone else who's still fighting theirs.</blockquote>
-          <span class="bcard-close" onclick="event.stopPropagation();toggleBlog(this.closest('.bcard'))">↑ Close article</span>
-        </div>
-        <div class="bcard-meta"><span>8 min read · June 2026</span><span class="bcard-read">Read →</span></div>
+        <p class="bcard-intro">Cycle-aware leadership is a performance strategy grounded in endocrinology. Learn how estrogen and progesterone shift verbal fluency, focus, and risk appetite.</p>
+        <div class="bcard-meta"><span>8 min read · June 2026</span><span class="bcard-read">Read Article →</span></div>
       </article>
-      <article class="bcard reveal" onclick="toggleBlog(this)">
+      <article class="bcard reveal" onclick="openArticle(1)">
         <div class="bcard-tag">Phase Planning</div>
         <h3>How to Plan Your Work Calendar Around Your Hormonal Phase</h3>
-        <p class="bcard-intro">A practical, week-by-week guide to phase-based productivity — how to front-load your follicular window and protect your luteal phase.</p>
-        <div class="bcard-full">
-          <h4>Step by step</h4>
-          <p>Know your dates — CycleALIGN calculates your phase automatically. Map your highest-stakes tasks to your ovulatory window (days 14–16): investor meetings, salary conversations, public speaking, client pitches. Use follicular (days 6–13) for brainstorming, writing, and strategy. Use early luteal for detailed systematic work. Protect late luteal (days 22–28) from new commitments entirely.</p>
-          <blockquote>A cycle-aligned week means doing your highest-value work in your highest-value window — without white-knuckling through a low-energy day to do it.</blockquote>
-          <span class="bcard-close" onclick="event.stopPropagation();toggleBlog(this.closest('.bcard'))">↑ Close article</span>
-        </div>
-        <div class="bcard-meta"><span>6 min read · June 2026</span><span class="bcard-read">Read →</span></div>
+        <p class="bcard-intro">A practical week-by-week blueprint for front-loading creative sprints in your follicular window and protecting bandwidth during late luteal days.</p>
+        <div class="bcard-meta"><span>6 min read · June 2026</span><span class="bcard-read">Read Article →</span></div>
       </article>
-      <article class="bcard reveal" onclick="toggleBlog(this)">
+      <article class="bcard reveal" onclick="openArticle(2)">
         <div class="bcard-tag">Leadership</div>
         <h3>The Best Time in Your Cycle to Negotiate Salary and Pitch Investors</h3>
-        <p class="bcard-intro">The ovulatory phase is your peak communication window. Here's the science behind why — and how to use it.</p>
-        <div class="bcard-full">
-          <h4>What happens in the ovulatory phase</h4>
-          <p>Days 14–16: estrogen peaks, LH surges, testosterone briefly rises. Verbal fluency increases, risk tolerance rises, social confidence is heightened, emotional intelligence sharpens. Studies show women in this phase speak more fluently, make more persuasive arguments, and are perceived as more confident and credible.</p>
-          <h4>Schedule in your ovulatory window</h4>
-          <ul>
-            <li>Salary negotiations — confidence and verbal fluency at their highest</li>
-            <li>Investor pitches — storytelling and persuasion capacity peak here</li>
-            <li>Public speaking and keynotes — most comfortable being seen and heard</li>
-            <li>Important client presentations — social perception and rapport-building sharpest</li>
-          </ul>
-          <blockquote>The goal is not perfection. The goal is self-knowledge. And self-knowledge is the foundation of every form of leadership.</blockquote>
-          <span class="bcard-close" onclick="event.stopPropagation();toggleBlog(this.closest('.bcard'))">↑ Close article</span>
-        </div>
-        <div class="bcard-meta"><span>5 min read · June 2026</span><span class="bcard-read">Read →</span></div>
+        <p class="bcard-intro">Why the ovulatory phase serves as your natural communication peak — and how to time high-stakes boardrooms and negotiations around it.</p>
+        <div class="bcard-meta"><span>5 min read · June 2026</span><span class="bcard-read">Read Article →</span></div>
       </article>
-      <article class="bcard reveal" onclick="toggleBlog(this)">
+      <article class="bcard reveal" onclick="openArticle(3)">
         <div class="bcard-tag">Women's Health</div>
         <h3>How CycleALIGN Is Different from Every Other Period Tracker</h3>
-        <p class="bcard-intro">Most period apps are built for fertility. CycleALIGN is built for performance. Here's the clear breakdown.</p>
-        <div class="bcard-full">
-          <h4>What most period trackers do</h4>
-          <p>Most period tracking apps were built to predict your next period and fertile window. Excellent for that purpose. But not built to help you use your cycle as a professional strategy or tell you whether to schedule your board presentation this Tuesday or next Thursday.</p>
-          <h4>What CycleALIGN does differently</h4>
-          <ul>
-            <li>Task Sync: add a task and a date, get a phase-match score — green, amber, or red</li>
-            <li>Daily insight: one personalised two-line brief every morning based on your phase</li>
-            <li>Weekly forecast: Monday overview of your best and most protected days ahead</li>
-            <li>Role-specific personalisation: speaks differently to a founder vs a homemaker</li>
-            <li>Privacy-first: category-only task input — you never type what the task actually is</li>
-          </ul>
-          <p>Period trackers tell you when your period is coming. CycleALIGN tells you what your biology is capable of every single day. The difference between tracking and intelligence.</p>
-          <span class="bcard-close" onclick="event.stopPropagation();toggleBlog(this.closest('.bcard'))">↑ Close article</span>
-        </div>
-        <div class="bcard-meta"><span>7 min read · July 2026</span><span class="bcard-read">Read →</span></div>
+        <p class="bcard-intro">Fertility trackers tell you when your period starts. CycleALIGN scores your calendar tasks and protects sensitive plans via category-only privacy.</p>
+        <div class="bcard-meta"><span>7 min read · July 2026</span><span class="bcard-read">Read Article →</span></div>
       </article>
-      <article class="bcard reveal" onclick="toggleBlog(this)">
+      <article class="bcard reveal" onclick="openArticle(4)">
         <div class="bcard-tag">Postpartum</div>
-        <h3>Managing Postpartum Stress While Returning to Work — A Hormone-Aware Guide</h3>
-        <p class="bcard-intro">Returning to work after maternity leave while your hormones are still recalibrating is one of the hardest transitions a woman faces.</p>
-        <div class="bcard-full">
-          <h4>The hormonal reality</h4>
-          <p>After delivery, estrogen and progesterone drop sharply — the steepest hormonal drop a human body experiences outside of menopause. Cortisol tends to be chronically higher due to sleep deprivation and the psychological adjustment to parenthood. This is biochemistry, not weakness.</p>
-          <h4>How cycle awareness helps</h4>
-          <ul>
-            <li>Use follicular phase for your first big back-to-work presentations</li>
-            <li>Use ovulatory window for high-stakes conversations about flexible arrangements</li>
-            <li>Protect luteal phase from overcommitment — especially in the first 3 months back</li>
-            <li>Use menstrual phase for planning and reflection, not performance pressure</li>
-          </ul>
-          <blockquote>You are not failing at returning to work. You are navigating one of the most hormonally complex transitions a human body goes through. Give yourself the same grace.</blockquote>
-          <span class="bcard-close" onclick="event.stopPropagation();toggleBlog(this.closest('.bcard'))">↑ Close article</span>
-        </div>
-        <div class="bcard-meta"><span>9 min read · July 2026</span><span class="bcard-read">Read →</span></div>
+        <h3>Managing Postpartum Stress While Returning to Work</h3>
+        <p class="bcard-intro">Navigating steep postpartum hormonal recalibration and sleep shifts while stepping back into leadership roles without burnout.</p>
+        <div class="bcard-meta"><span>9 min read · July 2026</span><span class="bcard-read">Read Article →</span></div>
       </article>
-      <article class="bcard reveal" onclick="toggleBlog(this)">
+      <article class="bcard reveal" onclick="openArticle(5)">
         <div class="bcard-tag">Science</div>
         <h3>Does Cycle Syncing Actually Work? What the Research Really Says</h3>
-        <p class="bcard-intro">Cycle syncing is everywhere right now. But is it backed by science or just wellness hype? We go through the actual research.</p>
-        <div class="bcard-full">
-          <h4>What the science shows</h4>
-          <ul>
-            <li>Verbal fluency peaks around ovulation — consistent finding across multiple studies</li>
-            <li>Cognitive performance varies across the cycle — supported by peer-reviewed research</li>
-            <li>Emotional reactivity increases in late luteal — well-documented in clinical literature</li>
-            <li>Physical recovery from exercise is faster in the follicular phase — emerging evidence</li>
-            <li>Sleep quality fluctuates with hormonal changes — strongly supported</li>
-          </ul>
-          <h4>The bottom line</h4>
-          <p>Yes — with calibration. The core principle is sound: your hormones fluctuate, those fluctuations affect your energy and cognition, and you can make smarter decisions by accounting for them. CycleALIGN is built only on the well-supported aspects — without making claims the science cannot yet back.</p>
-          <span class="bcard-close" onclick="event.stopPropagation();toggleBlog(this.closest('.bcard'))">↑ Close article</span>
-        </div>
-        <div class="bcard-meta"><span>10 min read · July 2026</span><span class="bcard-read">Read →</span></div>
+        <p class="bcard-intro">Separating peer-reviewed neurobiology from social media wellness hype — what clinical studies confirm about cognitive shifts across the cycle.</p>
+        <div class="bcard-meta"><span>10 min read · July 2026</span><span class="bcard-read">Read Article →</span></div>
       </article>
     </div>
   </div>
@@ -801,16 +866,15 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
       <h2 class="st" id="faq-h2">Everything you need to know<br/>about <em>CycleALIGN</em></h2>
     </div>
     <div class="faq-grid">
-      <div class="fqitem reveal"><h3 class="fqitem-q">How is CycleALIGN different from other period trackers?</h3><p class="fqitem-a">Most period trackers are built for fertility and symptom logging. CycleALIGN is built for performance and leadership — it uses your cycle data to score tasks, forecast your weekly energy, and tell you the best day to pitch, negotiate, or present. No other period app does this. It is the difference between tracking and intelligence.</p></div>
-      <div class="fqitem reveal"><h3 class="fqitem-q">How does your menstrual cycle affect work performance?</h3><p class="fqitem-a">During the follicular and ovulatory phases (days 6–16), rising estrogen boosts energy, creativity, and verbal fluency — the best days for pitching, negotiating, and presenting. During the late luteal phase (days 22–28), cognitive bandwidth naturally reduces. Scheduling high-stakes work to match these windows significantly improves output and reduces burnout.</p></div>
-      <div class="fqitem reveal"><h3 class="fqitem-q">What is cycle syncing and does it actually work?</h3><p class="fqitem-a">Cycle syncing is adjusting your work habits, exercise, and commitments to the four phases of your menstrual cycle. The science is grounded in endocrinology — your hormones shift in predictable ways with measurable effects on cognition, mood, and energy. CycleALIGN automates cycle syncing so you do not have to track it manually.</p></div>
-      <div class="fqitem reveal"><h3 class="fqitem-q">What is the best time in your cycle to pitch or negotiate salary?</h3><p class="fqitem-a">The ovulatory phase (days 14–16) is your peak window. Estrogen is at its highest, verbal fluency and confidence are elevated, and social perception is sharpest. CycleALIGN identifies this window automatically and notifies you when it is approaching.</p></div>
+      <div class="fqitem reveal"><h3 class="fqitem-q">How is CycleALIGN different from other period trackers?</h3><p class="fqitem-a">Most period trackers are built for fertility and symptom logging. CycleALIGN is built for performance and leadership — it uses your cycle data to score tasks, forecast your weekly energy, and tell you the best day to pitch, negotiate, or present. No other period app does this.</p></div>
+      <div class="fqitem reveal"><h3 class="fqitem-q">Is CycleALIGN free to use?</h3><p class="fqitem-a">Yes, CycleALIGN is free to download on iOS and Android. Core cycle tracking, daily morning briefs, and category-based task scoring are available free upon creating your account, with optional premium features for deeper AI coaching and advanced calendar sync.</p></div>
+      <div class="fqitem reveal"><h3 class="fqitem-q">What if I have PCOS, irregular cycles, or use birth control?</h3><p class="fqitem-a">CycleALIGN does not assume a rigid 28-day template. Our engine recalibrates phase predictions dynamically using your rolling cycle averages and daily 10-second energy logs so women with variable cycles or hormonal contraception still receive personalized pacing guidance.</p></div>
+      <div class="fqitem reveal"><h3 class="fqitem-q">How does your menstrual cycle affect work performance?</h3><p class="fqitem-a">During the follicular and ovulatory phases, rising estrogen boosts energy, creativity, and verbal fluency — ideal for pitching, negotiating, and presenting. During the late luteal phase, cognitive bandwidth naturally shifts inward. Scheduling high-stakes work to match these windows reduces burnout.</p></div>
+      <div class="fqitem reveal"><h3 class="fqitem-q">What is the best time in your cycle to pitch or negotiate salary?</h3><p class="fqitem-a">The ovulatory window is your peak communication window. Estrogen is at its highest, verbal fluency and confidence are elevated, and social perception is sharpest. CycleALIGN identifies this window automatically and notifies you when it is approaching.</p></div>
       <div class="fqitem reveal"><h3 class="fqitem-q">Is CycleALIGN only for women in corporate jobs?</h3><p class="fqitem-a">No. CycleALIGN is for any woman who leads something — a boardroom, a business, a home, or a classroom. The app personalises its language and suggestions to your life role, not just your job title.</p></div>
-      <div class="fqitem reveal"><h3 class="fqitem-q">Where can I download CycleALIGN?</h3><p class="fqitem-a">CycleALIGN is live and available on the Apple App Store for iOS devices and on Google Play for Android devices. You can scan the QR codes above directly with your smartphone to download.</p></div>
-      <div class="fqitem reveal"><h3 class="fqitem-q">How does CycleALIGN protect my privacy?</h3><p class="fqitem-a">You never need to type what a task actually is — you pick a category, and the app gives guidance without knowing your sensitive details. Optional task labels stay on your device only, never synced to a server. Calendar sync is selective. Your account can be permanently deleted anytime with all data removed completely.</p></div>
-      <div class="fqitem reveal"><h3 class="fqitem-q">Does CycleALIGN integrate with my calendar?</h3><p class="fqitem-a">Yes. CycleALIGN syncs with your Google or Apple calendar to read your upcoming commitments, then suggests better dates for meetings, pitches, and reviews based on where you are in your hormonal phase. This is one of the most powerful features — moving a single high-stakes meeting to the right phase can meaningfully reduce burnout and improve outcomes.</p></div>
-      <div class="fqitem reveal"><h3 class="fqitem-q">What is the fake shop feature?</h3><p class="fqitem-a">CycleALIGN's fake shop is designed to satisfy the urge to impulse-buy without spending real money. When you feel that pull to shop — typical in certain hormonal phases — you open a beautifully designed fake shopping experience where you can browse, add to cart, and "check out" with zero real charges. Your dopamine gets the hit. Your bank account stays safe.</p></div>
-      <div class="fqitem reveal"><h3 class="fqitem-q">Does CycleALIGN have an AI coach?</h3><p class="fqitem-a">Yes. CycleALIGN includes an AI coach trained on cycle-aware decision-making. It knows your current phase, your role, and your logged patterns. Ask it whether to take a call today, how to handle a difficult conversation this week, or why you're feeling foggy — and get answers grounded in endocrinology and personalised to your context.</p></div>
+      <div class="fqitem reveal"><h3 class="fqitem-q">How does CycleALIGN protect my privacy?</h3><p class="fqitem-a">You never need to type what a task actually is — you pick a category, and the app gives guidance without knowing your sensitive details. Optional task labels stay on your device only, never synced to a server. Your account can be permanently deleted anytime with all data removed completely.</p></div>
+      <div class="fqitem reveal"><h3 class="fqitem-q">Does CycleALIGN integrate with my calendar?</h3><p class="fqitem-a">Yes. CycleALIGN syncs with your Google or Apple calendar to read your upcoming commitments, then suggests better dates for meetings, pitches, and reviews based on where you are in your hormonal phase.</p></div>
+      <div class="fqitem reveal"><h3 class="fqitem-q">What is the fake shop feature?</h3><p class="fqitem-a">CycleALIGN's fake shop is designed to satisfy the urge to impulse-buy without spending real money. When you feel that pull to shop in late luteal days, you can browse, add to cart, and "check out" with zero real charges — protecting your bank account.</p></div>
       <div class="fqitem reveal"><h3 class="fqitem-q">Is CycleALIGN available in India?</h3><p class="fqitem-a">Yes. CycleALIGN is built in India, by an Indian founder, for Indian women and women globally. Founded in Delhi by Vinita Thakur under Aurang India. Contact: hellocyclealign@gmail.com</p></div>
     </div>
   </div>
@@ -823,19 +887,19 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
       <div class="dl-left reveal">
         <div class="ey">Available Worldwide</div>
         <h2 class="st" id="dl-h2">Start leading with<br/><em>your biology today.</em></h2>
-        <p>Stop fighting your natural chemistry. Download CycleALIGN now to map your hormonal phases, forecast your mental bandwidth, and execute your highest-value goals when you are at your biological peak.</p>
+        <p>Stop fighting your natural chemistry. Download CycleALIGN free on iOS or Android to map your hormonal phases, forecast your mental bandwidth, and execute your highest-value goals at your biological peak.</p>
         <div class="dl-perks">
-          <div class="dl-perk"><div class="dl-perk-icon">🧠</div>Phase-aware task planning & decision scoring</div>
+          <div class="dl-perk"><div class="dl-perk-icon">🧠</div>Phase-aware task planning &amp; decision scoring</div>
           <div class="dl-perk"><div class="dl-perk-icon">🔔</div>Personalised daily 2-line morning brief</div>
           <div class="dl-perk"><div class="dl-perk-icon">📊</div>Monday-to-Sunday hormonal capacity forecast</div>
           <div class="dl-perk"><div class="dl-perk-icon">🔒</div>Privacy-first: category-only task input</div>
         </div>
         <div class="app-badges-wrap">
-          <a href="https://apps.apple.com/in/app/cyclealign/id6788590698" target="_blank" rel="noopener noreferrer" class="store-btn">
+          <a href="https://apps.apple.com/in/app/cyclealign/id6788590698" target="_blank" rel="noopener noreferrer" class="store-btn" style="background:var(--plum)">
             <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
             <div class="store-btn-text"><small>Download on</small><span>App Store</span></div>
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.cyclealign.app" target="_blank" rel="noopener noreferrer" class="store-btn">
+          <a href="https://play.google.com/store/apps/details?id=com.cyclealign.app" target="_blank" rel="noopener noreferrer" class="store-btn" style="background:var(--plum)">
             <svg viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
             <div class="store-btn-text"><small>Get it on</small><span>Google Play</span></div>
           </a>
@@ -873,7 +937,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
   <div class="fcta-orb" aria-hidden="true"></div>
   <div class="fcta-inner reveal">
     <h2 id="cta-h2">Start leading with<br/><em>your biology.</em></h2>
-    <p class="fcta-sub">Align your schedule to your natural hormonal superpowers. Get the app today on iOS and Android.</p>
+    <p class="fcta-sub">Align your schedule to your natural hormonal superpowers. Get the app free today on iOS and Android.</p>
     <div class="fcta-btns">
       <a href="https://apps.apple.com/in/app/cyclealign/id6788590698" target="_blank" rel="noopener noreferrer" class="store-btn">
         <svg viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
@@ -903,7 +967,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
           <a href="mailto:hellocyclealign@gmail.com" class="fsocial">Email</a>
         </div>
       </div>
-      <div class="fcol"><h4>Product</h4><a href="#what-is">What is CycleALIGN</a><a href="#phases">The 4 Phases</a><a href="#features">Features</a><a href="#for-who">Who it's for</a></div>
+      <div class="fcol"><h4>Product</h4><a href="#how-it-works">How It Works</a><a href="#what-is">What is CycleALIGN</a><a href="#phases">The 4 Phases</a><a href="#features">Features</a></div>
       <div class="fcol"><h4>Download</h4><a href="https://apps.apple.com/in/app/cyclealign/id6788590698" target="_blank" rel="noopener noreferrer">iOS App</a><a href="https://play.google.com/store/apps/details?id=com.cyclealign.app" target="_blank" rel="noopener noreferrer">Android App</a><a href="#founder">About Vinita</a><a href="#blog">Journal</a></div>
       <div class="fcol"><h4>Connect</h4><a href="https://www.instagram.com/cyclealign.in/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.linkedin.com/in/vinita-thakur-0a9b79125/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:hellocyclealign@gmail.com">Contact</a><a href="#" onclick="openModal('privacy');return false">Privacy Policy</a><a href="#" onclick="openModal('disclaimer');return false">Disclaimer</a></div>
     </div>
@@ -912,7 +976,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
       <div class="footer-legal">
         <a href="#" onclick="openModal('privacy');return false">Privacy Policy</a>
         <a href="#" onclick="openModal('disclaimer');return false">Disclaimer</a>
-        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/privacy.html">Privacy Page</a>
         <a href="/period-tracker.html">Period Tracker</a>
         <a href="mailto:hellocyclealign@gmail.com">Contact</a>
       </div>
@@ -920,6 +984,14 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
     </div>
   </div>
 </footer>
+
+<!-- ARTICLE READER MODAL -->
+<div class="moverlay" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="articleTitle" onclick="if(event.target===this)closeModal('article')">
+  <div class="mbox">
+    <div class="mheader"><h3 id="articleTitle">Article</h3><button class="mclose" onclick="closeModal('article')" aria-label="Close">✕</button></div>
+    <div class="mbody" id="articleBody"></div>
+  </div>
+</div>
 
 <!-- PRIVACY MODAL -->
 <div class="moverlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" onclick="if(event.target===this)closeModal('privacy')">
@@ -929,12 +1001,12 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
       <h4>Introduction</h4>
       <p>CycleALIGN ("we", "our", or "us"), operated by Aurang India, is committed to protecting your privacy. This Privacy Policy explains how we protect your personal information when you use our website (cyclealign.in) and mobile application.</p>
       <h4>Privacy-First Design</h4>
-      <p>We do not sell, rent, or share your personal data with any third party for marketing purposes. All sensitive period and cycle records are encrypted and privacy protected.</p>
+      <p>We do not sell, rent, or share your personal data with any third party for marketing purposes. All sensitive period and cycle records are encrypted and privacy protected. Task labels remain stored locally on your device.</p>
       <h4>Your Rights</h4>
       <p>You have the right to access, correct, or delete any personal data we hold about you at any time. Contact us at hellocyclealign@gmail.com and we will respond within 7 working days.</p>
       <h4>Contact</h4>
       <p><strong>hellocyclealign@gmail.com</strong> · CycleALIGN, Aurang India, New Delhi, India.</p>
-      <p class="mfooter">Last updated: September 2026</p>
+      <p class="mfooter">Last updated: November 2026</p>
     </div>
   </div>
 </div>
@@ -950,7 +1022,7 @@ html.js .reveal.visible{opacity:1;transform:translateY(0)}
       <p>CycleALIGN is a productivity and lifestyle application. It is not a medical device and has not been evaluated or approved by any medical regulatory authority. Always consult a qualified healthcare professional regarding any medical concerns.</p>
       <h4>Contact</h4>
       <p><strong>hellocyclealign@gmail.com</strong></p>
-      <p class="mfooter">Last updated: September 2026</p>
+      <p class="mfooter">Last updated: November 2026</p>
     </div>
   </div>
 </div>
@@ -972,18 +1044,88 @@ const obs=new IntersectionObserver(entries=>{
 },{threshold:0.08});
 reveals.forEach(el=>obs.observe(el));
 
-// Blog toggle
-function toggleBlog(card){
-  const c=card.querySelector('.bcard-full');
-  const open=c.classList.contains('open');
-  document.querySelectorAll('.bcard-full.open').forEach(x=>x.classList.remove('open'));
-  if(!open){c.classList.add('open');setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'start'}),100);}
+// Lightweight Journal Articles Data (keeps initial DOM clean & fast)
+const articles = [
+  {
+    title: "What Is Cycle-Aware Leadership? A Complete Guide for Working Women",
+    html: `<h4>What cycle-aware leadership actually means</h4>
+           <p>Cycle-aware leadership is the deliberate practice of aligning your professional decisions, workload, and communication style to the four hormonal phases of your menstrual cycle. It is grounded in endocrinology: estrogen, progesterone, and cortisol fluctuate predictably across the cycle, with measurable effects on cognition, mood, verbal fluency, and risk appetite.</p>
+           <h4>The four phases and your work</h4>
+           <p><strong>Menstrual:</strong> ideal for reviewing strategy and resetting direction. <strong>Follicular:</strong> rising estrogen lifts energy, creativity, and social confidence — best for new projects and outreach. <strong>Ovulatory:</strong> peak estrogen, the time to pitch, negotiate, give keynotes, or launch publicly. <strong>Luteal:</strong> early for auditing and finishing, late for protecting energy and deferring new commitments.</p>
+           <blockquote>The women who align with their biology will get ahead of everyone else who's still fighting theirs.</blockquote>`
+  },
+  {
+    title: "How to Plan Your Work Calendar Around Your Hormonal Phase",
+    html: `<h4>Step-by-step calendar alignment</h4>
+           <p>Know your dates — CycleALIGN calculates your phase automatically using rolling cycle averages. Map your highest-stakes tasks to your ovulatory window: investor meetings, salary conversations, public speaking, and client pitches.</p>
+           <p>Use the follicular phase for brainstorming, writing, and strategy. Use early luteal for detailed systematic work, and protect late luteal days from unnecessary new commitments.</p>
+           <blockquote>A cycle-aligned week means doing your highest-value work in your highest-value window — without white-knuckling through a low-energy day to do it.</blockquote>`
+  },
+  {
+    title: "The Best Time in Your Cycle to Negotiate Salary and Pitch Investors",
+    html: `<h4>What happens in the ovulatory phase</h4>
+           <p>Mid-cycle, estrogen peaks, LH surges, and testosterone briefly rises. Verbal fluency increases, risk tolerance rises, social confidence is heightened, and emotional intelligence sharpens.</p>
+           <h4>Schedule in your ovulatory window</h4>
+           <ul>
+             <li>Salary negotiations — confidence and verbal fluency at their highest</li>
+             <li>Investor pitches — storytelling and persuasion capacity peak here</li>
+             <li>Public speaking and keynotes — most comfortable being seen and heard</li>
+             <li>Important client presentations — social perception and rapport-building sharpest</li>
+           </ul>
+           <blockquote>The goal is not perfection. The goal is self-knowledge. And self-knowledge is the foundation of every form of leadership.</blockquote>`
+  },
+  {
+    title: "How CycleALIGN Is Different from Every Other Period Tracker",
+    html: `<h4>What most period trackers do</h4>
+           <p>Most period tracking apps were built to predict your next period and fertile window. Excellent for that purpose, but not built to help you use your cycle as a professional strategy or tell you whether to schedule your board presentation this Tuesday or next Thursday.</p>
+           <h4>What CycleALIGN does differently</h4>
+           <ul>
+             <li>Task Sync: add a task category and a date, get a phase-match score — green, amber, or red</li>
+             <li>Daily insight: one personalised two-line brief every morning based on your phase</li>
+             <li>Weekly forecast: Monday overview of your best and most protected days ahead</li>
+             <li>Role-specific personalisation: speaks differently to a founder vs a homemaker</li>
+             <li>Privacy-first: category-only task input — you never type what the task actually is</li>
+           </ul>`
+  },
+  {
+    title: "Managing Postpartum Stress While Returning to Work — A Hormone-Aware Guide",
+    html: `<h4>The hormonal reality</h4>
+           <p>After delivery, estrogen and progesterone drop sharply — the steepest hormonal drop a human body experiences outside of menopause. Cortisol tends to be chronically higher due to sleep deprivation and the psychological adjustment to parenthood. This is biochemistry, not weakness.</p>
+           <h4>How cycle awareness helps</h4>
+           <ul>
+             <li>Use high-energy follicular windows for your first big back-to-work presentations</li>
+             <li>Use peak communication days for conversations about flexible arrangements</li>
+             <li>Protect low-bandwidth phases from overcommitment — especially in the first 3 months back</li>
+             <li>Use menstrual days for planning and reflection, not performance pressure</li>
+           </ul>`
+  },
+  {
+    title: "Does Cycle Syncing Actually Work? What the Research Really Says",
+    html: `<h4>What peer-reviewed science shows</h4>
+           <ul>
+             <li>Verbal fluency peaks around ovulation — consistent finding across neurocognitive studies</li>
+             <li>Emotional reactivity increases in late luteal — well-documented in clinical literature</li>
+             <li>Physical recovery from high-intensity exertion is faster in the follicular phase</li>
+             <li>Sleep architecture fluctuates alongside progesterone and core body temperature shifts</li>
+           </ul>
+           <h4>The bottom line</h4>
+           <p>Yes — with individual calibration. CycleALIGN is built on the well-supported aspects of endocrinology and behavioural science, calibrating to your actual logged energy rather than rigid stereotypes.</p>`
+  }
+];
+
+function openArticle(idx){
+  const art = articles[idx];
+  if(!art) return;
+  document.getElementById('articleTitle').textContent = art.title;
+  document.getElementById('articleBody').innerHTML = art.html;
+  openModal('article');
 }
 
 // Modals
 function openModal(t){document.getElementById(t+'Modal').classList.add('open');document.body.style.overflow='hidden';}
 function closeModal(t){document.getElementById(t+'Modal').classList.remove('open');document.body.style.overflow='';}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('privacy');closeModal('disclaimer');}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal('privacy');closeModal('disclaimer');closeModal('article');}});
 </script>
 </body>
 </html>
+Processed and analysed in code
